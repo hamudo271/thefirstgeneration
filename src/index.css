@@ -1,52 +1,139 @@
 @import "tailwindcss";
 
 @theme { /* Tailwind CSS v4 Theme Configuration */
-  --font-sans: "Inter", sans-serif;
-  
+  --font-sans: "Pretendard Variable", "Pretendard", "Inter", system-ui, -apple-system, sans-serif;
+
   /* Map CSS variables to Tailwind colors */
   --color-bg-primary: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
+  --color-bg-elevated: var(--bg-elevated);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-border-primary: var(--border-primary);
   --color-accent-primary: var(--accent-primary);
+  --color-accent-soft: var(--accent-soft);
 }
 
 :root {
   /* Light Mode Defaults */
   --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa; /* Light gray for secondary backgrounds */
-  --text-primary: #111111; /* Soft black */
-  --text-secondary: #666666;
-  --border-primary: #e5e5e5;
+  --bg-secondary: #f5f7fb;
+  --bg-elevated: #ffffff;
+  --text-primary: #0b1020;
+  --text-secondary: #5a6478;
+  --border-primary: #e6e9f0;
   --accent-primary: #2563eb; /* Blue-600 */
+  --accent-soft: #3b82f6;
 
   font-family: var(--font-sans);
+  color-scheme: light;
 }
 
 :root.dark {
-  /* Dark Mode Overrides */
-  --bg-primary: #000000;
-  --bg-secondary: #111111; /* Dark gray for secondary backgrounds */
+  /* Dark Mode — premium deep navy-black */
+  --bg-primary: #07090f;
+  --bg-secondary: #0c1018;
+  --bg-elevated: #11151f;
   --text-primary: #ffffff;
-  --text-secondary: #888888;
-  --border-primary: #222222;
+  --text-secondary: #98a2b6;
+  --border-primary: #1b2230;
   --accent-primary: #3b82f6; /* Blue-500 */
+  --accent-soft: #60a5fa;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  word-break: keep-all; /* Korean line-breaking */
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 ::selection {
   background-color: var(--accent-primary);
   color: #fff;
+}
+
+/* Slim, themed scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* ── Utilities ─────────────────────────────────────────────── */
+
+/* Subtle tech grid background (used on dark feature sections) */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--text-primary) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--text-primary) 6%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Radial glow accent */
+.glow-accent {
+  background: radial-gradient(
+    600px circle at var(--gx, 50%) var(--gy, 0%),
+    color-mix(in srgb, var(--accent-primary) 22%, transparent),
+    transparent 60%
+  );
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(120deg, var(--accent-soft), #a78bfa 60%, var(--accent-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass card */
+.glass {
+  background: color-mix(in srgb, var(--bg-elevated) 70%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 36s linear infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-float-slow { animation: none; }
+  html { scroll-behavior: auto; }
 }

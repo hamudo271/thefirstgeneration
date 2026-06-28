@@ -34,8 +34,16 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-text-primary tracking-widest z-50 transition-colors">
-          {brand}
+        <Link to="/" className="z-50 flex items-center gap-2 transition-colors">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-primary text-sm font-black text-white">
+            U
+          </span>
+          <span className="text-xl font-black tracking-tight text-text-primary">
+            {brand}
+            <span className="ml-1 align-top text-[10px] font-semibold uppercase tracking-widest text-accent-primary">
+              media
+            </span>
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
