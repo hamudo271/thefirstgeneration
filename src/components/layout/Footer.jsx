@@ -28,7 +28,11 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-16">
           <div>
-            <h2 className="text-3xl font-bold text-text-primary mb-4 tracking-tight">{brand}</h2>
+            <img
+              src="/brand/logo.png"
+              alt={brand}
+              className="mb-5 h-10 w-auto dark:brightness-0 dark:invert"
+            />
             <p className="text-sm max-w-md leading-relaxed whitespace-pre-line">
               {tagline}
             </p>

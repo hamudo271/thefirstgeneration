@@ -80,9 +80,17 @@ const HeroSlider = () => {
       </AnimatePresence>
 
       {/* Cinematic overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
-      <div className="absolute inset-0 bg-grid opacity-30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
+      {/* Brand color glow */}
+      <div
+        className="absolute inset-0 opacity-70"
+        style={{
+          background:
+            'radial-gradient(900px circle at 12% 90%, rgba(91,140,255,0.22), transparent 55%), radial-gradient(760px circle at 85% 15%, rgba(167,139,250,0.18), transparent 55%)',
+        }}
+      />
+      <div className="absolute inset-0 bg-grid opacity-25" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6">
@@ -108,7 +116,7 @@ const HeroSlider = () => {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-accent-primary px-8 py-4 text-base font-bold text-white shadow-lg shadow-accent-primary/30 transition-all hover:scale-[1.03] hover:bg-accent-soft active:scale-95"
+                  className="bg-brand-gradient inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-bold text-white shadow-lg shadow-accent-primary/40 transition-all hover:scale-[1.03] active:scale-95"
                 >
                   {heroSlides.ctaPrimary} <ArrowRight size={18} />
                 </Link>

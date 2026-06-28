@@ -264,7 +264,7 @@ const Testimonials = () => {
                 onClick={() => setPage(i)}
                 aria-label={`후기 페이지 ${i + 1}`}
                 className={`h-2 rounded-full transition-all ${
-                  i === page ? 'w-8 bg-accent-primary' : 'w-2 bg-border-primary'
+                  i === page ? 'bg-brand-gradient w-8' : 'w-2 bg-border-primary'
                 }`}
               />
             ))}
@@ -337,7 +337,7 @@ const Growth = () => {
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                   className={flip ? 'md:order-2' : ''}
                 >
-                  <span className="mb-5 inline-block rounded-full bg-accent-primary px-4 py-1.5 text-sm font-bold text-white">
+                  <span className="bg-brand-gradient mb-5 inline-block rounded-full px-4 py-1.5 text-sm font-bold text-white">
                     {item.step}
                   </span>
                   <h3 className="mb-6 text-2xl font-black leading-snug text-text-primary md:text-3xl">
@@ -434,7 +434,7 @@ const Process = () => {
           </p>
           <Link
             to="/contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent-primary px-7 py-3.5 font-bold text-white transition-transform hover:scale-105"
+            className="bg-brand-gradient mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-bold text-white shadow-lg shadow-accent-primary/30 transition-transform hover:scale-105"
           >
             상담 신청하기 <ArrowRight size={18} />
           </Link>
@@ -450,7 +450,7 @@ const Process = () => {
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className="group flex gap-5 rounded-2xl border border-border-primary bg-bg-secondary p-6 transition-colors hover:border-accent-primary"
             >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-primary text-lg font-black text-white">
+              <span className="bg-brand-gradient flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-lg font-black text-white">
                 {i + 1}
               </span>
               <div>
@@ -617,7 +617,7 @@ const FinalCta = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <Link
             to="/contact"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent-primary px-10 py-5 text-lg font-bold text-white shadow-lg shadow-accent-primary/30 transition-transform hover:scale-105"
+            className="bg-brand-gradient mt-10 inline-flex items-center gap-2 rounded-full px-10 py-5 text-lg font-bold text-white shadow-lg shadow-accent-primary/40 transition-transform hover:scale-105"
           >
             {finalCta.button} <ArrowRight size={20} />
           </Link>
