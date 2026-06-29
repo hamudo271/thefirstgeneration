@@ -36,9 +36,26 @@ export default function SEO({
   type = "website",
   noIndex = false,
 }) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+  const isHome = path === "/";
+  // Brand-first title on the homepage (matches how Google renders the brand
+  // entry); "page | brand" elsewhere for clarity in tabs and SERPs.
+  const fullTitle = !title
+    ? SITE_NAME
+    : isHome
+    ? `${SITE_NAME} | ${title}`
+    : `${title} | ${SITE_NAME}`;
   const url = `${SITE_URL}${path}`;
   const imageUrl = image.startsWith("http") ? image : `${SITE_URL}${image}`;
+
+  // BreadcrumbList helps Google understand the site hierarchy (better sitelinks).
+  const breadcrumb = !isHome && title && {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "홈", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: title, item: url },
+    ],
+  };
 
   return (
     <Helmet prioritizeSeoTags>
@@ -46,6 +63,9 @@ export default function SEO({
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       {noIndex && <meta name="robots" content="noindex,nofollow" />}
+      {breadcrumb && (
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+      )}
 
       {/* Open Graph */}
       <meta property="og:site_name" content={SITE_NAME} />
