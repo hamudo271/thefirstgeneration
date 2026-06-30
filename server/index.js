@@ -9,6 +9,7 @@ import { runMigrations, seedDefaultsIfMissing } from "./db.js";
 import authRoutes from "./routes/auth.js";
 import contentRoutes from "./routes/content.js";
 import uploadRoutes from "./routes/uploads.js";
+import contactRoutes from "./routes/contact.js";
 import { errorHandler, apiNotFound } from "./middleware/errorHandler.js";
 import { UPLOAD_DIR } from "./lib/uploads.js";
 
@@ -73,6 +74,7 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/content", contentRoutes);
 app.use("/api/uploads", uploadRoutes);
+app.use("/api/contact", contactRoutes);
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 app.use("/api", apiNotFound);

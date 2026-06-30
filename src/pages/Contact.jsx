@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Send, Info, Plus, Minus } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, Info, Plus, Minus, CheckCircle2, Loader2 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { PageHero, SectionHeader, fadeInUp } from '../components/common/ui.jsx';
 import { useContent } from '../context/ContentContext.jsx';
@@ -63,6 +63,34 @@ const ContactFAQ = () => {
 
 const Contact = () => {
   const { seo, hero, info, form } = useContent('contact');
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    setError('');
+    if (!fd.get('consent')) {
+      setError('개인정보 수집 및 이용에 동의해주세요.');
+      return;
+    }
+    const payload = Object.fromEntries(fd.entries());
+    payload.consent = true;
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || '전송에 실패했습니다. 잠시 후 다시 시도해주세요.');
+      setStatus('sent');
+    } catch (err) {
+      setStatus('error');
+      setError(err.message);
+    }
+  };
 
   return (
     <div className="bg-bg-primary">
@@ -102,80 +130,105 @@ const Contact = () => {
               <p>{form.notice}</p>
             </div>
 
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <Field label={form.brandLabel} required>
-                  <input type="text" className={fieldCls} placeholder={form.brandPlaceholder} />
-                </Field>
-                <Field label={form.managerLabel} required>
-                  <input type="text" className={fieldCls} placeholder={form.managerPlaceholder} />
-                </Field>
+            {status === 'sent' ? (
+              <div className="flex flex-col items-center justify-center rounded-2xl border border-border-primary bg-bg-primary px-6 py-16 text-center">
+                <div className="bg-brand-gradient mb-5 flex h-16 w-16 items-center justify-center rounded-full text-white">
+                  <CheckCircle2 size={32} />
+                </div>
+                <h3 className="mb-2 text-2xl font-black text-text-primary">문의가 접수되었습니다</h3>
+                <p className="text-text-secondary">
+                  소중한 문의 감사합니다. 담당자가 순차적으로 빠르게 답변드리겠습니다.
+                </p>
               </div>
+            ) : (
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                {/* Honeypot (spam trap) — hidden from real users */}
+                <input
+                  type="text" name="_hp" tabIndex={-1} autoComplete="off" aria-hidden="true"
+                  className="absolute left-[-9999px] h-0 w-0 opacity-0"
+                />
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <Field label={form.brandLabel} required>
+                    <input name="brand" required type="text" className={fieldCls} placeholder={form.brandPlaceholder} />
+                  </Field>
+                  <Field label={form.managerLabel} required>
+                    <input name="manager" required type="text" className={fieldCls} placeholder={form.managerPlaceholder} />
+                  </Field>
+                </div>
 
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <Field label={form.positionLabel}>
-                  <input type="text" className={fieldCls} placeholder={form.positionPlaceholder} />
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <Field label={form.positionLabel}>
+                    <input name="position" type="text" className={fieldCls} placeholder={form.positionPlaceholder} />
+                  </Field>
+                  <Field label={form.phoneLabel} required>
+                    <input name="phone" required type="tel" className={fieldCls} placeholder={form.phonePlaceholder} />
+                  </Field>
+                </div>
+
+                <Field label={form.channelLabel} required>
+                  <input name="channel" required type="url" className={fieldCls} placeholder={form.channelPlaceholder} />
                 </Field>
-                <Field label={form.phoneLabel} required>
-                  <input type="tel" className={fieldCls} placeholder={form.phonePlaceholder} />
+
+                <Field label={form.bizLabel} required>
+                  <textarea name="biz" required rows="3" className={`${fieldCls} resize-none`} placeholder={form.bizPlaceholder} />
                 </Field>
-              </div>
 
-              <Field label={form.channelLabel} required>
-                <input type="url" className={fieldCls} placeholder={form.channelPlaceholder} />
-              </Field>
+                <Field label={form.benchLabel} required>
+                  <input name="bench" required type="url" className={fieldCls} placeholder={form.benchPlaceholder} />
+                </Field>
 
-              <Field label={form.bizLabel} required>
-                <textarea rows="3" className={`${fieldCls} resize-none`} placeholder={form.bizPlaceholder} />
-              </Field>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <Field label={form.budgetLabel} required>
+                    <select name="budget" required className={`${fieldCls} appearance-none`} defaultValue="">
+                      <option value="" disabled>{form.budgetPlaceholder}</option>
+                      {form.budgetOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+                    </select>
+                  </Field>
+                  <Field label={form.serviceLabel} required>
+                    <select name="service" required className={`${fieldCls} appearance-none`} defaultValue="">
+                      <option value="" disabled>{form.servicePlaceholder}</option>
+                      {form.serviceOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+                    </select>
+                  </Field>
+                </div>
 
-              <Field label={form.benchLabel} required>
-                <input type="url" className={fieldCls} placeholder={form.benchPlaceholder} />
-              </Field>
+                <Field label={form.reasonLabel} required>
+                  <textarea name="reason" required rows="2" className={`${fieldCls} resize-none`} placeholder={form.reasonPlaceholder} />
+                </Field>
 
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <Field label={form.budgetLabel} required>
-                  <select className={`${fieldCls} appearance-none`} defaultValue="">
-                    <option value="" disabled>{form.budgetPlaceholder}</option>
-                    {form.budgetOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+                <Field label={form.goalLabel} required>
+                  <textarea name="goal" required rows="2" className={`${fieldCls} resize-none`} placeholder={form.goalPlaceholder} />
+                </Field>
+
+                <Field label={form.sourceLabel} required>
+                  <select name="source" required className={`${fieldCls} appearance-none`} defaultValue="">
+                    <option value="" disabled>{form.sourcePlaceholder}</option>
+                    {form.sourceOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
                   </select>
                 </Field>
-                <Field label={form.serviceLabel} required>
-                  <select className={`${fieldCls} appearance-none`} defaultValue="">
-                    <option value="" disabled>{form.servicePlaceholder}</option>
-                    {form.serviceOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-                  </select>
-                </Field>
-              </div>
 
-              <Field label={form.reasonLabel} required>
-                <textarea rows="2" className={`${fieldCls} resize-none`} placeholder={form.reasonPlaceholder} />
-              </Field>
+                <label className="flex items-center gap-3 text-sm text-text-secondary">
+                  <input name="consent" type="checkbox" className="h-4 w-4 rounded border-border-primary accent-[var(--accent-primary)]" />
+                  {form.consentLabel} <span className="text-accent-primary">*</span>
+                </label>
 
-              <Field label={form.goalLabel} required>
-                <textarea rows="2" className={`${fieldCls} resize-none`} placeholder={form.goalPlaceholder} />
-              </Field>
+                {error && (
+                  <p className="rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-400">{error}</p>
+                )}
 
-              <Field label={form.sourceLabel} required>
-                <select className={`${fieldCls} appearance-none`} defaultValue="">
-                  <option value="" disabled>{form.sourcePlaceholder}</option>
-                  {form.sourceOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-                </select>
-              </Field>
-
-              <label className="flex items-center gap-3 text-sm text-text-secondary">
-                <input type="checkbox" className="h-4 w-4 rounded border-border-primary accent-[var(--accent-primary)]" />
-                {form.consentLabel} <span className="text-accent-primary">*</span>
-              </label>
-
-              <button
-                type="submit"
-                className="bg-brand-gradient flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold text-white shadow-lg shadow-accent-primary/30 transition-transform hover:scale-[1.01]"
-              >
-                <span>{form.submitButton}</span>
-                <Send size={18} />
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="bg-brand-gradient flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold text-white shadow-lg shadow-accent-primary/30 transition-transform hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {status === 'sending' ? (
+                    <><Loader2 size={18} className="animate-spin" /> <span>전송 중...</span></>
+                  ) : (
+                    <><span>{form.submitButton}</span> <Send size={18} /></>
+                  )}
+                </button>
+              </form>
+            )}
           </motion.div>
         </div>
       </section>
