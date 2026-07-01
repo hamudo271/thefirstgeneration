@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
+import { Menu, X } from 'lucide-react';
 import { useContent } from '../../context/ContentContext.jsx';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { theme, toggleTheme } = useTheme();
   const { header } = useContent('global');
-  const { brand, nav: navItems, themeToggleAria } = header;
+  const { brand, nav: navItems } = header;
 
   // The home hero is always a dark image, so before scrolling the transparent
   // header must use white text/logo regardless of theme. Inner-page heroes use
@@ -61,7 +59,7 @@ const Header = () => {
             src="/brand/logo.png"
             alt={brand}
             className={`h-9 w-auto transition-all md:h-10 ${
-              onHero || theme === 'dark' ? 'brightness-0 invert' : ''
+              onHero ? 'brightness-0 invert' : ''
             }`}
           />
         </Link>
@@ -80,33 +78,10 @@ const Header = () => {
               <span className={`absolute -bottom-2 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${onHero ? 'bg-white' : 'bg-text-primary'}`} />
             </Link>
           ))}
-
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className={`p-2 rounded-full transition-colors ${
-              onHero
-                ? 'hover:bg-white/10 text-white'
-                : 'hover:bg-text-primary/5 text-text-primary'
-            }`}
-            aria-label={themeToggleAria}
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
         </nav>
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-4 md:hidden z-50">
-          <button
-            onClick={toggleTheme}
-            aria-label={themeToggleAria}
-            className={`p-2 rounded-full transition-colors ${
-              isOpen || onHero ? 'text-white' : 'text-text-primary'
-            }`}
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-
           <button
             className={`${isOpen || onHero ? 'text-white' : 'text-text-primary'} transition-colors`}
             onClick={() => setIsOpen(!isOpen)}

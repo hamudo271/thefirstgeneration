@@ -40,7 +40,7 @@ const Footer = () => {
           <div className="flex flex-col items-start md:items-end gap-4">
             <Link
               to="/contact"
-              className="px-8 py-3 bg-white text-black font-bold text-sm tracking-wide hover:bg-gray-200 transition-colors uppercase"
+              className="bg-brand-gradient px-8 py-3 rounded-full text-white font-bold text-sm tracking-wide hover:scale-105 transition-transform uppercase"
             >
               {ctaButton}
             </Link>
@@ -64,11 +64,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
+        <div className="mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-secondary/60">
           <p>{copyright}</p>
           <div className="flex gap-6">
-            <Link to={termsPath} className="hover:text-white transition-colors">{termsLink}</Link>
-            <Link to={privacyPath} className="hover:text-white transition-colors">{privacyLink}</Link>
+            <Link to={termsPath} className="hover:text-text-primary transition-colors">{termsLink}</Link>
+            <Link to={privacyPath} className="hover:text-text-primary transition-colors">{privacyLink}</Link>
           </div>
         </div>
       </div>
