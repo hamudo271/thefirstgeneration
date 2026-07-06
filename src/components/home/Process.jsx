@@ -18,7 +18,7 @@ const Process = () => {
             고객 만족도를 최우선합니다
           </h2>
           <p className="mt-5 text-text-secondary">
-            상담부터 완성까지, 유니버랩 미디어의 체계적인 7단계 작업 프로세스.
+            상담부터 완성까지, 더퍼스트제너레이션의 체계적인 7단계 작업 프로세스.
           </p>
           <Link
             to="/contact"

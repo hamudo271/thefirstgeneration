@@ -17,6 +17,11 @@ uploads/
 .env
 .env.local
 
+# Raw brand-source assets dropped in the project root (processed copies live in public/)
+/*.png
+/*.jpg
+/*.mp4
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

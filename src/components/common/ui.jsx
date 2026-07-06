@@ -101,7 +101,7 @@ export const CTABand = ({ headline, subhead, button, to = '/contact' }) => (
     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/50" />
     <div
       className="absolute inset-0 opacity-70"
-      style={{ background: 'radial-gradient(700px circle at 80% 20%, rgba(167,139,250,0.18), transparent 55%)' }}
+      style={{ background: 'radial-gradient(700px circle at 80% 20%, rgba(240,185,24,0.16), transparent 55%)' }}
     />
     <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
       <motion.h2
@@ -152,7 +152,7 @@ export const VideoLightbox = ({ videoId, onClose }) => (
         >
           <iframe
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-            title="유니버랩 미디어 제작 사례"
+            title="더퍼스트제너레이션 제작 사례"
             className="h-full w-full"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

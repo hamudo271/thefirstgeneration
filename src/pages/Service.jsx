@@ -102,7 +102,7 @@ const Service = () => {
       <ProcessSection />
       <CTABand
         headline={'돈되는 유튜브,\n그 비결을 알고 싶으신가요?'}
-        subhead="유니버랩 미디어의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다."
+        subhead="더퍼스트제너레이션의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다."
         button="전문 상담 받기"
       />
     </div>

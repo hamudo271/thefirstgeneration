@@ -30,7 +30,7 @@ const Mockup = ({ variant }) => (
         </>
       ) : (
         <>
-          <div className="h-24 rounded-lg bg-gradient-to-br from-accent-primary/20 to-purple-500/10" />
+          <div className="h-24 rounded-lg bg-gradient-to-br from-accent-primary/20 to-accent-secondary/10" />
           <div className="grid grid-cols-3 gap-2">
             {[0, 1, 2].map((i) => (
               <div key={i} className="h-10 rounded-md bg-border-primary/60" />

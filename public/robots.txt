@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 
-Sitemap: https://univerlabmedia.co.kr/sitemap.xml
+Sitemap: https://thefirstmcn.com/sitemap.xml

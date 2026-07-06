@@ -10,7 +10,7 @@ export default function Sidebar() {
           Admin
         </div>
         <div className="text-lg font-bold text-white mt-0.5">
-          유니버랩 미디어 CMS
+          더퍼스트제너레이션 CMS
         </div>
       </div>
 

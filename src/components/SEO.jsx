@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
  * Usage:
  *   <SEO
  *     title="회사 소개"
- *     description="유니버랩 미디어의 정체성과 팀을 소개합니다."
+ *     description="더퍼스트제너레이션의 정체성과 팀을 소개합니다."
  *     path="/company"
  *   />
  *
@@ -22,10 +22,10 @@ import { Helmet } from "react-helmet-async";
  *   noIndex     – If true, emits robots=noindex,nofollow.
  */
 
-const SITE_NAME = "유니버랩 미디어";
-const SITE_URL = "https://univerlabmedia.co.kr"; // primary domain (non-www canonical)
+const SITE_NAME = "더퍼스트제너레이션";
+const SITE_URL = "https://thefirstmcn.com"; // primary domain (non-www canonical)
 const DEFAULT_DESCRIPTION =
-  "유니버랩 미디어는 영상 기획·촬영·편집·마케팅을 하나의 프로세스로 제공하는 영상 제작 전문 에이전시입니다. 700건 이상의 제작 경험으로 성과를 만듭니다.";
+  "더퍼스트제너레이션은 영상 제작·크리에이터 매니지먼트·광고 콘텐츠를 원스톱으로 제공하는 MCN 전문 기업입니다. 누적 조회수 1억 7천만 회의 경험으로 성과를 만듭니다.";
 const DEFAULT_OG_IMAGE = "/og-image.png";
 
 export default function SEO({

@@ -13,7 +13,7 @@ export default function AdminLayout({ children, onLogout }) {
     <div className="min-h-screen w-full bg-slate-950 text-slate-100 flex flex-col">
       <header className="h-14 shrink-0 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-5">
         <div className="flex items-center gap-3">
-          <div className="font-bold tracking-wide">UNIVERLAB · ADMIN</div>
+          <div className="font-bold tracking-wide">THE FIRST GENERATION · ADMIN</div>
         </div>
         <div className="flex items-center gap-2">
           <Link

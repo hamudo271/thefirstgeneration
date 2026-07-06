@@ -30,7 +30,7 @@ const Column = () => {
                   <div className="bg-grid absolute inset-0 opacity-40" />
                   <div
                     className="absolute inset-0 opacity-60"
-                    style={{ background: 'radial-gradient(420px circle at 30% 20%, rgba(91,140,255,0.25), transparent 60%), radial-gradient(360px circle at 80% 90%, rgba(167,139,250,0.22), transparent 60%)' }}
+                    style={{ background: 'radial-gradient(420px circle at 30% 20%, rgba(240,185,24,0.22), transparent 60%), radial-gradient(360px circle at 80% 90%, rgba(214,138,0,0.18), transparent 60%)' }}
                   />
                   <span className="bg-brand-gradient relative z-10 rounded-full px-4 py-1.5 text-xs font-bold text-white">
                     {item.badge}
@@ -56,7 +56,7 @@ const Column = () => {
 
       <CTABand
         headline={'더 궁금한 점이\n있으신가요?'}
-        subhead="유니버랩 미디어가 직접 답해드립니다. 지금 문의해보세요."
+        subhead="더퍼스트제너레이션이 직접 답해드립니다. 지금 문의해보세요."
         button="문의하기"
       />
     </div>

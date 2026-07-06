@@ -16,54 +16,47 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Home
   home: {
     seo: {
-      title: "영상 편집·유튜브 제작 전문 회사",
+      title: "광주 영상 제작·크리에이터 MCN 전문 기업",
       description:
-        "유튜브 영상제작부터 숏폼·전문 편집·채널 운영까지. 700건 이상 제작한 유니버랩 미디어가 기획·촬영·편집·마케팅을 올인원으로 제공합니다.",
+        "영상 제작부터 크리에이터 매니지먼트, 광고 콘텐츠까지. 누적 조회수 1억 7천만 회의 더퍼스트제너레이션이 기획·촬영·편집·마케팅을 올인원으로 제공합니다.",
     },
     hero: {
-      badge: "Video Editing Agency",
-      headlineLine1: "UNIVERLAB",
-      headlineLine2: "MEDIA.",
+      badge: "Creative Content & MCN",
+      headlineLine1: "THE FIRST",
+      headlineLine2: "GENERATION.",
       subhead:
-        "영상 편집 대행: 영상은 이미 찍어뒀는데, 편집이랑 디자인만 전문적으로 맡기고 싶을 때 선택하시면 되십니다.\n단순 편집이 아니라 성과에 초점을 맞춰서 진행해 드립니다.",
+        "세상을 사로잡는 콘텐츠 제작 파트너.\n기업과 소비자의 마음을 움직이는 성공적인 콘텐츠를 만듭니다.",
       ctaButton: "Start Project",
     },
     heroSlides: {
       items: [
         {
-          eyebrow: "CASE · 의학",
-          title: "182만 의학 유튜브는\n왜 유니버랩 미디어를 선택했을까요?",
-          accent: "유니버랩 미디어",
-          desc: "구독자 182만 채널이 선택한 이유.\n전문성과 결과로 증명합니다.",
-          videoId: "_GZcy2ddoqI",
+          eyebrow: "GWANGJU MCN NO.1",
+          title: "광주 MCN 점유율 1위,\n더퍼스트제너레이션입니다",
+          accent: "더퍼스트제너레이션",
+          desc: "영상 제작부터 크리에이터 매니지먼트, 광고 콘텐츠까지.\n세상을 사로잡는 콘텐츠 제작 파트너.",
+          image: "/hero/brand-dark.jpg",
         },
         {
-          eyebrow: "CASE · 교육",
-          title: "교육 20년 역사의 비상교육은\n왜 유니버랩 미디어를 선택했을까요?",
-          accent: "유니버랩 미디어",
-          desc: "20년 전통의 교육 브랜드가\n믿고 맡긴 영상 파트너.",
-          videoId: "_sEdSrF6VNc",
+          eyebrow: "TOTAL VIEWS 172,000,000+",
+          title: "누적 조회수 1억 7천만 회는\n어떻게 만들어졌을까요?",
+          accent: "1억 7천만 회",
+          desc: "크리에이터 20팀과 함께 쌓아온 성과.\n조회수는 우연이 아니라 설계의 결과입니다.",
+          image: "/hero/galaxy.jpg",
         },
         {
-          eyebrow: "CASE · 엔터",
-          title: "18년차 MBC 공채 출신 개그맨은\n왜 유니버랩 미디어와 함께할까요?",
-          accent: "MBC 공채",
-          desc: "업계 베테랑이 선택한 기획력.\n결과로 증명합니다.",
-          videoId: "zeUPWa_KHMA",
+          eyebrow: "CASE · 크리에이터",
+          title: "팔로워 12만 광주푸드스탑은\n왜 더퍼스트제너레이션과 함께할까요?",
+          accent: "더퍼스트제너레이션",
+          desc: "광주 맛집·여행부터 구독자 9.4만 1분맛집까지.\n채널의 시작과 성장을 함께 설계합니다.",
+          image: "/hero/building.jpg",
         },
         {
-          eyebrow: "RESULT",
-          title: "유니버랩 미디어는 어떻게\n한 채널에서 147개 영상을 제작했을까요?",
-          accent: "147개",
-          desc: "조회수 520만 · 누적 조회수 2,000만.\n꾸준함이 만든 숫자입니다.",
-          videoId: "PjwbITGTRY0",
-        },
-        {
-          eyebrow: "WHY US",
-          title: "유니버랩 미디어의 비결은\n무엇일까요?",
-          accent: "비결",
-          desc: "단순히 예쁜 영상이 아닌, 성과를 만드는 구조.\n지금 직접 확인하세요.",
-          videoId: "XxyVUqmU6fo",
+          eyebrow: "CREATIVE · VALUE · IMAGINE",
+          title: "기업과 소비자의 마음을 움직이는\n성공적인 콘텐츠",
+          accent: "성공적인 콘텐츠",
+          desc: "프로젝트별 창의적인 기획으로\n가치 있는 콘텐츠를 만듭니다.",
+          image: "/hero/brand-light.jpg",
         },
       ],
       ctaPrimary: "무료 상담 받기",
@@ -83,36 +76,36 @@ export const defaults = {
       eyebrow: "RESEARCH-DRIVEN",
       headline: "당신의 세상을\n연구합니다",
       accent: "연구",
-      body: "유니버랩 미디어는 단순하게 예쁘기만 한 디자인이 아닌,\n철저히 소비자의 관점에서 '원하는 콘텐츠'를 연구합니다.",
+      body: "더퍼스트제너레이션은 단순하게 예쁘기만 한 디자인이 아닌,\n철저히 소비자의 관점에서 '원하는 콘텐츠'를 연구합니다.",
       stats: [
-        { value: "700+", label: "누적 프로젝트" },
-        { value: "0건", label: "저작권 분쟁" },
-        { value: "11만", label: "직접 운영 채널" },
-        { value: "100%", label: "성과 미달 환불" },
+        { value: "1.7억+", label: "누적 조회수" },
+        { value: "20팀", label: "소속 크리에이터" },
+        { value: "12만", label: "최대 채널 팔로워" },
+        { value: "1위", label: "광주 MCN 점유율" },
       ],
     },
     cases: {
-      eyebrow: "실제 제작 사례",
-      headline: "유니버랩 미디어는\n잘 팔리는 영상만 취급합니다",
+      eyebrow: "실제 콘텐츠",
+      headline: "더퍼스트제너레이션은\n잘 팔리는 영상만 취급합니다",
       accent: "잘 팔리는 영상",
-      subhead: "썸네일을 누르면 실제 제작한 영상을 바로 확인하실 수 있습니다.",
+      subhead: "썸네일을 누르면 소속 크리에이터의 실제 콘텐츠를 바로 확인하실 수 있습니다.",
       moreLabel: "제작 사례 더 보기",
       morePath: "/portfolio",
       items: [
-        { videoId: "XxyVUqmU6fo", tag: "마케팅" },
-        { videoId: "zeUPWa_KHMA", tag: "심리/뷰티" },
-        { videoId: "PjwbITGTRY0", tag: "문화/교양" },
-        { videoId: "_sEdSrF6VNc", tag: "교육" },
-        { videoId: "wJ-C4raAzb4", tag: "뷰티" },
-        { videoId: "KuODv3YfdYY", tag: "건강/다이어트" },
-        { videoId: "_GZcy2ddoqI", tag: "건강" },
-        { videoId: "2lqRHPw1IqI", tag: "유튜브" },
+        { videoId: "-0EIZDzwiDQ", tag: "광주 맛집" },
+        { videoId: "1Rc-Xwy2tGg", tag: "부업" },
+        { videoId: "-r0egEVwcbQ", tag: "맛집 쇼츠" },
+        { videoId: "2MQD5HVtWCw", tag: "앱테크" },
+        { videoId: "0dMuUCOhi6E", tag: "맛집 투어" },
+        { videoId: "4eANapOhBjk", tag: "재테크" },
+        { videoId: "AhqdKh-6Als", tag: "푸드" },
+        { videoId: "5ljWwOnb1WI", tag: "부업 노하우" },
       ],
     },
     partners: {
-      eyebrow: "Our UVL Group. PARTNERS",
-      headline: "이미 수많은 기업·기관이\n유니버랩 미디어와 함께합니다",
-      accent: "유니버랩 미디어",
+      eyebrow: "Our Partners",
+      headline: "이미 수많은 크리에이터·기업이\n더퍼스트제너레이션과 함께합니다",
+      accent: "더퍼스트제너레이션",
       items: [
         { name: "삼성", src: "/partners/samsung.png" },
         { name: "OECD", src: "/partners/oecd.png" },
@@ -128,7 +121,7 @@ export const defaults = {
       ],
     },
     testimonials: {
-      eyebrow: "유니버랩 미디어가 자신감이 넘치는 이유?",
+      eyebrow: "더퍼스트제너레이션이 자신감이 넘치는 이유?",
       headline: "실시간 이용 고객 분들의\n실제 후기입니다",
       accent: "실제 후기",
       items: [
@@ -148,7 +141,7 @@ export const defaults = {
           name: "지**",
           rating: 5.0,
           brand: "/partners/samsung.png",
-          body: "영상 제작 과정도 매우 체계적이었어요. 유니버랩 미디어는 고품질 콘텐츠를 위해 철저한 편집 프로세스를 거친다고 하더라고요. 제가 받은 영상은 퀄리티가 정말 뛰어났어요! 보는 사람들도 흥미를 느낄 수 있었던 것 같아요.",
+          body: "영상 제작 과정도 매우 체계적이었어요. 더퍼스트제너레이션은 고품질 콘텐츠를 위해 철저한 편집 프로세스를 거친다고 하더라고요. 제가 받은 영상은 퀄리티가 정말 뛰어났어요! 보는 사람들도 흥미를 느낄 수 있었던 것 같아요.",
         },
         {
           name: "박**",
@@ -178,7 +171,7 @@ export const defaults = {
         "문의 및 작업량이 많아 순차적으로 답변을 진행하고 있습니다.",
         "레퍼런스 채널들을 미리 준비해주세요.",
       ],
-      closing: "유니버랩 미디어의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다.",
+      closing: "더퍼스트제너레이션의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다.",
       button: "전문 상담 받기",
     },
     marquee: {
@@ -197,15 +190,15 @@ export const defaults = {
     },
     secrets: {
       eyebrow: "Why Us",
-      headline: "유니버랩 미디어의\n비결은 무엇일까요?",
+      headline: "더퍼스트제너레이션의\n비결은 무엇일까요?",
       items: [
         {
           title: "잘팔리는 영상만 취급합니다",
           desc: "단순히 예쁜 영상이 아닌, 시청자의 행동을 유도하고 구매로 이어지는 '성과 중심'의 영상을 제작합니다.",
         },
         {
-          title: "유니버랩 미디어와 함께합니다",
-          desc: "11만, 3만, 1만 유튜브 채널을 직접 운영하며 얻은 노하우로 클라이언트의 성장을 함께 고민합니다.",
+          title: "더퍼스트제너레이션과 함께합니다",
+          desc: "20팀의 소속 크리에이터 채널을 직접 운영하며 얻은 노하우로 클라이언트의 성장을 함께 고민합니다.",
         },
         {
           title: "실제 후기입니다",
@@ -221,8 +214,8 @@ export const defaults = {
           step: "Step 1",
           title: "유튜브의 채널 자체를 직접 기획합니다.",
           desc: [
-            { value: "11만, 3만, 1만 유튜브 채널을 직접 피드백하여 높은 성과 도출" },
-            { value: "자기계발, 뷰티, 패션, 요리, 유튜브 등 다양한 카테고리 직접 운영" },
+            { value: "소속 크리에이터 20팀의 채널을 직접 기획·피드백하여 높은 성과 도출" },
+            { value: "맛집·여행, 부업·재테크, 반려동물, 비즈니스 등 다양한 카테고리 직접 운영" },
             { value: "최고의 퀄리티를 위한 시행착오를 현재에도 지속적으로 경험 중" },
           ],
         },
@@ -232,7 +225,7 @@ export const defaults = {
           desc: [
             { value: "유튜브 성공의 핵심은 '영상의 목적' 설정" },
             { value: "시청자에게 도움이 되는 콘텐츠가 구독으로 연결" },
-            { value: "영상의 목적을 기반으로 한 유니버랩 기획안으로 최적화된 방향 제시" },
+            { value: "영상의 목적을 기반으로 한 더퍼스트제너레이션 기획안으로 최적화된 방향 제시" },
           ],
         },
         {
@@ -258,7 +251,7 @@ export const defaults = {
           title: "쿼터제로 협업합니다.",
           desc: [
             { value: "유튜브는 양보다 '영상 하나의 완성도'가 더욱 중요시" },
-            { value: "매출보다 사람을 남기는 것이 유니버랩 미디어 제 1원칙" },
+            { value: "매출보다 사람을 남기는 것이 더퍼스트제너레이션 제 1원칙" },
             { value: "기존 고객 품질 유지를 위해 월 제한된 수량만 제작 진행" },
           ],
         },
@@ -272,7 +265,7 @@ export const defaults = {
         '우리는 \'자동화된 투명 프로세스\'로 클라이언트의 "불안을 잠재우는 구조" 를 만듭니다.\n1 : 1 피드백 전용까지 시스템화를 구축하였습니다.',
       card2Title: "시안 확정 후 집중제",
       card2Body:
-        '유니버랩은 "집중 구간"을 명확히 합니다.\n이를 통해 무한 수정 루프를 방지하고 품질을 최고 수준으로 높입니다.',
+        '더퍼스트제너레이션은 "집중 구간"을 명확히 합니다.\n이를 통해 무한 수정 루프를 방지하고 품질을 최고 수준으로 높입니다.',
     },
     process: {
       eyebrow: "Workflow",
@@ -308,7 +301,7 @@ export const defaults = {
         },
         {
           q: "작업절차를 알고 싶어요",
-          a: "유니버랩 미디어는 총 8개의 작업 절차가 있습니다.\n1. 전문 설문지 작성\n2. 상담\n3. 전문 기획안 제작\n4. 일정 조율\n5. 촬영 진행\n6. 디자인 착수 및 편집 진행\n7. 피드백 및 수정 작업\n8. 완성",
+          a: "더퍼스트제너레이션은 총 8개의 작업 절차가 있습니다.\n1. 전문 설문지 작성\n2. 상담\n3. 전문 기획안 제작\n4. 일정 조율\n5. 촬영 진행\n6. 디자인 착수 및 편집 진행\n7. 피드백 및 수정 작업\n8. 완성",
         },
         {
           q: "기한은 얼마나 걸리나요?",
@@ -316,11 +309,11 @@ export const defaults = {
         },
         {
           q: "저작권은 어떻게 관리하시나요?",
-          a: "영상의 경우 엄중한 저작권 관리가 필수입니다.\n이에 유니버랩 미디어는 300여종의 유료 폰트와 3800건이 넘는 이미지, 영상, 음원 등도 직접 계약하여 사용합니다.\n700건 이상의 프로젝트 중 저작권 문제 발생은 0건입니다.",
+          a: "영상의 경우 엄중한 저작권 관리가 필수입니다.\n이에 더퍼스트제너레이션은 유료 폰트와 이미지, 영상, 음원 등을 직접 계약하여 사용합니다.\n지금까지 진행한 프로젝트 중 저작권 문제 발생은 0건입니다.",
         },
         {
           q: "서비스 종류랑 범위는 어떻게 되나요?",
-          a: "저희는 고객님이 원하는 깊이에 따라 크게 세 가지로 나눠서 도와드입니다.\n- 종합 운영 대행 (올인원/프리미엄 패키지): 이건 채널 기획부터 촬영, 편집, 그리고 채널 운영 전략까지 싹 다 맡기시는 서비스입니다.\n- 전문 숏폼 영상 제작: 요즘 대세인 틱톡, 인스타그램 릴스, 유튜브 쇼츠 같은 짧은 영상만 전문적으로 제작합니다.\n- 영상 편집 대행: 영상은 이미 찍어뒀는데, 편집이랑 디자인만 전문적으로 맡기고 싶을 때 선택하시면 되십니다.",
+          a: "저희는 고객님이 원하는 깊이에 따라 크게 세 가지로 나눠서 도와드립니다.\n- 유튜브 채널 매니지먼트: 채널 기획부터 촬영, 편집, 운영 전략까지 싹 다 맡기시는 서비스입니다. 유튜브 6년 노하우로 채널의 성장을 책임집니다.\n- 영상 제작 (숏폼·편집·올인원): 틱톡·릴스·쇼츠 같은 숏폼 제작부터, 이미 찍어둔 영상의 전문 편집까지 원하는 범위만 골라 맡기실 수 있습니다.\n- 광고·브랜디드 콘텐츠: 소속 크리에이터 20팀과 함께 브랜드에 맞는 광고 콘텐츠를 기획하고 집행합니다.",
         },
         {
           q: "채널 성장이나 성과를 보장해 주시나요?",
@@ -332,7 +325,7 @@ export const defaults = {
         },
         {
           q: "돈되는 유튜브, 그 비결을 알고 싶으신가요?",
-          a: "상세하고 정확하게 문의 폼을 작성해주셔야 정확한 상담이 가능합니다.\n문의 및 작업량이 많아 순차적으로 답변을 진행하고 있습니다.\n레퍼런스 채널들을 미리 준비해주세요.\n유니버랩 미디어의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다.",
+          a: "상세하고 정확하게 문의 폼을 작성해주셔야 정확한 상담이 가능합니다.\n문의 및 작업량이 많아 순차적으로 답변을 진행하고 있습니다.\n레퍼런스 채널들을 미리 준비해주세요.\n더퍼스트제너레이션의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다.",
         },
       ],
     },
@@ -343,30 +336,30 @@ export const defaults = {
     seo: {
       title: "회사 소개",
       description:
-        "유니버랩 미디어의 정체성, 팀 구성, 그리고 브랜드가 집착하는 가치를 소개합니다.",
+        "더퍼스트제너레이션의 정체성, 팀 구성, 그리고 브랜드가 집착하는 가치를 소개합니다.",
     },
     hero: {
       eyebrow: "About Us",
       headline: "과하게 포장된\n말이 아닌,",
       subhead:
-        "유니버랩 미디어는 유튜브 플랫폼의 분석과 콘텐츠 제작, 관리까지 각 분야별 세부적인 부분을 다룹니다.\n단순하게 시간을 녹여 낸 작업이 아닌, 항상 소비자의 시선을 생각해서 콘텐츠를 제작합니다.",
+        "더퍼스트제너레이션은 유튜브 플랫폼의 분석과 콘텐츠 제작, 크리에이터 매니지먼트까지 각 분야별 세부적인 부분을 다룹니다.\n단순하게 시간을 녹여 낸 작업이 아닌, 항상 소비자의 시선을 생각해서 콘텐츠를 제작합니다.",
     },
     whyObsessed: {
       headline: "왜 그렇게 집착할까요?",
-      subhead: "유니버랩 미디어의 핵심 가치",
-      card1Title: "01. Authenticity",
-      card1Strong: "우리는 거짓이 아닌 진짜 도움이 되는 콘텐츠를 만들고 싶습니다.",
+      subhead: "더퍼스트제너레이션의 핵심 가치",
+      card1Title: "01. CREATIVE · VALUE",
+      card1Strong: "우리는 프로젝트마다 창의적인 기획으로, 진짜 도움이 되는 가치 있는 콘텐츠를 만듭니다.",
       card1Body:
         "주변에서 말렸습니다. 시장에서 살아남을 수 없을 것이라고 했습니다. 하지만 우리는 '단순하게 사고하기'로 했습니다. 과장하지 않고 겸손하게 본질만 생각하기로 했습니다. 우리는 단순함이라는 무기를 가진, 본질과 기본에 충실한 팀입니다.",
-      card2Title: "02. We are Young",
-      card2Strong: "우리는 젊습니다.",
+      card2Title: "02. IMAGINE",
+      card2Strong: "우리는 기업과 소비자의 마음을 움직이는 상상을 현실로 만듭니다.",
       card2Body:
-        '우리가 생각하는 트렌드는 "돈의 흐름과 사람들의 심리를 파악하고 가장 우리의 것을 제작하는 것"입니다. 젊지만 수많은 경험으로 다져진 감각으로 브랜드 가치를 만드는 것, 그것이 유니버랩 미디어만의 차별점입니다.',
+        '우리가 생각하는 트렌드는 "돈의 흐름과 사람들의 심리를 파악하고 가장 우리의 것을 제작하는 것"입니다. 젊지만 수많은 경험으로 다져진 감각으로 브랜드 가치를 만드는 것, 그것이 더퍼스트제너레이션만의 차별점입니다.',
     },
     teamwork: {
       headline: "우리는 함께 언제나 도전합니다.",
       subhead:
-        "1인 기업으로 시작했던 유니버랩 미디어이지만, 지금은 뜻을 함께하는 동료들이 있습니다.\n혼자의 힘으로는 모든 사람들을 만족시킬 수 없었지만, 팀원의 힘으로 광고주분들이 추구하는 가치를 전달할 수 있었습니다.",
+        "광주에서 시작한 더퍼스트제너레이션은 지금 20팀의 크리에이터, 그리고 뜻을 함께하는 동료들과 함께합니다.\n혼자의 힘으로는 모든 사람들을 만족시킬 수 없었지만, 팀의 힘으로 광고주분들이 추구하는 가치를 전달할 수 있었습니다.",
     },
     team: {
       eyebrow: "Our Team",
@@ -381,18 +374,18 @@ export const defaults = {
           desc: "색채 심리학과 논리적인 근거를 바탕으로 디자인을 진행합니다. 눈에 보기 예쁜 디자인이 아닌, 팔리는 디자인을 추구합니다.",
         },
         {
-          role: "콘텐츠 마케터",
-          desc: "다양한 마케팅 매체를 활용합니다. 목표에 따른 퍼널 구조를 계획 후 함께 의논하여 광고의 효율을 극대화합니다.",
+          role: "크리에이터 매니저",
+          desc: "소속 크리에이터 20팀의 채널 방향과 성장을 함께 설계합니다. 콘텐츠 기획부터 브랜드 광고 협업까지 크리에이터의 모든 순간을 지원합니다.",
         },
         {
           role: "수치 분석가",
-          desc: "모든 마케팅 중 분석이 가장 중요합니다. 유니버랩 미디어는 분석에 큰 비중을 두어 철저히 분석하여 간단한 지표로 그립니다.",
+          desc: "모든 마케팅 중 분석이 가장 중요합니다. 더퍼스트제너레이션은 분석에 큰 비중을 두어 철저히 분석하여 간단한 지표로 그립니다.",
         },
       ],
     },
     cta: {
       headline: "돈되는 유튜브,\n그 비결을 알고 싶으신가요?",
-      subhead: "유니버랩 미디어의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다.",
+      subhead: "더퍼스트제너레이션의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다.",
       button: "전문상담 받기",
     },
   },
@@ -400,16 +393,16 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Service
   service: {
     seo: {
-      title: "서비스 소개",
+      title: "서비스 소개 — 영상 제작·크리에이터·광고 콘텐츠",
       description:
-        "유니버랩 미디어의 콘텐츠 기획형 PDCA 프로세스와 4대 경영 철칙을 확인해 보세요.",
+        "유튜브 채널 매니지먼트부터 숏폼·영상 제작, 광고 콘텐츠까지. 더퍼스트제너레이션의 서비스와 제작 철칙을 확인해 보세요.",
     },
     hero: {
-      eyebrow: "Our Strategy",
+      eyebrow: "Our Service",
       headlineLine1: "콘텐츠 기획형",
-      headlineLine2: "PDCA",
+      headlineLine2: "MCN",
       subhead:
-        "영상 업계의 판도를 바꾸는 유니버랩 미디어의 전략\n우리는 모든 기술력을 귀사의 성과에만 집중합니다.",
+        "대한민국의 10%가, 1억 시간을 쓰는 유튜브. 당장 시작하지 않으면 손해입니다.\n더퍼스트제너레이션은 모든 기술력을 귀사의 성과와 크리에이터의 성장에 집중합니다.",
     },
     failure: {
       eyebrow: "Problem",
@@ -437,7 +430,7 @@ export const defaults = {
     principles: {
       eyebrow: "Principles",
       headline: "소비자 중심 경영철칙",
-      subhead: "유니버랩 미디어는 고객사의 매출 성장만을 추구합니다.",
+      subhead: "더퍼스트제너레이션은 고객사의 매출 성장만을 추구합니다.",
       items: [
         {
           num: "01",
@@ -488,21 +481,21 @@ export const defaults = {
       currencySymbol: "₩",
       inquiryButton: "문의하기",
       ctaHeadline: "돈되는 유튜브,\n그 비결을 알고 싶으신가요?",
-      ctaSubhead: "유니버랩 미디어의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다.",
+      ctaSubhead: "더퍼스트제너레이션의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다.",
       ctaButton: "전문상담 받기",
     },
     services: {
       items: [
         {
           id: "service-1",
-          title: "프리미엄 유튜브 패키지",
-          subtitle: "SNS Channel Management",
-          desc: "기획, 촬영, 편집은 물론, 영상 제작의 모든 과정을 올인원으로 제공합니다.",
+          title: "유튜브 채널 매니지먼트",
+          subtitle: "YouTube Channel Management",
+          desc: "채널 기획부터 촬영·편집·운영 전략까지, 유튜브 6년 노하우로 채널의 성장을 책임집니다.",
           heroImage:
             "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=2000&auto=format&fit=crop",
-          introTitle: "마케팅 흐름에 올라탈 수 있다면?",
+          introTitle: "성장 속도가 확연히 다릅니다",
           introText:
-            '혹시 그거 아시나요? 인스타그램으로 팔로워 수십만을 달성해도 유튜브로 성공하기는 하늘에 별따기입니다. 이유는 각 플랫폼마다 원하는 바가 다르기 때문입니다. 인스타의 핵심은 소통이지만, 유튜브의 핵심은 콘텐츠입니다. 이를 판별할 줄 아는 힘만이 미래에 살아남습니다. 우리의 목적은 간단합니다. 오로지 "유튜브 채널 성공"입니다.',
+            '혹시 그거 아시나요? 인스타그램으로 팔로워 수십만을 달성해도 유튜브로 성공하기는 하늘에 별따기입니다. 각 플랫폼마다 원하는 바가 다르기 때문입니다. 더퍼스트제너레이션은 유튜브를 6년간 직접 운영해 온 노하우로, 소속 크리에이터 20팀과 누적 조회수 1억 7천만 회를 만들었습니다. 우리의 목적은 간단합니다. 오로지 "채널의 성공"입니다.',
           pricing: [
             {
               name: "종합관리형 250",
@@ -554,7 +547,7 @@ export const defaults = {
             "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=2000&auto=format&fit=crop",
           introTitle: "핵심인 거 모르는 사람도 있나요..?",
           introText:
-            "혹시 그거 아시나요? 짧은 영상은 이제 인스타그램에서만 사용하고 있지 않습니다. 네이버, 유튜브, 틱톡 등 현재 SNS에서 가장 큰 영향력을 가지고 있습니다. 숏폼 제작 서비스는 유니버랩 미디어에서 릴스를 직접 기획부터 편집까지 진행하는 서비스입니다. 소비자의 구매 포인트 분석을 통해 구매전환이 이루어질 수 있도록 제작해 드립니다.",
+            "혹시 그거 아시나요? 짧은 영상은 이제 인스타그램에서만 사용하고 있지 않습니다. 네이버, 유튜브, 틱톡 등 현재 SNS에서 가장 큰 영향력을 가지고 있습니다. 숏폼 제작 서비스는 더퍼스트제너레이션에서 릴스를 직접 기획부터 편집까지 진행하는 서비스입니다. 소비자의 구매 포인트 분석을 통해 구매전환이 이루어질 수 있도록 제작해 드립니다.",
           pricing: [
             { name: "전문 숏폼 30", price: "330,000", vat: "VAT포함", features: [{ value: "에디터 1인 / 전문 기획 1인" }] },
             { name: "전문 숏폼 50", price: "550,000", vat: "VAT포함", features: [{ value: "에디터 1인 / 전문 기획 1인 / 분석가 1인" }] },
@@ -569,11 +562,10 @@ export const defaults = {
           title: "전문 영상 편집",
           subtitle: "Professional Video Editing",
           desc: "신뢰와 이미지를 함께 담은 영상, 고객의 첫인상부터 다르게 만듭니다.",
-          heroImage:
-            "https://images.unsplash.com/photo-1574717432707-c25c8587a3ea?q=80&w=2000&auto=format&fit=crop",
+          heroImage: "/hero/building.jpg",
           introTitle: "전문가의 편집스타일은 뭐가 다를까요?",
           introText:
-            '혹시 그거 아시나요? 요즘 영상 하나 잘 만들면, 브랜드 인지도가 확 올라갑니다. 지금 유행하는 편집 스타일, 그 흐름을 정확히 읽고 있어야 가능한 이야기죠. 유니버랩 미디어는 트렌디한 영상미와 빠른 전달력을 갖춘 전문 영상 편집 대행 서비스를 제공합니다. 기획부터 편집, 자막 디자인까지 "딱 요즘 스타일"이 필요하다면, 바로 저희입니다.',
+            '혹시 그거 아시나요? 요즘 영상 하나 잘 만들면, 브랜드 인지도가 확 올라갑니다. 지금 유행하는 편집 스타일, 그 흐름을 정확히 읽고 있어야 가능한 이야기죠. 더퍼스트제너레이션은 트렌디한 영상미와 빠른 전달력을 갖춘 전문 영상 편집 대행 서비스를 제공합니다. 기획부터 편집, 자막 디자인까지 "딱 요즘 스타일"이 필요하다면, 바로 저희입니다.',
           pricing: [
             { name: "전문 영상편집 50", price: "550,000", vat: "VAT포함", features: [{ value: "에디터 1인 / 전문 기획 1인 / 디자이너 1인" }] },
             { name: "전문 영상편집 77", price: "770,000", vat: "VAT포함", features: [{ value: "에디터 1인 / 전문 기획 1인 / 분석가 1인" }] },
@@ -589,7 +581,7 @@ export const defaults = {
             "https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=2000&auto=format&fit=crop",
           introTitle: "프로덕션을 거쳐 수치 분석까지",
           introText:
-            "혹시 그거 아시나요? 요즘 영상은 그냥 '예쁘게'만 만들면 안 됩니다. 기획부터 촬영, 편집, 자막, 음악, 콘텐츠 전략까지 요즘 유행하는 영상 제작의 모든 과정, 유니버랩 미디어에서 올인원으로 제공합니다. 콘텐츠 하나를 만들더라도 브랜드의 목적, 고객의 반응, SNS 알고리즘까지 전부 고려해서 제작해야 제대로 퍼질 수 있습니다.",
+            "혹시 그거 아시나요? 요즘 영상은 그냥 '예쁘게'만 만들면 안 됩니다. 기획부터 촬영, 편집, 자막, 음악, 콘텐츠 전략까지 요즘 유행하는 영상 제작의 모든 과정, 더퍼스트제너레이션에서 올인원으로 제공합니다. 콘텐츠 하나를 만들더라도 브랜드의 목적, 고객의 반응, SNS 알고리즘까지 전부 고려해서 제작해야 제대로 퍼질 수 있습니다.",
           pricing: [
             { name: "영상 제작 110", price: "1,100,000", vat: "VAT포함", features: [{ value: "에디터 1인 / 전문 기획 1인 / 디자이너 1인 / 카메라 1대" }] },
             { name: "영상 제작 220", price: "2,200,000", vat: "VAT포함", features: [{ value: "에디터 1인 / 전문 기획 1인 / 분석가 1인 / 카메라 2대" }] },
@@ -603,46 +595,46 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Portfolio
   portfolio: {
     seo: {
-      title: "제작 사례",
+      title: "제작 사례 — 소속 크리에이터 콘텐츠",
       description:
-        "유니버랩 미디어가 제작한 기업 홍보·브랜드·숏폼 영상 포트폴리오를 확인해 보세요.",
+        "맛집·푸드부터 재테크, 반려동물, 비즈니스까지. 더퍼스트제너레이션 소속 크리에이터 20팀의 실제 콘텐츠를 확인해 보세요.",
     },
     hero: {
       eyebrow: "Portfolio",
       headline: "백문이\n불여일견",
-      subhead: "직접 확인 해보세요! 유니버랩 미디어의 제작 사례입니다.",
+      subhead: "눈으로 직접 확인하시는 것이 좋습니다. 소속 크리에이터 20팀의 실제 콘텐츠입니다.",
     },
     filters: {
       items: [
         { name: "전체" },
-        { name: "기업" },
-        { name: "전문직" },
-        { name: "브랜디드" },
-        { name: "롱폼" },
-        { name: "숏폼" },
+        { name: "맛집·푸드" },
+        { name: "부업·재테크" },
+        { name: "반려동물" },
+        { name: "비즈니스" },
+        { name: "라이프" },
       ],
     },
     projects: {
       moreLabel: "제작 사례 더 보기",
       items: [
-        { videoId: "yK1TtQlqrLw", category: "기업" },
-        { videoId: "_sEdSrF6VNc", category: "전문직" },
-        { videoId: "DqpE-_GtDNc", category: "브랜디드" },
-        { videoId: "VNc7_rosDFo", category: "롱폼" },
-        { videoId: "zeUPWa_KHMA", category: "숏폼" },
-        { videoId: "KuODv3YfdYY", category: "기업" },
-        { videoId: "PjwbITGTRY0", category: "전문직" },
-        { videoId: "Jv3TtBiCP94", category: "브랜디드" },
-        { videoId: "enIcK7VIO04", category: "롱폼" },
-        { videoId: "MPHjXGNdmoo", category: "숏폼" },
-        { videoId: "xVQTpToE3E4", category: "기업" },
-        { videoId: "F-ak107yxtA", category: "전문직" },
-        { videoId: "-gGBncoBXgg", category: "브랜디드" },
-        { videoId: "uNvs9Fwk-M0", category: "롱폼" },
-        { videoId: "A-dTiIZZ708", category: "숏폼" },
-        { videoId: "7nWOEQTnC70", category: "기업" },
-        { videoId: "iIYpwOuWVQY", category: "브랜디드" },
-        { videoId: "MMWHedPAKao", category: "숏폼" },
+        { videoId: "-0EIZDzwiDQ", category: "맛집·푸드" },
+        { videoId: "1Rc-Xwy2tGg", category: "부업·재테크" },
+        { videoId: "0MUVTIpwmM0", category: "반려동물" },
+        { videoId: "5f7S8SULr3Y", category: "비즈니스" },
+        { videoId: "1Q6wzR0x0Ko", category: "라이프" },
+        { videoId: "-r0egEVwcbQ", category: "맛집·푸드" },
+        { videoId: "2MQD5HVtWCw", category: "부업·재테크" },
+        { videoId: "3RMK1i2njb4", category: "반려동물" },
+        { videoId: "6zGcjOsi_FM", category: "비즈니스" },
+        { videoId: "2H7sA5AYHmQ", category: "라이프" },
+        { videoId: "0dMuUCOhi6E", category: "맛집·푸드" },
+        { videoId: "4eANapOhBjk", category: "부업·재테크" },
+        { videoId: "4UO-xQN3FT8", category: "반려동물" },
+        { videoId: "9EoqJNceLxo", category: "비즈니스" },
+        { videoId: "0PvRs_b7M4g", category: "라이프" },
+        { videoId: "AhqdKh-6Als", category: "맛집·푸드" },
+        { videoId: "-MaghOhCZss", category: "맛집·푸드" },
+        { videoId: "5ClmL6UY7pk", category: "맛집·푸드" },
       ],
     },
   },
@@ -650,50 +642,50 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Column
   column: {
     seo: {
-      title: "칼럼",
+      title: "칼럼 — MCN·크리에이터·숏폼 인사이트",
       description:
-        "영상·유튜브 알고리즘·숏폼 마케팅에 대한 유니버랩 미디어의 트렌드 인사이트와 리포트를 확인해 보세요.",
+        "크리에이터 20팀, 누적 조회수 1억 7천만 회의 운영 경험에서 나온 유튜브·숏폼·로컬 마케팅 인사이트를 확인해 보세요.",
     },
     hero: {
       eyebrow: "Insights",
       headline: "미디어 인사이트",
-      subhead: "700건 이상의 제작 경험에서 나온 영상·유튜브·마케팅 인사이트를 공유합니다.",
+      subhead: "크리에이터 20팀, 누적 조회수 1억 7천만 회의 운영 경험에서 나온 인사이트를 공유합니다.",
     },
     list: {
       readMore: "READ MORE →",
       items: [
         {
-          badge: "제작 인사이트",
-          title: "유튜브 영상제작, 기획과 편집을 따로 맡기면 83% 이상이 망합니다",
-          desc: "기획은 A업체, 편집은 B업체에 따로 맡기면 왜 실패할까요? 700건 제작 경험으로 그 이유와 해법을 정리했습니다.",
+          badge: "MCN 인사이트",
+          title: "크리에이터 20팀, 누적 조회수 1억 7천만: 광주에서 만든 숫자입니다",
+          desc: "MCN은 정확히 무슨 일을 할까요? 채널 기획부터 광고 연결까지, 크리에이터와 함께 성장하는 구조를 공개합니다.",
           date: "2026.06.15",
         },
         {
-          badge: "비용 가이드",
-          title: "영상편집 외주비용, 700건 제작한 업체가 공개하는 비용 구조 7가지",
-          desc: "프리랜서·플랫폼·전문업체 비용 비교부터 견적 요청 전 체크리스트까지. 2026년 기준 적정가를 공개합니다.",
+          badge: "채널 성장",
+          title: "유튜브 6년의 결론: 채널이 크는 속도는 '구조'가 결정합니다",
+          desc: "열심히만 올리는 채널과 설계된 채널의 성장 곡선은 다릅니다. 직접 운영하며 검증한 채널 설계 원칙을 정리했습니다.",
           date: "2026.03.25",
         },
         {
-          badge: "유튜브 전략",
-          title: "조회수가 안 나오는 진짜 이유: 알고리즘이 아니라 '기획'입니다",
-          desc: "알고리즘 탓하기 전에 점검해야 할 것. 시청 지속시간과 구독 전환을 만드는 기획의 원리를 풀어냅니다.",
+          badge: "숏폼",
+          title: "맛집 쇼츠가 증명한 로컬 콘텐츠의 힘: 지역 콘텐츠도 100만이 봅니다",
+          desc: "광주 맛집 쇼츠가 수백만 조회수를 만드는 이유. 후킹·전개·CTA로 이어지는 전환형 숏폼 구조를 공개합니다.",
           date: "2026.02.10",
         },
         {
-          badge: "숏폼",
-          title: "전환되는 릴스의 3가지 공식: 숏폼 하나로 매출이 바뀐다",
-          desc: "조회수가 아니라 구매로 이어지는 숏폼. 후킹·전개·CTA로 이어지는 검증된 구조를 공개합니다.",
+          badge: "광고·브랜디드",
+          title: "광고는 레퍼런스가 전부입니다: 눈으로 확인시켜야 팔립니다",
+          desc: "브랜드 광고 영상을 맡기기 전 반드시 봐야 할 것. 좋은 광고 레퍼런스를 구별하는 기준을 정리했습니다.",
           date: "2026.01.20",
         },
         {
-          badge: "브랜딩",
-          title: "브랜드 영상, 예쁘기만 하면 실패합니다: 팔리는 영상의 조건",
-          desc: "예쁜 영상과 팔리는 영상은 다릅니다. 브랜드의 특징을 매출로 연결하는 영상의 조건을 정리했습니다.",
+          badge: "로컬 마케팅",
+          title: "광주 사장님이 인플루언서 마케팅으로 매출을 올리는 법",
+          desc: "지역 기반 크리에이터와의 협업은 비용 대비 효과가 다릅니다. 로컬 인플루언서 마케팅 실전 가이드입니다.",
           date: "2025.12.05",
         },
         {
-          badge: "채널 성장",
+          badge: "채널 시작",
           title: "유튜브 채널 0에서 시작하기: 첫 90일 성장 로드맵",
           desc: "구독자 0에서 시작하는 채널을 위한 90일 플랜. 무엇을, 어떤 순서로 해야 하는지 단계별로 안내합니다.",
           date: "2025.11.12",
@@ -707,7 +699,7 @@ export const defaults = {
     seo: {
       title: "가격 안내",
       description:
-        "영상 편집부터 브랜디드 숏폼까지, 유니버랩 미디어의 패키지별 가격과 구성을 확인해 보세요.",
+        "영상 편집부터 브랜디드 숏폼까지, 더퍼스트제너레이션의 패키지별 가격과 구성을 확인해 보세요.",
     },
     hero: {
       eyebrow: "Pricing",
@@ -731,25 +723,25 @@ export const defaults = {
     seo: {
       title: "문의하기",
       description:
-        "프로젝트 상담을 원하신다면 지금 바로 유니버랩 미디어에 연락해 주세요. 담당자가 빠르게 응답합니다.",
+        "프로젝트 상담을 원하신다면 지금 바로 더퍼스트제너레이션에 연락해 주세요. 담당자가 빠르게 응답합니다.",
     },
     hero: {
       headline: "Contact Us",
-      subhead: "성공적인 프로젝트의 시작, 유니버랩 미디어와 함께하세요.",
+      subhead: "성공적인 프로젝트의 시작, 더퍼스트제너레이션과 함께하세요.",
     },
     info: {
       sectionTitle: "Get in Touch",
       items: [
-        { title: "Email", value: "contact@univerlabmedia.co.kr" },
-        { title: "Phone", value: "010-9752-2358" },
-        { title: "Address", value: "서울특별시 광진구 광나루로22길 16-3, 302호(화양동)" },
+        { title: "Email", value: "dlwjdghks1107@naver.com" },
+        { title: "Phone", value: "010-5208-0048" },
+        { title: "Address", value: "광주광역시 서구 운천로 247 4층" },
         { title: "Business Hours", value: "Mon - Fri, 10:00 - 19:00" },
       ],
     },
     form: {
       sectionTitle: "프로젝트 문의",
       notice:
-        "유니버랩 미디어는 무엇보다 진정성을 원합니다. 상세하고 정확하게 작성해주셔야 정확한 상담이 가능합니다.",
+        "더퍼스트제너레이션은 무엇보다 진정성을 원합니다. 상세하고 정확하게 작성해주셔야 정확한 상담이 가능합니다.",
       brandLabel: "브랜드명",
       brandPlaceholder: "브랜드 / 회사명을 입력해주세요",
       managerLabel: "담당자 성함",
@@ -776,16 +768,17 @@ export const defaults = {
       serviceLabel: "어떤 서비스를 원하시나요?",
       servicePlaceholder: "선택해주세요",
       serviceOptions: [
-        { value: "shortform", label: "전문 숏폼 제작" },
-        { value: "editing", label: "전문 영상 편집 대행" },
-        { value: "allinone", label: "올인원 영상 제작 서비스" },
-        { value: "premium", label: "프리미엄 유튜브 패키지" },
+        { value: "ad", label: "광고·브랜디드 콘텐츠 문의" },
+        { value: "creator", label: "크리에이터 소속 문의" },
+        { value: "production", label: "유튜브 영상 제작 문의" },
+        { value: "management", label: "유튜브 채널 매니지먼트 문의" },
+        { value: "etc", label: "기타 문의" },
       ],
-      reasonLabel: "유니버랩 미디어에게 의뢰하신 이유",
+      reasonLabel: "더퍼스트제너레이션에게 의뢰하신 이유",
       reasonPlaceholder: "저희를 선택해주신 이유를 알려주세요.",
       goalLabel: "유튜브를 운영하는 가장 큰 이유",
       goalPlaceholder: "유튜브를 통해 이루고 싶은 목표를 적어주세요.",
-      sourceLabel: "유니버랩 미디어를 어떻게 알게 되셨나요?",
+      sourceLabel: "더퍼스트제너레이션을 어떻게 알게 되셨나요?",
       sourcePlaceholder: "선택해주세요",
       sourceOptions: [
         { value: "naver", label: "네이버 검색" },
@@ -814,15 +807,15 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Global
   global: {
     site: {
-      siteName: "유니버랩 미디어",
-      defaultTitle: "유니버랩 미디어 | 영상 기획·촬영·편집·마케팅 원스톱 에이전시",
+      siteName: "더퍼스트제너레이션",
+      defaultTitle: "더퍼스트제너레이션 | 세상을 사로잡는 콘텐츠 제작 파트너",
       defaultDescription:
-        "유니버랩 미디어는 영상 기획·촬영·편집·마케팅을 하나의 프로세스로 제공하는 영상 제작 전문 에이전시입니다.",
-      siteUrl: "https://univerlabmedia.co.kr",
+        "더퍼스트제너레이션은 영상 제작·크리에이터 매니지먼트·광고 콘텐츠를 원스톱으로 제공하는 광주 기반 MCN 전문 기업입니다.",
+      siteUrl: "https://thefirstmcn.com",
       ogImage: "/og-image.png",
     },
     header: {
-      brand: "UNIVERLAB",
+      brand: "THE FIRST GENERATION",
       nav: [
         { name: "회사 소개", path: "/company" },
         { name: "서비스 소개", path: "/service" },
@@ -834,19 +827,19 @@ export const defaults = {
       themeToggleAria: "Toggle Theme",
     },
     footer: {
-      brand: "UNIVERLAB",
+      brand: "THE FIRST GENERATION",
       tagline:
         "We create impactful media that drives growth.\nYour partner in digital transformation.",
       ctaButton: "Contact Us",
       addressLabel: "Address",
-      address: "서울특별시 광진구 광나루로22길 16-3, 302호(화양동)",
+      address: "광주광역시 서구 운천로 247 4층",
       contactLabel: "Contact",
-      phone: "Tel: 010-9752-2358",
-      email: "E-mail: contact@univerlabmedia.co.kr",
+      phone: "Tel: 010-5208-0048",
+      email: "E-mail: dlwjdghks1107@naver.com",
       infoLabel: "Info",
-      businessName: "상호명: 유니버랩미디어 | 대표: 곽 현 수",
-      businessNumber: "사업자 등록 번호: 659-03-03533",
-      copyright: "Copyright ⓒ 2024 UNIVERLAB MEDIA. All Rights Reserved.",
+      businessName: "상호명: 더퍼스트제너레이션 | 대표: 이정환",
+      businessNumber: "사업자 등록 번호: 867-08-02746",
+      copyright: "Copyright ⓒ 2026 THE FIRST GENERATION. All Rights Reserved.",
       termsLink: "Terms of Use",
       termsPath: "/policy",
       privacyLink: "Privacy Policy",

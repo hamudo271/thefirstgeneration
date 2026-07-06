@@ -8,8 +8,8 @@ import { useContent } from '../../context/ContentContext.jsx';
 const Safety = () => {
   const { safety } = useContent('home');
   const cards = [
-    { title: safety.card1Title, body: safety.card1Body, icon: ShieldCheck, tint: 'text-blue-400 bg-blue-500/10' },
-    { title: safety.card2Title, body: safety.card2Body, icon: Clock, tint: 'text-purple-400 bg-purple-500/10' },
+    { title: safety.card1Title, body: safety.card1Body, icon: ShieldCheck, tint: 'text-[#b4770a] bg-[#f0b918]/15' },
+    { title: safety.card2Title, body: safety.card2Body, icon: Clock, tint: 'text-[#9a6a00] bg-[#c77f00]/12' },
   ];
   return (
     <section className="relative overflow-hidden border-y border-border-primary bg-bg-secondary py-28">

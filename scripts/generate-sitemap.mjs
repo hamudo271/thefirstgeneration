@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { defaults } from "../shared/content-defaults.js";
 
-const SITE_URL = "https://univerlabmedia.co.kr";
+const SITE_URL = "https://thefirstmcn.com";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.resolve(__dirname, "../public/sitemap.xml");
 

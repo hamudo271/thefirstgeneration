@@ -5,11 +5,11 @@ const router = Router();
 
 // Resend config via environment variables (set these in Railway).
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const CONTACT_TO = process.env.CONTACT_TO_EMAIL || "contact@univerlabmedia.co.kr";
+const CONTACT_TO = process.env.CONTACT_TO_EMAIL || "dlwjdghks1107@naver.com";
 // `from` must use a domain you've verified in Resend. Until then you can test
 // with Resend's sandbox sender "onboarding@resend.dev".
 const CONTACT_FROM =
-  process.env.CONTACT_FROM_EMAIL || "유니버랩 미디어 <onboarding@resend.dev>";
+  process.env.CONTACT_FROM_EMAIL || "더퍼스트제너레이션 <onboarding@resend.dev>";
 
 const form = defaults.contact.form;
 const labelOf = (options, value) =>
@@ -74,7 +74,7 @@ router.post("/", async (req, res, next) => {
             )
             .join("")}
         </table>
-        <p style="color:#5a6478;font-size:12px;margin-top:16px">univerlabmedia.co.kr 문의 폼에서 자동 전송된 메일입니다.</p>
+        <p style="color:#5a6478;font-size:12px;margin-top:16px">더퍼스트제너레이션 문의 폼에서 자동 전송된 메일입니다.</p>
       </div>`;
 
     const resp = await fetch("https://api.resend.com/emails", {

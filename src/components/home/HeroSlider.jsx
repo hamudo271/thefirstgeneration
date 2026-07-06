@@ -68,13 +68,16 @@ const HeroSlider = () => {
           transition={{ opacity: { duration: 1 }, scale: { duration: 6, ease: 'linear' } }}
           className="absolute inset-0"
         >
+          {/* Local `image` takes priority; YouTube thumbnail is the legacy fallback. */}
           <img
-            src={`https://img.youtube.com/vi/${slide.videoId}/maxresdefault.jpg`}
+            src={slide.image || `https://img.youtube.com/vi/${slide.videoId}/maxresdefault.jpg`}
             alt=""
             aria-hidden
             className="h-full w-full object-cover"
             onError={(e) => {
-              e.currentTarget.src = `https://img.youtube.com/vi/${slide.videoId}/hqdefault.jpg`;
+              if (!slide.image) {
+                e.currentTarget.src = `https://img.youtube.com/vi/${slide.videoId}/hqdefault.jpg`;
+              }
             }}
           />
         </motion.div>
@@ -88,7 +91,7 @@ const HeroSlider = () => {
         className="absolute inset-0 opacity-70"
         style={{
           background:
-            'radial-gradient(900px circle at 12% 90%, rgba(91,140,255,0.22), transparent 55%), radial-gradient(760px circle at 85% 15%, rgba(167,139,250,0.18), transparent 55%)',
+            'radial-gradient(900px circle at 12% 90%, rgba(240,185,24,0.22), transparent 55%), radial-gradient(760px circle at 85% 15%, rgba(214,138,0,0.16), transparent 55%)',
         }}
       />
       <div className="absolute inset-0 bg-grid opacity-25" />
