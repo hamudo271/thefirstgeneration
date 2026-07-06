@@ -1,0 +1,5 @@
+# Cloudflare Pages — SPA fallback.
+# Pages Functions (/api/*) run BEFORE this rule, so API calls are unaffected.
+# Existing static assets are served directly; everything else renders the SPA
+# shell so React Router can handle client-side routes (/company, /service, …).
+/*    /index.html    200
