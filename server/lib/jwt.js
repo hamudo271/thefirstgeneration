@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 const SECRET = process.env.JWT_SECRET || "dev-insecure-change-me";
-const ISSUER = "univerlab";
+const ISSUER = "thefirstgeneration";
 const EXPIRES_IN = "24h";
 
 if (!process.env.JWT_SECRET) {

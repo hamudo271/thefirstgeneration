@@ -1,4 +1,4 @@
--- Initial schema for univerlab CMS
+-- Initial schema for thefirstgeneration CMS
 -- content_entries: one JSONB row per page/section key (home, company, global, ...)
 -- uploads: metadata for images stored on the Railway volume under /app/uploads
 

@@ -3,9 +3,9 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
-// base: use "/univerlab/" for GitHub Pages, "/" for Railway/root-hosted.
+// base: use "/thefirstgeneration/" for GitHub Pages, "/" for Cloudflare Pages/root-hosted.
 // Set DEPLOY_TARGET=ghpages when running `npm run deploy`.
-const base = process.env.DEPLOY_TARGET === "ghpages" ? "/univerlab/" : "/";
+const base = process.env.DEPLOY_TARGET === "ghpages" ? "/thefirstgeneration/" : "/";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],

@@ -1,6 +1,10 @@
-# CLAUDE.md — 유니버랩 미디어
+# CLAUDE.md — 더퍼스트제너레이션
 
-영상 기획·촬영·편집·마케팅 원스톱 에이전시 마케팅 사이트. React SPA(라이트 테마 전용) + Express API + Postgres CMS, Railway 배포(`main` push → 자동 배포, 도메인 univerlabmedia.co.kr).
+광주 기반 MCN(크리에이터 매니지먼트) + 영상 제작 에이전시 마케팅 사이트. React SPA(라이트 테마 전용) + Express API + Postgres CMS.
+
+- **Railway**: `main` push → 자동 배포. Express가 API + 정적 파일 서빙 (관리자 CMS `/admin` 포함, DB 필요).
+- **Cloudflare Pages**: `functions/api/*`(Pages Functions) + `public/_redirects`(SPA fallback)로 정적 배포. 문의 폼(Resend)만 동작, `/admin` CMS는 불가(DB 없음) — 콘텐츠는 전부 `content-defaults.js`에서 렌더링.
+- 도메인: thefirstmcn.com
 
 ## 실행
 
@@ -39,6 +43,10 @@ server/
   routes/                     auth, content, uploads, contact(Resend)
   migrations/                 *.sql (순차 적용, _migrations 테이블로 추적)
 scripts/generate-sitemap.mjs  빌드 시 public/sitemap.xml 생성
+functions/api/                Cloudflare Pages Functions (정적 배포용). contact.js는
+                               server/routes/contact.js를 미러링 — 수정 시 양쪽 동기화 필요.
+                               [[path]].js는 나머지 /api/* 를 JSON 404로 반환(defaults 폴백 유도).
+public/_redirects             Cloudflare Pages SPA fallback (/* → /index.html 200)
 ```
 
 ## 자주 만지는 핵심 모듈
@@ -48,7 +56,7 @@ scripts/generate-sitemap.mjs  빌드 시 public/sitemap.xml 생성
 - **공유 UI**: `src/components/common/ui.jsx` — `EASE_STANDARD`, `fadeInUp`, `stagger`, `Accented`, `PageHero`, `SectionHeader`, `CTABand`, `VideoLightbox`. 새 페이지는 여기서 import (재정의 금지).
 - **FAQ**: `src/components/common/FaqAccordion.jsx` — Home/Contact 공용. 콘텐츠는 항상 `home.faq`에서 읽음(Contact 포함).
 - **CMS 로딩**: `src/context/ContentContext.jsx` — `useContent('home')` 등으로 슬라이스 소비. `/api/content` 응답을 defaults 위에 **deep-merge**(객체는 재귀, 배열은 통째 교체).
-- **문의 메일**: `server/routes/contact.js` — Resend REST. 필수 필드 검증 + 허니팟(`_hp`).
+- **문의 메일**: `server/routes/contact.js`(Railway/Express) + `functions/api/contact.js`(Cloudflare Pages) — 둘 다 Resend REST. 필수 필드 검증 + 허니팟(`_hp`). **로직 바꾸면 두 파일 다 수정**.
 
 ## 코딩 컨벤션
 

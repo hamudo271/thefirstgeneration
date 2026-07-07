@@ -5,7 +5,7 @@
  */
 
 const BASE = "/api";
-const TOKEN_KEY = "univerlab_admin_token";
+const TOKEN_KEY = "thefirstgeneration_admin_token";
 
 export function getToken() {
   try {
