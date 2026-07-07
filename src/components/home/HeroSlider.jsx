@@ -32,6 +32,8 @@ const renderTitle = (title, accent) => {
 const HeroSlider = () => {
   const { heroSlides } = useContent('home');
   const slides = heroSlides?.items || [];
+  const bgVideo = heroSlides?.bgVideo;
+  const bgVideoPoster = heroSlides?.bgVideoPoster;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const timer = useRef(null);
@@ -58,30 +60,43 @@ const HeroSlider = () => {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Background slides (crossfade) */}
-      <AnimatePresence mode="sync">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ opacity: { duration: 1 }, scale: { duration: 6, ease: 'linear' } }}
-          className="absolute inset-0"
-        >
-          {/* Local `image` takes priority; YouTube thumbnail is the legacy fallback. */}
-          <img
-            src={slide.image || `https://img.youtube.com/vi/${slide.videoId}/maxresdefault.jpg`}
-            alt=""
-            aria-hidden
-            className="h-full w-full object-cover"
-            onError={(e) => {
-              if (!slide.image) {
-                e.currentTarget.src = `https://img.youtube.com/vi/${slide.videoId}/hqdefault.jpg`;
-              }
-            }}
-          />
-        </motion.div>
-      </AnimatePresence>
+      {/* Background: single looping video behind all slides */}
+      {bgVideo ? (
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src={bgVideo}
+          poster={bgVideoPoster}
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden
+        />
+      ) : (
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 1.08 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ opacity: { duration: 1 }, scale: { duration: 6, ease: 'linear' } }}
+            className="absolute inset-0"
+          >
+            {/* Local `image` takes priority; YouTube thumbnail is the legacy fallback. */}
+            <img
+              src={slide.image || `https://img.youtube.com/vi/${slide.videoId}/maxresdefault.jpg`}
+              alt=""
+              aria-hidden
+              className="h-full w-full object-cover"
+              onError={(e) => {
+                if (!slide.image) {
+                  e.currentTarget.src = `https://img.youtube.com/vi/${slide.videoId}/hqdefault.jpg`;
+                }
+              }}
+            />
+          </motion.div>
+        </AnimatePresence>
+      )}
 
       {/* Cinematic overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25" />

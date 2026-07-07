@@ -11,6 +11,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   base,
   server: {
+    port: process.env.PORT ? Number(process.env.PORT) : 5173,
     proxy: {
       // In dev, Vite runs on 5173 and Express on 3000. Forward API + uploads.
       "/api": { target: "http://localhost:3000", changeOrigin: true },
