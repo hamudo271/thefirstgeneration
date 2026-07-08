@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Clock } from 'lucide-react';
-import { fadeInUp } from '../common/ui.jsx';
+import { fadeInUp, Accented } from '../common/ui.jsx';
 import { useContent } from '../../context/ContentContext.jsx';
 
 // Safety (2 안심제도)
@@ -16,18 +16,18 @@ const Safety = () => {
       <div className="bg-grid absolute inset-0 opacity-30" />
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
+          <motion.p
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+            className="mb-4 text-lg text-text-secondary"
+          >
+            {safety.subhead}
+          </motion.p>
           <motion.h2
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
             className="text-3xl font-black tracking-tight text-text-primary md:text-5xl"
           >
-            <span className="text-gradient">2가지 안심제도</span>를 운영합니다
+            <Accented text={safety.headline} accent={safety.accent} />
           </motion.h2>
-          <motion.p
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-            className="mt-5 text-lg text-text-secondary"
-          >
-            {safety.subhead}
-          </motion.p>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {cards.map((c, i) => (

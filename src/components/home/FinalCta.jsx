@@ -19,13 +19,13 @@ const FinalCta = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <motion.span
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-          className="block text-2xl font-bold text-white/60 md:text-3xl"
+          className="block whitespace-pre-line text-xl font-bold text-white/60 md:text-2xl"
         >
           {finalCta.eyebrow}
         </motion.span>
         <motion.h2
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-          className="mt-2 text-4xl font-black tracking-tight text-white md:text-6xl"
+          className="mt-3 whitespace-pre-line text-4xl font-black tracking-tight text-white md:text-6xl"
         >
           {finalCta.headline}
         </motion.h2>
