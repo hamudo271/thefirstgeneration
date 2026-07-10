@@ -10,7 +10,7 @@
  * Extracted verbatim from the original JSX (Nov 2024).
  */
 
-import { videoPackages, shortformPackages } from "./pricing-packages.js";
+import { videoPackages, shortformPackages, otherPackages } from "./pricing-packages.js";
 
 export const defaults = {
   // ───────────────────────────────────────────────────────────── Home
@@ -40,7 +40,7 @@ export const defaults = {
           image: "/hero/brand-dark.jpg",
         },
         {
-          eyebrow: "TOTAL VIEWS 172,000,000+",
+          eyebrow: "TOTAL VIEWS 310,000,000+",
           title: "유튜브 7년차의 노하우로\n채널 성장을 돕습니다",
           accent: "7년차",
           desc: "성장하지 않는 채널에는 이유가 있습니다.\n채널에 맞는 성장 전략을 제안합니다.",
@@ -405,45 +405,45 @@ export const defaults = {
       headlineLine1: "콘텐츠 기획형",
       headlineLine2: "MCN",
       subhead:
-        "대한민국의 10%가, 1억 시간을 쓰는 유튜브. 당장 시작하지 않으면 손해입니다.\n더퍼스트제너레이션은 모든 기술력을 귀사의 성과와 크리에이터의 성장에 집중합니다.",
+        "94%가 이용하고 월 평균 사용시간 1136억분인 유튜브를.. 아직도 시작하지 않으셨나요?\n시대가 바뀌었습니다. 이제는 식당 사장님들도 의사도 변호사도 '크리에이터'로 활동하는 시대입니다.",
     },
     failure: {
       eyebrow: "Problem",
       headline: "왜 지금까지 실패했을까요?",
-      subhead: "귀사의 콘텐츠 마케팅이 실패한 이유를 알려드립니다.",
+      subhead: "당신의 유튜브 채널이 성장하지 못했던 이유를 알려드립니다.",
       reasons: [
         {
           title: "콘텐츠가 재미없습니다.",
           desc: "하고 싶은 말만 구구절절 하는 대부분의 콘텐츠들은 사람들이 원하지 않기 때문에 체류 시간이 떨어집니다.",
         },
         {
-          title: "기획에 대해 1도 모르는 편집자",
-          desc: "한 명의 영상 편집자가 영상을 편집하면 유튜브에 지식은 일체 없이 작업을 끝내기에 급합니다. 따라서 마케팅에 대한 전문성이 떨어질 수밖에 없습니다.",
+          title: "유튜브를 해보지 않은 편집자",
+          desc: "유튜브 채널 경험이 없는 편집자가 영상을 편집하면 유튜브 지식은 일체 없이 작업을 끝내기에 급합니다. 당연히 전문성이 떨어질 수밖에 없습니다.",
         },
         {
           title: "채널 방향성 부재",
           desc: "예쁜 영상에 현혹되면 안 됩니다. 운전할 때, 내가 어디로 가야 할지 목적지를 정확하게 설정하는 것이 중요합니다.",
         },
         {
-          title: "브랜드의 특징을 살리지 못하는 영상",
-          desc: '조회수와 구독자가 많다고 해서 매출이 올라가는 것이 아닙니다. 중요한 것은 "어떤 방법으로 우리 브랜드의 특징을 유튜브로 녹여낼 것인가"입니다.',
+          title: "개성을 살리지 못하는 영상",
+          desc: "사람마다, 그리고 브랜드마다 각자의 개성이 있습니다. 개성을 놓친 영상은 결국 누구의 기억에도 남지 않습니다.",
         },
       ],
     },
     principles: {
-      eyebrow: "Principles",
-      headline: "소비자 중심 경영철칙",
-      subhead: "더퍼스트제너레이션은 고객사의 매출 성장만을 추구합니다.",
+      eyebrow: "Focus",
+      headline: "유튜브에서 중요한 것",
+      subhead: "좋은 콘텐츠는 기본에서 시작됩니다.",
       items: [
         {
           num: "01",
-          title: "글 (Fundamentals)",
-          desc: "유튜브의 기초는 '글'입니다. 사람들이 원하는 정보로 이루어진 글이 시청 체류시간을 늘립니다.",
+          title: "기획 (Direction)",
+          desc: "내가 만들고 싶은 영상보다는 '대중들이 좋아하는 영상'을 기획해야 합니다.",
         },
         {
           num: "02",
-          title: "기획 (Direction)",
-          desc: "기획은 방향성입니다. 우리 채널이 추구하는 가치를 찾고, 마케팅이 기업에 줄 수 있는 도움을 파악합니다.",
+          title: "촬영 (Shoot)",
+          desc: "유튜브에서 좋은 촬영은 단순히 화질이 좋은 것이 아니라 시청자가 끝까지 보게 만드는 영상을 촬영하는 것입니다.",
         },
         {
           num: "03",
@@ -453,7 +453,7 @@ export const defaults = {
         {
           num: "04",
           title: "알고리즘 (Human Context)",
-          desc: "알고리즘은 사람을 공부하는 것입니다. '사람들이 원하는가?'와 '유튜브가 원하는가?' 두 가지를 충족시킵니다.",
+          desc: "우리는 유튜브의 입장에서 생각해봐야 합니다. '이 영상을 추천했을 때, 사람들이 만족할까?'",
         },
       ],
     },
@@ -461,14 +461,13 @@ export const defaults = {
       eyebrow: "Workflow",
       headline: "작업 프로세스",
       steps: [
-        { step: "01", title: "전문 설문지 작성", desc: "설문지를 작성하여 니즈와 원츠를 파악합니다." },
-        { step: "02", title: "상담", desc: "조회수의 비결이 담긴 전문 상담을 진행합니다." },
-        { step: "03", title: "전문 기획안 제작", desc: "구매자 맞춤 전문 기획안을 제공합니다." },
-        { step: "04", title: "일정 조율", desc: "초안 영상 작업 일정을 조율합니다." },
-        { step: "05", title: "촬영 진행", desc: "촬영을 원하시는 분에 한해 촬영을 진행합니다." },
-        { step: "06", title: "디자인 착수 및 편집", desc: "자사 내에서 디자인, 편집 작업을 진행합니다." },
-        { step: "07", title: "피드백 및 수정작업", desc: "검수 작업 및 수정작업을 진행합니다." },
-        { step: "08", title: "완성", desc: "최종본을 전달하고 업로드를 진행합니다." },
+        { step: "01", title: "상담", desc: "채널의 목적을 명확히 하고 방향을 잡아드립니다." },
+        { step: "02", title: "계약", desc: "모든 프로젝트는 선입금 확인 후 진행됩니다." },
+        { step: "03", title: "기획안 전달", desc: "프로젝트 시작 전, 진행 계획이 담긴 기획안을 제공해드립니다." },
+        { step: "04", title: "촬영 진행", desc: "일정을 조율하여 촬영을 진행합니다." },
+        { step: "05", title: "영상 편집", desc: "크리에이터 또는 브랜드의 개성을 살린 편집스타일로 편집을 진행합니다." },
+        { step: "06", title: "피드백 및 수정작업", desc: "검수 작업 및 수정작업을 진행합니다." },
+        { step: "07", title: "완성", desc: "최종본을 전달하고 업로드를 진행합니다." },
       ],
     },
   },
@@ -491,11 +490,10 @@ export const defaults = {
       items: [
         {
           id: "service-1",
-          title: "유튜브 채널 매니지먼트",
+          title: "유튜브 채널 운영 대행",
           subtitle: "YouTube Channel Management",
           desc: "채널 기획부터 촬영·편집·운영 전략까지, 유튜브 7년차 노하우로 채널의 성장을 책임집니다.",
-          heroImage:
-            "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=2000&auto=format&fit=crop",
+          heroImage: "/services/youtube-management.jpg",
           introTitle: "성장 속도가 확연히 다릅니다",
           introText:
             '혹시 그거 아시나요? 인스타그램으로 팔로워 수십만을 달성해도 유튜브로 성공하기는 하늘에 별따기입니다. 각 플랫폼마다 원하는 바가 다르기 때문입니다. 더퍼스트제너레이션은 유튜브를 6년간 직접 운영해 온 노하우로, 소속 크리에이터 20팀과 누적 조회수 1억 7천만 회를 만들었습니다. 우리의 목적은 간단합니다. 오로지 "채널의 성공"입니다.',
@@ -546,8 +544,7 @@ export const defaults = {
           title: "숏폼 영상 제작",
           subtitle: "Short Form Video Production",
           desc: "SNS에서 살아남는 숏폼 영상 제작, 핵심인 거 모르는 사람도 있나요?",
-          heroImage:
-            "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=2000&auto=format&fit=crop",
+          heroImage: "/services/shortform.jpg",
           introTitle: "핵심인 거 모르는 사람도 있나요..?",
           introText:
             "혹시 그거 아시나요? 짧은 영상은 이제 인스타그램에서만 사용하고 있지 않습니다. 네이버, 유튜브, 틱톡 등 현재 SNS에서 가장 큰 영향력을 가지고 있습니다. 숏폼 제작 서비스는 더퍼스트제너레이션에서 릴스를 직접 기획부터 편집까지 진행하는 서비스입니다. 소비자의 구매 포인트 분석을 통해 구매전환이 이루어질 수 있도록 제작해 드립니다.",
@@ -562,10 +559,10 @@ export const defaults = {
         },
         {
           id: "service-3",
-          title: "전문 영상 편집",
+          title: "인플루언서 섭외",
           subtitle: "Professional Video Editing",
-          desc: "신뢰와 이미지를 함께 담은 영상, 고객의 첫인상부터 다르게 만듭니다.",
-          heroImage: "/hero/building.jpg",
+          desc: "영향력 있는 인플루언서들을 빠른 일정으로 섭외해드립니다.",
+          heroImage: "/services/video-editing.jpg",
           introTitle: "전문가의 편집스타일은 뭐가 다를까요?",
           introText:
             '혹시 그거 아시나요? 요즘 영상 하나 잘 만들면, 브랜드 인지도가 확 올라갑니다. 지금 유행하는 편집 스타일, 그 흐름을 정확히 읽고 있어야 가능한 이야기죠. 더퍼스트제너레이션은 트렌디한 영상미와 빠른 전달력을 갖춘 전문 영상 편집 대행 서비스를 제공합니다. 기획부터 편집, 자막 디자인까지 "딱 요즘 스타일"이 필요하다면, 바로 저희입니다.',
@@ -577,11 +574,10 @@ export const defaults = {
         },
         {
           id: "service-4",
-          title: "올인원 영상 제작",
+          title: "기업 홍보 영상 제작",
           subtitle: "All-in-One Production",
-          desc: "영상 제작의 모든 과정을 한번에 제공합니다.",
-          heroImage:
-            "https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=2000&auto=format&fit=crop",
+          desc: "브랜드의 가치를 영상으로 전달합니다.",
+          heroImage: "/services/promo-video.jpg",
           introTitle: "프로덕션을 거쳐 수치 분석까지",
           introText:
             "혹시 그거 아시나요? 요즘 영상은 그냥 '예쁘게'만 만들면 안 됩니다. 기획부터 촬영, 편집, 자막, 음악, 콘텐츠 전략까지 요즘 유행하는 영상 제작의 모든 과정, 더퍼스트제너레이션에서 올인원으로 제공합니다. 콘텐츠 하나를 만들더라도 브랜드의 목적, 고객의 반응, SNS 알고리즘까지 전부 고려해서 제작해야 제대로 퍼질 수 있습니다.",
@@ -605,39 +601,38 @@ export const defaults = {
     hero: {
       eyebrow: "Portfolio",
       headline: "백문이\n불여일견",
-      subhead: "눈으로 직접 확인하시는 것이 좋습니다. 소속 크리에이터 20팀의 실제 콘텐츠입니다.",
+      subhead: "눈으로 직접 확인하시는 것이 좋습니다.",
     },
     filters: {
       items: [
         { name: "전체" },
-        { name: "맛집·푸드" },
-        { name: "부업·재테크" },
-        { name: "반려동물" },
+        { name: "푸드" },
+        { name: "일상" },
+        { name: "홍보영상" },
         { name: "비즈니스" },
-        { name: "라이프" },
       ],
     },
     projects: {
       moreLabel: "제작 사례 더 보기",
       items: [
-        { videoId: "-0EIZDzwiDQ", category: "맛집·푸드" },
-        { videoId: "1Rc-Xwy2tGg", category: "부업·재테크" },
-        { videoId: "0MUVTIpwmM0", category: "반려동물" },
+        { videoId: "RF5HbcwfS5c", category: "홍보영상" },
+        { videoId: "RuF7v9K-Qac", category: "푸드" },
+        { videoId: "k9OJDQQ3Crs", category: "홍보영상" },
+        { videoId: "RYGg_WwEPkc", category: "비즈니스" },
+        { videoId: "e_KaIr-JU_k", category: "푸드" },
+        { videoId: "JRkYaUHjkzU", category: "홍보영상" },
+        { videoId: "BM7rhHGTDbs", category: "비즈니스" },
+        { videoId: "91koGLbtAdQ", category: "푸드" },
+        { videoId: "6HE9piaR9zU", category: "홍보영상" },
+        { videoId: "jFswrZtc4_I", category: "홍보영상" },
+        { videoId: "t3CiTdjY2hE", category: "푸드" },
+        { videoId: "hAYRu6sdANA", category: "홍보영상" },
+        { videoId: "pp2CMg6DTGM", category: "일상" },
         { videoId: "5f7S8SULr3Y", category: "비즈니스" },
-        { videoId: "1Q6wzR0x0Ko", category: "라이프" },
-        { videoId: "-r0egEVwcbQ", category: "맛집·푸드" },
-        { videoId: "2MQD5HVtWCw", category: "부업·재테크" },
-        { videoId: "3RMK1i2njb4", category: "반려동물" },
-        { videoId: "6zGcjOsi_FM", category: "비즈니스" },
-        { videoId: "2H7sA5AYHmQ", category: "라이프" },
-        { videoId: "0dMuUCOhi6E", category: "맛집·푸드" },
-        { videoId: "4eANapOhBjk", category: "부업·재테크" },
-        { videoId: "4UO-xQN3FT8", category: "반려동물" },
-        { videoId: "9EoqJNceLxo", category: "비즈니스" },
-        { videoId: "0PvRs_b7M4g", category: "라이프" },
-        { videoId: "AhqdKh-6Als", category: "맛집·푸드" },
-        { videoId: "-MaghOhCZss", category: "맛집·푸드" },
-        { videoId: "5ClmL6UY7pk", category: "맛집·푸드" },
+        { videoId: "EWSLTiMcxUo", category: "푸드" },
+        { videoId: "EHdhUTT_3ng", category: "비즈니스" },
+        { videoId: "fbsRhxsvRUk", category: "비즈니스" },
+        { videoId: "6Y6ahn6hL1E", category: "푸드" },
       ],
     },
   },
@@ -659,7 +654,7 @@ export const defaults = {
       items: [
         {
           badge: "MCN 인사이트",
-          title: "크리에이터 20팀, 누적 조회수 1억 7천만: 광주에서 만든 숫자입니다",
+          title: "크리에이터 20팀, 누적 조회수 3억 1천만: 광주에서 만든 숫자입니다",
           desc: "MCN은 정확히 무슨 일을 할까요? 채널 기획부터 광고 연결까지, 크리에이터와 함께 성장하는 구조를 공개합니다.",
           date: "2026.06.15",
         },
@@ -683,7 +678,7 @@ export const defaults = {
         },
         {
           badge: "로컬 마케팅",
-          title: "광주 사장님이 인플루언서 마케팅으로 매출을 올리는 법",
+          title: "사장님이 인플루언서 마케팅으로 매출을 올리는 법",
           desc: "지역 기반 크리에이터와의 협업은 비용 대비 효과가 다릅니다. 로컬 인플루언서 마케팅 실전 가이드입니다.",
           date: "2025.12.05",
         },
@@ -706,11 +701,11 @@ export const defaults = {
     },
     hero: {
       eyebrow: "Pricing",
-      headline: "프리미엄\n올인원 패키지",
-      subhead: "투명한 가격으로 안내드립니다.\n모든 패키지는 품질 유지를 위해 매월 20건 한정으로 진행됩니다.",
+      headline: "가격이\n궁금하신가요?",
+      subhead: "옵션은 더하고, 부담은 줄였습니다.\n투명한 가격으로 안내드립니다.",
     },
     videoSection: {
-      title: "영상 편집 패키지",
+      title: "유튜브 패키지",
       staffLabel: "참여 인원:",
       periodLabel: "제작 기간:",
       packages: videoPackages,
@@ -718,6 +713,10 @@ export const defaults = {
     shortformSection: {
       title: "숏폼 패키지",
       packages: shortformPackages,
+    },
+    otherSection: {
+      title: "이 외 서비스",
+      packages: otherPackages,
     },
   },
 

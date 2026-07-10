@@ -39,7 +39,7 @@ const PrinciplesSection = () => {
     <section className="relative overflow-hidden border-b border-border-primary bg-bg-secondary py-28">
       <div className="bg-grid absolute inset-0 opacity-30" />
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <SectionHeader eyebrow={principles.eyebrow} headline={principles.headline} accent="경영철칙" subhead={principles.subhead} />
+        <SectionHeader eyebrow={principles.eyebrow} headline={principles.headline} accent="중요" subhead={principles.subhead} />
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2">
           {principles.items.map((item, i) => (
             <motion.div
@@ -101,9 +101,10 @@ const Service = () => {
       <PrinciplesSection />
       <ProcessSection />
       <CTABand
-        headline={'돈되는 유튜브,\n그 비결을 알고 싶으신가요?'}
-        subhead="더퍼스트제너레이션의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다."
-        button="전문 상담 받기"
+        eyebrow={'영상만 필요하다면 다른 회사를 선택하셔도 됩니다.'}
+        headline={'크리에이터가 되고 싶다면\n아래 버튼을 클릭하세요'}
+        subhead="좋은 콘텐츠는 절대 우연히 만들어지지 않습니다. 지금 당신의 이야기를 들려주세요."
+        button="상담 받기"
       />
     </div>
   );

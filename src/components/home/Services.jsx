@@ -38,7 +38,7 @@ const Services = () => {
                 <h3 className="mb-2 text-lg font-bold text-text-primary">{s.title}</h3>
                 <p className="text-sm leading-relaxed text-text-secondary">{s.desc}</p>
                 <Link
-                  to={`/service/${s.id}`}
+                  to="/pricing"
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-accent-primary"
                 >
                   자세히 보기 <ArrowRight size={15} />

@@ -25,10 +25,12 @@ const PackageGrid = ({ title, sectionLabels, packages }) => (
         >
           <div className="bg-brand-gradient absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
           <h4 className="mb-4 text-2xl font-bold text-text-primary">{pkg.title}</h4>
-          <div className="mb-6 space-y-1 text-sm text-text-secondary">
-            <p>{sectionLabels.staffLabel} {pkg.staff}</p>
-            <p>{sectionLabels.periodLabel} {pkg.period}</p>
-          </div>
+          {(pkg.staff || pkg.period) && (
+            <div className="mb-6 space-y-1 text-sm text-text-secondary">
+              {pkg.staff && <p>{sectionLabels.staffLabel} {pkg.staff}</p>}
+              {pkg.period && <p>{sectionLabels.periodLabel} {pkg.period}</p>}
+            </div>
+          )}
           <ul className="space-y-2.5">
             {pkg.features.map((feat, j) => (
               <li key={j} className="flex items-center gap-2 text-sm text-text-secondary">
@@ -44,19 +46,22 @@ const PackageGrid = ({ title, sectionLabels, packages }) => (
 );
 
 const Pricing = () => {
-  const { seo, hero, videoSection, shortformSection } = useContent('pricing');
+  const { seo, hero, videoSection, shortformSection, otherSection } = useContent('pricing');
   const labels = { staffLabel: videoSection.staffLabel, periodLabel: videoSection.periodLabel };
 
   return (
     <div className="bg-bg-primary">
       <SEO title={seo.title} description={seo.description} path="/pricing" />
 
-      <PageHero eyebrow={hero.eyebrow} title={hero.headline} accent="올인원 패키지" subhead={hero.subhead} />
+      <PageHero eyebrow={hero.eyebrow} title={hero.headline} accent="가격" subhead={hero.subhead} />
 
       <section className="py-28">
         <div className="mx-auto max-w-7xl space-y-20 px-6">
           <PackageGrid title={videoSection.title} sectionLabels={labels} packages={videoSection.packages} />
           <PackageGrid title={shortformSection.title} sectionLabels={labels} packages={shortformSection.packages} />
+          {otherSection?.packages?.length > 0 && (
+            <PackageGrid title={otherSection.title} sectionLabels={labels} packages={otherSection.packages} />
+          )}
         </div>
       </section>
 

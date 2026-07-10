@@ -91,7 +91,7 @@ export const SectionHeader = ({ eyebrow, headline, accent, subhead, center }) =>
 );
 
 /** Dark CTA band with brand-gradient button. */
-export const CTABand = ({ headline, subhead, button, to = '/contact' }) => (
+export const CTABand = ({ eyebrow, headline, subhead, button, to = '/contact' }) => (
   <section className="relative overflow-hidden bg-black py-28">
     <img
       src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071&auto=format&fit=crop"
@@ -104,6 +104,14 @@ export const CTABand = ({ headline, subhead, button, to = '/contact' }) => (
       style={{ background: 'radial-gradient(700px circle at 80% 20%, rgba(240,185,24,0.16), transparent 55%)' }}
     />
     <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
+      {eyebrow && (
+        <motion.span
+          initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+          className="mb-4 block whitespace-pre-line text-lg font-bold text-white/60"
+        >
+          {eyebrow}
+        </motion.span>
+      )}
       <motion.h2
         initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
         className="mx-auto max-w-3xl whitespace-pre-line text-3xl font-black tracking-tight text-white md:text-5xl"
