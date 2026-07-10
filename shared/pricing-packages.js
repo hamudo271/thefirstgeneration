@@ -44,7 +44,7 @@ export const videoPackages = [
   },
   {
     title: "촬영없이 편집만 편당 50",
-    staff: "에디터 1인 / 디자이너 1인",
+    staff: "에디터 1인",
     period: "10일 이내 (프로젝트에 따라 상이)",
     features: [
       { value: "컷편집" },
@@ -87,7 +87,7 @@ export const shortformPackages = [
   },
   {
     title: "촬영없이 숏폼 편집만 편당 10",
-    staff: "에디터 1인 / 분석가 1인",
+    staff: "에디터 1인",
     period: "10일 이내 (프로젝트에 따라 상이)",
     features: [
       { value: "컷편집" },
@@ -118,7 +118,6 @@ export const otherPackages = [
   },
   {
     title: "유튜브 채널 컨설팅",
-    staff: "에디터 1인 / 전문 기획 1인",
     features: [
       { value: "유튜브 채널 진단 및 컨설팅" },
       { value: "편집스타일 및 방향 수립" },

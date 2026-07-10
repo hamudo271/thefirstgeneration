@@ -285,9 +285,9 @@ export const defaults = {
     },
     pricing: {
       eyebrow: "Pricing",
-      headline: "프리미엄 올인원 패키지",
-      subhead: "명이 보고있어요! (매월 20건 한정)",
-      videoSectionTitle: "영상 편집 패키지",
+      headline: "가격이 궁금하신가요?",
+      subhead: "옵션은 더하고, 부담은 줄였습니다. 투명한 가격으로 안내드립니다.",
+      videoSectionTitle: "유튜브 패키지",
       shortformSectionTitle: "숏폼 패키지",
       staffLabel: "참여 인원:",
       periodLabel: "제작 기간:",
