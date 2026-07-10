@@ -98,7 +98,7 @@ export const defaults = {
         { videoId: "tPocanxfvyU", tag: "푸드" },
         { videoId: "6cnDaTTy45s", tag: "푸드" },
         { videoId: "t3CiTdjY2hE", tag: "푸드 쇼츠" },
-        { videoId: "Bq4h-_nZs-U", tag: "기업 홍보영상" },
+        { videoId: "RF5HbcwfS5c", tag: "기업 홍보영상" },
         { videoId: "6HE9piaR9zU", tag: "기업 홍보영상" },
         { videoId: "hAYRu6sdANA", tag: "기업 홍보영상" },
         { videoId: "RYGg_WwEPkc", tag: "기업 홍보영상" },
