@@ -3,12 +3,15 @@ import { motion } from 'framer-motion';
 import { Target, Zap, Users, BarChart3, Sparkles } from 'lucide-react';
 import SEO from '../components/SEO';
 import { PageHero, SectionHeader, CTABand, fadeInUp, stagger } from '../components/common/ui.jsx';
+import CreatorGrid from '../components/common/CreatorGrid.jsx';
 import { useContent } from '../context/ContentContext.jsx';
 
 const teamIcons = [Target, Zap, Users, BarChart3];
 
 const Company = () => {
   const { seo, hero, whyObsessed, teamwork, team, cta } = useContent('company');
+  // 크리에이터 명단은 home.partners가 단일 소스 (FaqAccordion이 home.faq를 읽는 것과 동일 패턴)
+  const { partners } = useContent('home');
 
   const valueCards = [
     { title: whyObsessed.card1Title, strong: whyObsessed.card1Strong, body: whyObsessed.card1Body },
@@ -66,8 +69,16 @@ const Company = () => {
         </div>
       </section>
 
-      {/* Team roles */}
+      {/* Creator roster (소속 유튜버/인플루언서 목록) */}
       <section className="border-b border-border-primary bg-bg-primary py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeader eyebrow={partners.eyebrow} headline={partners.headline} accent={partners.accent} center />
+          <CreatorGrid items={partners.items} />
+        </div>
+      </section>
+
+      {/* Team roles */}
+      <section className="border-b border-border-primary bg-bg-secondary py-28">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeader eyebrow={team.eyebrow} headline={team.headline} accent="최고의 팀" />
           <motion.div
