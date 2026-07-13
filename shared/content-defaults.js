@@ -567,9 +567,9 @@ export const defaults = {
         {
           id: "service-3",
           title: "인플루언서 섭외",
-          subtitle: "Professional Video Editing",
+          subtitle: "Influencer Marketing",
           desc: "영향력 있는 인플루언서들을 빠른 일정으로 섭외해드립니다.",
-          heroImage: "/services/video-editing.jpg",
+          heroImage: "/services/promo-video.jpg",
           introTitle: "전문가의 편집스타일은 뭐가 다를까요?",
           introText:
             '혹시 그거 아시나요? 요즘 영상 하나 잘 만들면, 브랜드 인지도가 확 올라갑니다. 지금 유행하는 편집 스타일, 그 흐름을 정확히 읽고 있어야 가능한 이야기죠. 더퍼스트제너레이션은 트렌디한 영상미와 빠른 전달력을 갖춘 전문 영상 편집 대행 서비스를 제공합니다. 기획부터 편집, 자막 디자인까지 "딱 요즘 스타일"이 필요하다면, 바로 저희입니다.',
@@ -582,9 +582,9 @@ export const defaults = {
         {
           id: "service-4",
           title: "기업 홍보 영상 제작",
-          subtitle: "All-in-One Production",
+          subtitle: "Corporate Video",
           desc: "브랜드의 가치를 영상으로 전달합니다.",
-          heroImage: "/services/promo-video.jpg",
+          heroImage: "/services/video-editing.jpg",
           introTitle: "프로덕션을 거쳐 수치 분석까지",
           introText:
             "혹시 그거 아시나요? 요즘 영상은 그냥 '예쁘게'만 만들면 안 됩니다. 기획부터 촬영, 편집, 자막, 음악, 콘텐츠 전략까지 요즘 유행하는 영상 제작의 모든 과정, 더퍼스트제너레이션에서 올인원으로 제공합니다. 콘텐츠 하나를 만들더라도 브랜드의 목적, 고객의 반응, SNS 알고리즘까지 전부 고려해서 제작해야 제대로 퍼질 수 있습니다.",
