@@ -25,7 +25,7 @@ import { Helmet } from "react-helmet-async";
 const SITE_NAME = "더퍼스트제너레이션";
 const SITE_URL = "https://thefirstmcn.com"; // primary domain (non-www canonical)
 const DEFAULT_DESCRIPTION =
-  "더퍼스트제너레이션은 영상 제작·크리에이터 매니지먼트·광고 콘텐츠를 원스톱으로 제공하는 MCN 전문 기업입니다. 누적 조회수 1억 7천만 회의 경험으로 성과를 만듭니다.";
+  "더퍼스트제너레이션은 영상 제작·크리에이터 매니지먼트·광고 콘텐츠를 원스톱으로 제공하는 MCN 전문 기업입니다. 누적 조회수 3억 1천만 회의 경험으로 성과를 만듭니다.";
 const DEFAULT_OG_IMAGE = "/og-image.png";
 
 export default function SEO({
