@@ -840,6 +840,11 @@ export const defaults = {
       tagline:
         "We create impactful media that drives growth.\nYour partner in digital transformation.",
       ctaButton: "Contact Us",
+      socials: [
+        { type: "instagram", label: "Instagram", href: "https://www.instagram.com/thefirstmcn/" },
+        { type: "youtube", label: "YouTube", href: "https://www.youtube.com/@thefirstmcn" },
+        { type: "naver", label: "네이버 블로그", href: "https://blog.naver.com/thefirstmcn" },
+      ],
       addressLabel: "Address",
       address: "광주광역시 서구 운천로 247 4층",
       contactLabel: "Contact",
