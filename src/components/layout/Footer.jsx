@@ -1,20 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Youtube } from 'lucide-react';
+import SocialLinks from '../common/SocialLinks.jsx';
 import { useContent } from '../../context/ContentContext.jsx';
-
-// Social links. Naver Blog has no lucide icon → styled "blog" badge.
-const SocialLink = ({ social }) => {
-  const base =
-    'flex h-10 w-10 items-center justify-center rounded-full border border-border-primary text-text-secondary transition-colors hover:border-accent-primary hover:text-accent-primary';
-  return (
-    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} title={social.label} className={base}>
-      {social.type === 'instagram' && <Instagram size={18} />}
-      {social.type === 'youtube' && <Youtube size={18} />}
-      {social.type === 'naver' && <span className="text-xs font-black">blog</span>}
-    </a>
-  );
-};
 
 const Footer = () => {
   const { footer } = useContent('global');
@@ -59,13 +46,7 @@ const Footer = () => {
             >
               {ctaButton}
             </Link>
-            {socials.length > 0 && (
-              <div className="flex gap-3">
-                {socials.map((social) => (
-                  <SocialLink key={social.type} social={social} />
-                ))}
-              </div>
-            )}
+            <SocialLinks socials={socials} tone="dark" />
           </div>
         </div>
 

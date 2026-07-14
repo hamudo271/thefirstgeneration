@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, Clock, Send, Info, CheckCircle2, Loader2 } from 'l
 import SEO from '../components/SEO';
 import { PageHero, fadeInUp } from '../components/common/ui.jsx';
 import FaqAccordion from '../components/common/FaqAccordion.jsx';
+import SocialLinks from '../components/common/SocialLinks.jsx';
 import { useContent } from '../context/ContentContext.jsx';
 
 const infoIcons = {
@@ -27,6 +28,7 @@ const Field = ({ label, required, children }) => (
 
 const Contact = () => {
   const { seo, hero, info, form } = useContent('contact');
+  const { footer } = useContent('global');
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
   const [error, setError] = useState('');
   const [phone, setPhone] = useState('');
@@ -90,6 +92,12 @@ const Contact = () => {
                 </div>
               );
             })}
+
+            {/* Follow our channels */}
+            <div className="rounded-2xl border border-border-primary bg-bg-secondary p-5">
+              <h3 className="mb-3 text-sm font-bold text-text-primary">채널 팔로우</h3>
+              <SocialLinks socials={footer?.socials} tone="dark" />
+            </div>
           </motion.div>
 
           {/* Form */}

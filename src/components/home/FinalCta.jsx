@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { fadeInUp } from '../common/ui.jsx';
+import SocialLinks from '../common/SocialLinks.jsx';
 import { useContent } from '../../context/ContentContext.jsx';
 
 // Final CTA (dark hero band with bullet list + button)
 const FinalCta = () => {
   const { finalCta } = useContent('home');
+  const { footer } = useContent('global');
   return (
     <section className="relative overflow-hidden bg-black py-32">
       <img
@@ -48,12 +50,15 @@ const FinalCta = () => {
           {finalCta.closing}
         </motion.p>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-          <Link
-            to="/contact"
-            className="bg-brand-gradient mt-10 inline-flex items-center gap-2 rounded-full px-10 py-5 text-lg font-bold text-white shadow-lg shadow-accent-primary/40 transition-transform hover:scale-105"
-          >
-            {finalCta.button} <ArrowRight size={20} />
-          </Link>
+          <div className="mt-10 flex flex-wrap items-center gap-6">
+            <Link
+              to="/contact"
+              className="bg-brand-gradient inline-flex items-center gap-2 rounded-full px-10 py-5 text-lg font-bold text-white shadow-lg shadow-accent-primary/40 transition-transform hover:scale-105"
+            >
+              {finalCta.button} <ArrowRight size={20} />
+            </Link>
+            <SocialLinks socials={footer?.socials} tone="light" />
+          </div>
         </motion.div>
       </div>
     </section>
