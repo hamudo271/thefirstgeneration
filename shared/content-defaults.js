@@ -117,7 +117,7 @@ export const defaults = {
         { name: "태인핏", channel: "인스타", followers: "1.4만명", desc: "헬스 인플루언서", href: "https://www.instagram.com/taein_fit/" },
         { name: "예찬하다 | YECHAN", channel: "유튜브", followers: "2.33천명", desc: "커플/호텔 브이로그", href: "https://www.youtube.com/@예찬하다94", image: "/creators/yechan.png" },
         { name: "로드니", channel: "인스타", followers: "7.1만명", desc: "맛집 소개", href: "https://www.instagram.com/roadney_" },
-        { name: "스튜디오워매", channel: "인스타", followers: "5.4만명", desc: "맛집 소개", href: "https://www.instagram.com/studio_wamae/" },
+        { name: "스튜디오워매", channel: "인스타", followers: "5.3만명", desc: "맛집 소개", href: "https://www.instagram.com/studio_wamae/" },
         { name: "아따광주", channel: "인스타", followers: "2.4만명", desc: "맛집 소개", href: "https://www.instagram.com/adda_gwangju" },
         { name: "성공인사이드", channel: "유튜브", followers: "1.41만명", desc: "사업가 소개", href: "https://www.youtube.com/@성공인사이드", image: "/creators/success-inside.png" },
         { name: "하늘고마", channel: "유튜브", followers: "4.76만명", desc: "부업/어플/가상화폐", href: "https://www.youtube.com/@skygoma062", image: "/creators/haneulgoma.png" },
