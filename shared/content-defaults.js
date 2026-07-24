@@ -98,7 +98,7 @@ export const defaults = {
         { videoId: "tPocanxfvyU", tag: "푸드" },
         { videoId: "6cnDaTTy45s", tag: "푸드" },
         { videoId: "t3CiTdjY2hE", tag: "푸드 쇼츠" },
-        { videoId: "RF5HbcwfS5c", tag: "기업 홍보영상" },
+        { videoId: "Ub3Wi5MKbcI", tag: "기업 홍보영상" },
         { videoId: "6HE9piaR9zU", tag: "기업 홍보영상" },
         { videoId: "hAYRu6sdANA", tag: "기업 홍보영상" },
         { videoId: "RYGg_WwEPkc", tag: "기업 홍보영상" },
@@ -622,7 +622,7 @@ export const defaults = {
     projects: {
       moreLabel: "제작 사례 더 보기",
       items: [
-        { videoId: "RF5HbcwfS5c", category: "홍보영상" },
+        { videoId: "Ub3Wi5MKbcI", category: "홍보영상" },
         { videoId: "RuF7v9K-Qac", category: "푸드" },
         { videoId: "k9OJDQQ3Crs", category: "홍보영상" },
         { videoId: "RYGg_WwEPkc", category: "비즈니스" },
