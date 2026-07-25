@@ -25,7 +25,8 @@ const ServiceDetail = () => {
 
   return (
     <div className="bg-bg-primary">
-      <SEO title={data.title} description={data.desc} path={`/service/${id}`} image={data.heroImage} />
+      {/* seoTitle carries the region keyword for search; the visible h1 below stays as-is. */}
+      <SEO title={data.seoTitle || data.title} description={data.desc} path={`/service/${id}`} image={data.heroImage} />
 
       {/* Hero with background image */}
       <section className="relative overflow-hidden border-b border-border-primary pb-24 pt-44">

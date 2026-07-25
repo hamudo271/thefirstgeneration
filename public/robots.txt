@@ -1,6 +1,25 @@
+# 더퍼스트제너레이션 — https://thefirstmcn.com
+
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /admin/
+Disallow: /api/
+
+# Naver (Yeti) — stated explicitly because Naver is this site's primary search
+# channel; an explicit block is what Search Advisor checks for.
+User-agent: Yeti
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+
+# Daum / Kakao
+User-agent: Daum
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
 
 Sitemap: https://thefirstmcn.com/sitemap.xml
+Sitemap: https://thefirstmcn.com/rss.xml

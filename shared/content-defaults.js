@@ -16,9 +16,9 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Home
   home: {
     seo: {
-      title: "광주 영상 제작·크리에이터 MCN 전문 기업",
+      title: "광주 영상제작·유튜브 채널 운영 대행 MCN",
       description:
-        "영상 제작부터 크리에이터 매니지먼트, 광고 콘텐츠까지. 누적 조회수 3억 1천만 회의 더퍼스트제너레이션이 기획·촬영·편집·마케팅을 올인원으로 제공합니다.",
+        "광주 MCN 점유율 1위 더퍼스트제너레이션. 유튜브 채널 운영 대행, 숏폼 영상 제작, 인플루언서 섭외, 기업 홍보영상까지 기획·촬영·편집을 올인원으로 제공합니다. 누적 조회수 3억 1천만 회.",
     },
     hero: {
       badge: "Creative Content & MCN",
@@ -344,9 +344,9 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Company
   company: {
     seo: {
-      title: "회사 소개",
+      title: "광주 MCN 회사 소개",
       description:
-        "더퍼스트제너레이션의 정체성, 팀 구성, 그리고 브랜드가 집착하는 가치를 소개합니다.",
+        "광주광역시 서구에 위치한 MCN 더퍼스트제너레이션. 소속 크리에이터 20명, 누적 조회수 3억 1천만 회. 회사의 정체성과 팀 구성, 일하는 방식을 소개합니다.",
     },
     hero: {
       eyebrow: "About Us",
@@ -403,9 +403,9 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Service
   service: {
     seo: {
-      title: "서비스 소개 — 영상 제작·크리에이터·광고 콘텐츠",
+      title: "광주 영상 제작 서비스 — 유튜브·숏폼·홍보영상",
       description:
-        "유튜브 채널 매니지먼트부터 숏폼·영상 제작, 광고 콘텐츠까지. 더퍼스트제너레이션의 서비스와 제작 철칙을 확인해 보세요.",
+        "광주 영상 제작 전문 더퍼스트제너레이션의 서비스 안내. 유튜브 채널 운영 대행, 숏폼 영상 제작, 인플루언서 섭외, 기업 홍보 영상 제작을 제공합니다.",
     },
     hero: {
       eyebrow: "Our Service",
@@ -498,6 +498,7 @@ export const defaults = {
         {
           id: "service-1",
           title: "유튜브 채널 운영 대행",
+          seoTitle: "광주 유튜브 채널 운영 대행",
           subtitle: "YouTube Channel Management",
           desc: "채널 기획부터 촬영·편집·운영 전략까지, 유튜브 7년차 노하우로 채널의 성장을 책임집니다.",
           heroImage: "/services/youtube-management.jpg",
@@ -549,6 +550,7 @@ export const defaults = {
         {
           id: "service-2",
           title: "숏폼 영상 제작",
+          seoTitle: "광주 숏폼 영상 제작 (릴스·쇼츠)",
           subtitle: "Short Form Video Production",
           desc: "SNS에서 살아남는 숏폼 영상 제작, 핵심인 거 모르는 사람도 있나요?",
           heroImage: "/services/shortform.jpg",
@@ -567,6 +569,7 @@ export const defaults = {
         {
           id: "service-3",
           title: "인플루언서 섭외",
+          seoTitle: "인플루언서 섭외·마케팅 대행",
           subtitle: "Influencer Marketing",
           desc: "영향력 있는 인플루언서들을 빠른 일정으로 섭외해드립니다.",
           heroImage: "/services/promo-video.jpg",
@@ -582,6 +585,7 @@ export const defaults = {
         {
           id: "service-4",
           title: "기업 홍보 영상 제작",
+          seoTitle: "광주 기업 홍보 영상 제작",
           subtitle: "Corporate Video",
           desc: "브랜드의 가치를 영상으로 전달합니다.",
           heroImage: "/services/video-editing.jpg",
@@ -601,9 +605,9 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Portfolio
   portfolio: {
     seo: {
-      title: "제작 사례 — 소속 크리에이터 콘텐츠",
+      title: "광주 영상 제작 사례·포트폴리오",
       description:
-        "맛집·푸드부터 재테크, 반려동물, 비즈니스까지. 더퍼스트제너레이션 소속 크리에이터 20명의 실제 콘텐츠를 확인해 보세요.",
+        "광주 영상 제작 사례 모음. 맛집·푸드 콘텐츠부터 기업 홍보영상, 비즈니스 인터뷰까지 더퍼스트제너레이션이 실제로 제작한 영상을 직접 확인해 보세요.",
     },
     hero: {
       eyebrow: "Portfolio",
@@ -647,9 +651,9 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Column
   column: {
     seo: {
-      title: "칼럼 — MCN·크리에이터·숏폼 인사이트",
+      title: "미디어 인사이트 칼럼 — 유튜브·숏폼 운영 노하우",
       description:
-        "크리에이터 20명, 누적 조회수 3억 1천만 회의 운영 경험에서 나온 유튜브·숏폼·로컬 마케팅 인사이트를 확인해 보세요.",
+        "유튜브 채널 성장, 숏폼 제작, 인플루언서 마케팅 노하우. 크리에이터 20명·누적 조회수 3억 1천만 회의 실제 운영 경험에서 나온 인사이트를 공유합니다.",
     },
     hero: {
       eyebrow: "Insights",
@@ -702,9 +706,9 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Pricing
   pricing: {
     seo: {
-      title: "가격 안내",
+      title: "영상 제작 비용·가격 안내",
       description:
-        "영상 편집부터 브랜디드 숏폼까지, 더퍼스트제너레이션의 패키지별 가격과 구성을 확인해 보세요.",
+        "광주 영상 제작 비용 안내. 유튜브 채널 운영 대행, 숏폼 영상 제작, 영상 편집 단독까지 더퍼스트제너레이션의 패키지별 가격과 구성을 투명하게 공개합니다.",
     },
     hero: {
       eyebrow: "Pricing",
@@ -730,9 +734,9 @@ export const defaults = {
   // ───────────────────────────────────────────────────────────── Contact
   contact: {
     seo: {
-      title: "문의하기",
+      title: "영상 제작 문의·견적 상담",
       description:
-        "프로젝트 상담을 원하신다면 지금 바로 더퍼스트제너레이션에 연락해 주세요. 담당자가 빠르게 응답합니다.",
+        "광주 영상 제작·유튜브 채널 운영 상담 문의. 프로젝트 내용을 남겨주시면 담당자가 빠르게 연락드립니다. 광주광역시 서구 운천로 247, 010-5208-0048.",
     },
     hero: {
       headline: "Contact Us",

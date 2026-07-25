@@ -12,13 +12,15 @@
     "dev": "concurrently -k -n vite,api -c cyan,magenta \"vite\" \"nodemon --watch server --ext js,sql server/index.js\"",
     "dev:vite": "vite",
     "dev:server": "nodemon --watch server --ext js,sql server/index.js",
-    "build": "node scripts/generate-sitemap.mjs && vite build",
+    "build": "node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs && vite build && node scripts/prerender.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "start": "node server/index.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "DEPLOY_TARGET=ghpages vite build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "rss": "node scripts/generate-rss.mjs",
+    "prerender": "node scripts/prerender.mjs"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
