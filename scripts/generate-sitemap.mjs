@@ -28,6 +28,11 @@ const routes = [
   { path: "/contact", changefreq: "monthly", priority: "0.8" },
 ];
 
+// Column articles — each has its own URL now, so each gets a sitemap entry.
+for (const a of defaults.column?.list?.items ?? []) {
+  routes.push({ path: `/column/${a.slug}`, changefreq: "monthly", priority: "0.7" });
+}
+
 // Dynamic service-detail pages, derived from content so new services are
 // picked up automatically.
 for (const svc of defaults.serviceDetail?.services?.items ?? []) {

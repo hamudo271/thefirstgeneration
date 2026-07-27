@@ -7,6 +7,7 @@ import Service from './pages/Service';
 import ServiceDetail from './pages/ServiceDetail';
 import Portfolio from './pages/Portfolio';
 import Column from './pages/Column';
+import ColumnDetail from './pages/ColumnDetail';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
@@ -34,6 +35,7 @@ function PublicSite() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/column" element={<Column />} />
+          <Route path="/column/:slug" element={<ColumnDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

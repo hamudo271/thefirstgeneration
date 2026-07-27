@@ -52,21 +52,34 @@ const Portfolio = () => {
                   exit={{ opacity: 0, scale: 0.92 }}
                   transition={{ duration: 0.3 }}
                   onClick={() => setVideo(project.videoId)}
-                  className="group relative aspect-video overflow-hidden rounded-2xl border border-border-primary bg-black text-left"
+                  className="group block overflow-hidden rounded-2xl border border-border-primary bg-bg-elevated text-left transition-colors hover:border-accent-primary"
                 >
-                  <img
-                    src={`https://img.youtube.com/vi/${project.videoId}/hqdefault.jpg`}
-                    alt=""
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-                  <span className="absolute left-3 top-3 rounded-full bg-black/60 px-3 py-1 text-[11px] font-bold text-white backdrop-blur">
-                    {project.category}
-                  </span>
-                  <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 backdrop-blur transition-all duration-300 group-hover:scale-110 group-hover:bg-accent-primary">
-                    <Play size={22} className="ml-0.5 fill-white text-white" />
-                  </span>
+                  <div className="relative aspect-video overflow-hidden bg-black">
+                    <img
+                      src={`https://img.youtube.com/vi/${project.videoId}/hqdefault.jpg`}
+                      alt={project.title ? `${project.title} — ${project.creator ?? ''}`.trim() : ''}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                    <span className="absolute left-3 top-3 rounded-full bg-black/60 px-3 py-1 text-[11px] font-bold text-white backdrop-blur">
+                      {project.category}
+                    </span>
+                    <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 backdrop-blur transition-all duration-300 group-hover:scale-110 group-hover:bg-accent-primary">
+                      <Play size={22} className="ml-0.5 fill-white text-white" />
+                    </span>
+                  </div>
+                  {project.title && (
+                    <div className="p-5">
+                      <h3 className="text-base font-bold leading-snug text-text-primary">{project.title}</h3>
+                      {project.creator && (
+                        <p className="mt-1 text-xs font-semibold text-accent-primary">{project.creator}</p>
+                      )}
+                      {project.desc && (
+                        <p className="mt-2 text-sm leading-relaxed text-text-secondary">{project.desc}</p>
+                      )}
+                    </div>
+                  )}
                 </motion.button>
               ))}
             </AnimatePresence>

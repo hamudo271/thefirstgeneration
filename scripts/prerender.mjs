@@ -36,6 +36,7 @@ const routes = [
   "/column",
   "/contact",
   ...(defaults.serviceDetail?.services?.items ?? []).map((s) => `/service/${s.id}`),
+  ...(defaults.column?.list?.items ?? []).map((a) => `/column/${a.slug}`),
 ];
 
 // Rendered through the router's catch-all and written to dist/404.html, which
@@ -58,6 +59,11 @@ const KEYWORDS = {
   "/column": "유튜브 채널 성장, 숏폼 노하우, 인플루언서 마케팅, 로컬 마케팅",
   "/contact": "광주 영상 제작 문의, 영상 제작 견적, 유튜브 대행 상담",
 };
+
+// Column articles inherit the column keyword set plus their own slug topic.
+for (const a of defaults.column?.list?.items ?? []) {
+  KEYWORDS[`/column/${a.slug}`] = `${KEYWORDS["/column"]}, ${a.badge}`;
+}
 
 /* ── Helpers ─────────────────────────────────────────────────────────────── */
 

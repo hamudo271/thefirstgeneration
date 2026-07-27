@@ -71,6 +71,47 @@ const ServiceDetail = () => {
         </div>
       </section>
 
+      {/* Who it's for + how it runs — service-specific copy, no shared boilerplate */}
+      {(data.forWhom || data.steps) && (
+        <section className="border-b border-border-primary bg-bg-secondary py-28">
+          <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[0.9fr_1.1fr]">
+            {data.forWhom && (
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+                <h2 className="mb-8 text-2xl font-black text-text-primary md:text-3xl">{data.forWhom.title}</h2>
+                <ul className="space-y-4">
+                  {data.forWhom.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-text-secondary">
+                      <CheckCircle2 size={19} className="mt-0.5 shrink-0 text-accent-primary" />
+                      <span className="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+            {data.steps && (
+              <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                <motion.h2 variants={fadeInUp} className="mb-8 text-2xl font-black text-text-primary md:text-3xl">
+                  {data.steps.title}
+                </motion.h2>
+                <ol className="space-y-6">
+                  {data.steps.items.map((step, i) => (
+                    <motion.li key={i} variants={fadeInUp} className="flex gap-5">
+                      <span className="text-2xl font-black leading-none text-text-primary/15">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <div>
+                        <h3 className="text-base font-bold text-text-primary">{step.t}</h3>
+                        <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">{step.d}</p>
+                      </div>
+                    </motion.li>
+                  ))}
+                </ol>
+              </motion.div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Pricing */}
       <section className="relative overflow-hidden bg-bg-secondary py-28">
         <div className="bg-grid absolute inset-0 opacity-30" />
@@ -110,6 +151,34 @@ const ServiceDetail = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Service-specific FAQ — also feeds the FAQPage schema for this route */}
+      {data.faq && (
+        <section className="border-t border-border-primary bg-bg-primary py-28">
+          <div className="mx-auto max-w-4xl px-6">
+            <motion.h2
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+              className="mb-12 text-center text-2xl font-black text-text-primary md:text-4xl"
+            >
+              {data.faq.title}
+            </motion.h2>
+            <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
+              {data.faq.items.map((item, i) => (
+                <motion.div
+                  key={i} variants={fadeInUp}
+                  className="rounded-2xl border border-border-primary bg-bg-elevated p-6 md:p-7"
+                >
+                  <h3 className="mb-3 flex gap-3 text-base font-bold text-text-primary md:text-lg">
+                    <span className="text-accent-primary">Q.</span>
+                    <span>{item.q}</span>
+                  </h3>
+                  <p className="pl-7 leading-relaxed text-text-secondary">{item.a}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       <CTABand headline={shared.ctaHeadline} subhead={shared.ctaSubhead} button={shared.ctaButton} />
     </div>

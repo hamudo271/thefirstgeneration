@@ -117,6 +117,8 @@ export function blog() {
     blogPost: items.map((it) => ({
       "@type": "BlogPosting",
       headline: it.title,
+      url: `${SITE_URL}/column/${it.slug}`,
+      mainEntityOfPage: `${SITE_URL}/column/${it.slug}`,
       description: it.desc,
       datePublished: String(it.date || "").replace(/\./g, "-"),
       author: { "@id": ORG_ID },
@@ -138,7 +140,7 @@ export function portfolioList() {
       "@type": "ListItem",
       position: i + 1,
       url: `https://www.youtube.com/watch?v=${it.videoId}`,
-      name: it.category,
+      name: it.title ? `${it.title} (${it.category})` : it.category,
     })),
   };
 }
@@ -155,9 +157,42 @@ export function schemasFor(routePath) {
   } else if (routePath === "/portfolio") {
     const l = portfolioList();
     if (l) out.push(l);
+  } else if (routePath.startsWith("/column/")) {
+    const slug = routePath.replace("/column/", "");
+    const a = (defaults.column?.list?.items ?? []).find((x) => x.slug === slug);
+    if (a) {
+      out.push({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: a.title,
+        description: a.desc,
+        url: `${SITE_URL}/column/${a.slug}`,
+        mainEntityOfPage: `${SITE_URL}/column/${a.slug}`,
+        datePublished: String(a.date || "").replace(/\./g, "-"),
+        articleSection: a.badge,
+        author: { "@id": ORG_ID },
+        publisher: { "@id": ORG_ID },
+        inLanguage: "ko-KR",
+      });
+    }
   } else if (routePath.startsWith("/service/")) {
-    const s = service(routePath.replace("/service/", ""));
+    const id = routePath.replace("/service/", "");
+    const s = service(id);
     if (s) out.push(s);
+    // Each service page now carries its own FAQ block — expose it too.
+    const svc = (defaults.serviceDetail?.services?.items ?? []).find((x) => x.id === id);
+    const items = svc?.faq?.items ?? [];
+    if (items.length) {
+      out.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: items.map((it) => ({
+          "@type": "Question",
+          name: it.q,
+          acceptedAnswer: { "@type": "Answer", text: it.a },
+        })),
+      });
+    }
   }
   return out;
 }

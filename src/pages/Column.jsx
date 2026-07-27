@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
@@ -16,15 +17,27 @@ const Column = () => {
 
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
+          {list.intro && (
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+              className="mx-auto mb-16 max-w-3xl space-y-5"
+            >
+              {list.intro.map((para, i) => (
+                <p key={i} className="text-lg leading-[1.9] text-text-secondary">{para}</p>
+              ))}
+            </motion.div>
+          )}
+
           <motion.div
             variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
             className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
             {list.items.map((item, i) => (
-              <motion.article
-                key={i} variants={fadeInUp} whileHover={{ y: -8 }}
-                className="group flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-border-primary bg-bg-secondary transition-colors hover:border-accent-primary"
-              >
+              <motion.article key={i} variants={fadeInUp} whileHover={{ y: -8 }}>
+                <Link
+                  to={`/column/${item.slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border-primary bg-bg-secondary transition-colors hover:border-accent-primary"
+                >
                 {/* Gradient banner */}
                 <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden bg-bg-elevated">
                   <div className="bg-grid absolute inset-0 opacity-40" />
@@ -48,6 +61,7 @@ const Column = () => {
                     <span className="font-semibold text-accent-primary">{list.readMore}</span>
                   </div>
                 </div>
+                </Link>
               </motion.article>
             ))}
           </motion.div>

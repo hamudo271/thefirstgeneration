@@ -34,8 +34,8 @@ const items = (defaults.column?.list?.items ?? [])
   .map(
     (it) => `    <item>
       <title>${esc(it.title)}</title>
-      <link>${SITE_URL}/column</link>
-      <guid isPermaLink="false">${SITE_URL}/column#${esc(it.title).slice(0, 40)}</guid>
+      <link>${SITE_URL}/column/${it.slug}</link>
+      <guid isPermaLink="true">${SITE_URL}/column/${it.slug}</guid>
       <description>${esc(it.desc)}</description>
       <category>${esc(it.badge)}</category>
       <pubDate>${rfc822(it.date)}</pubDate>
