@@ -1,5 +1,14 @@
-# Cloudflare Pages — SPA fallback.
-# Pages Functions (/api/*) run BEFORE this rule, so API calls are unaffected.
-# Existing static assets are served directly; everything else renders the SPA
-# shell so React Router can handle client-side routes (/company, /service, …).
-/*    /index.html    200
+# Cloudflare Pages routing — intentionally no rules.
+#
+# Every public route is prerendered to a real file by scripts/prerender.mjs
+# (/company → company.html, /service/service-1 → service/service-1.html), so the
+# old catch-all `/* /index.html 200` SPA fallback is no longer needed — and was
+# actively harmful: it answered EVERY unknown URL with 200 + the home page's
+# <title>, a soft 404 that drove measured title duplication to 100% and burned
+# crawl budget. Unmatched paths now fall through to dist/404.html, which
+# Cloudflare serves with a genuine 404.
+#
+# /admin is deliberately NOT mapped here. The CMS needs Postgres, which exists
+# on Railway (where Express serves its own SPA fallback) but not on Pages, so on
+# this deployment it is correctly a 404 rather than a shell that cannot load.
+# Note a rewrite to /index.html would 308 anyway — Pages normalises "/index".

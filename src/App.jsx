@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
@@ -14,7 +14,10 @@ import NotFound from './pages/NotFound';
 import SmoothScroll from './components/common/SmoothScroll';
 import ScrollToTop from './components/common/ScrollToTop';
 import TopProgressBar from './components/common/TopProgressBar';
-import AdminApp from './admin/AdminApp.jsx';
+// Admin is a separate app behind /admin (Tiptap-free but still sizeable) and is
+// never used by public visitors — lazy so its code stays out of the main bundle
+// that gates LCP on the marketing pages.
+const AdminApp = lazy(() => import('./admin/AdminApp.jsx'));
 
 function PublicSite() {
   return (
@@ -42,7 +45,14 @@ function App() {
   return (
     <Routes>
       {/* Admin app mounts at /admin and uses its own layout (no SmoothScroll / Header / Footer). */}
-      <Route path="/admin/*" element={<AdminApp />} />
+      <Route
+        path="/admin/*"
+        element={
+          <Suspense fallback={null}>
+            <AdminApp />
+          </Suspense>
+        }
+      />
       {/* Everything else is the public site. */}
       <Route path="/*" element={<PublicSite />} />
     </Routes>

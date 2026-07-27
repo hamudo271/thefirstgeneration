@@ -35,6 +35,10 @@ const HeroSlider = () => {
   const bgVideo = heroSlides?.bgVideo;
   const bgVideoPoster = heroSlides?.bgVideoPoster;
   const [index, setIndex] = useState(0);
+  // Hold the background video back until the page has finished loading, so the
+  // poster (64KB) is the LCP paint instead of the 2.8MB mp4. Stays null during
+  // SSR, which keeps the prerendered HTML free of the video request entirely.
+  const [deferredVideo, setDeferredVideo] = useState(null);
   const [paused, setPaused] = useState(false);
   const timer = useRef(null);
   const total = slides.length;
@@ -51,6 +55,18 @@ const HeroSlider = () => {
     return () => clearTimeout(timer.current);
   }, [index, paused, total]);
 
+  // Attach the background video only once everything else has loaded.
+  useEffect(() => {
+    if (!bgVideo) return undefined;
+    const attach = () => setDeferredVideo(bgVideo);
+    if (document.readyState === 'complete') {
+      attach();
+      return undefined;
+    }
+    window.addEventListener('load', attach, { once: true });
+    return () => window.removeEventListener('load', attach);
+  }, [bgVideo]);
+
   if (total === 0) return null;
   const slide = slides[index];
 
@@ -64,8 +80,11 @@ const HeroSlider = () => {
       {bgVideo ? (
         <video
           className="absolute inset-0 h-full w-full object-cover"
-          src={bgVideo}
+          // src is attached only after `load` (see deferredVideo) so the 2.8MB
+          // file stops competing with the hero for LCP; the poster paints first.
+          src={deferredVideo || undefined}
           poster={bgVideoPoster}
+          preload="none"
           autoPlay
           loop
           muted

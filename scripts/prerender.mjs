@@ -38,6 +38,12 @@ const routes = [
   ...(defaults.serviceDetail?.services?.items ?? []).map((s) => `/service/${s.id}`),
 ];
 
+// Rendered through the router's catch-all and written to dist/404.html, which
+// Cloudflare Pages serves with a real 404 status. Without it the SPA fallback
+// answered every unknown URL with 200 + the home page's <title> (a soft 404),
+// which is what pushed measured title duplication to 100%.
+const NOT_FOUND = "/__not-found__";
+
 /* ── Per-route keywords (region + service intent, Naver-first) ───────────── */
 const KEYWORDS = {
   "/": "광주 MCN, 광주 영상제작, 광주 영상 제작 업체, 유튜브 채널 운영 대행, 숏폼 영상 제작, 인플루언서 섭외, 기업 홍보영상, 더퍼스트제너레이션",
@@ -115,8 +121,25 @@ const { render } = await import(pathToFileURL(path.join(SSG_DIR, "entry-ssg.js")
 const template = readFileSync(path.join(DIST, "index.html"), "utf8");
 const base = stripTemplateSeo(template);
 
+// Build timestamp — a real, verifiable "last modified" for every page. Naver's
+// quality scoring looks for freshness signals; without these it scored 0%.
+const BUILT_AT = new Date().toISOString();
+
+/** WebPage node carrying the freshness signal, tied back to the org. */
+const webPage = (route, title) => ({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${SITE_URL}${route === "/" ? "/" : route}#webpage`,
+  url: `${SITE_URL}${route === "/" ? "/" : route}`,
+  name: title,
+  inLanguage: "ko-KR",
+  dateModified: BUILT_AT,
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  about: { "@id": `${SITE_URL}/#organization` },
+});
+
 let ok = 0;
-for (const route of routes) {
+for (const route of [...routes, NOT_FOUND]) {
   const { html, helmet } = render(route);
 
   const head = [
@@ -124,10 +147,14 @@ for (const route of routes) {
     helmet?.meta?.toString() ?? "",
     helmet?.link?.toString() ?? "",
     KEYWORDS[route] ? `<meta name="keywords" content="${KEYWORDS[route]}">` : "",
+    // Freshness signals (Naver reads these; previously absent entirely).
+    `<meta property="article:modified_time" content="${BUILT_AT}">`,
+    `<meta name="last-modified" content="${BUILT_AT}">`,
     // BreadcrumbList comes from <SEO> via Helmet; everything else is built here.
     helmet?.script?.toString() ?? "",
     ldScript(localBusiness),
     ldScript(website),
+    ldScript(webPage(route, (helmet?.title?.toString() ?? "").replace(/<[^>]*>/g, ""))),
     ...schemasFor(route).map(ldScript),
   ]
     .filter(Boolean)
@@ -141,7 +168,12 @@ for (const route of routes) {
   // serves /company straight from company.html, whereas a directory index
   // makes it 308-redirect to /company/ — which would fight the canonical and
   // the sitemap, both of which use the slash-less form.
-  const outFile = route === "/" ? path.join(DIST, "index.html") : path.join(DIST, `${route}.html`);
+  const outFile =
+    route === NOT_FOUND
+      ? path.join(DIST, "404.html")
+      : route === "/"
+      ? path.join(DIST, "index.html")
+      : path.join(DIST, `${route}.html`);
   mkdirSync(path.dirname(outFile), { recursive: true });
   writeFileSync(outFile, page, "utf8");
 

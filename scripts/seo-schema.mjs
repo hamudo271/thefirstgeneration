@@ -27,6 +27,8 @@ const EMAIL = strip(f.email, "E-mail");
 const ADDRESS = f.address || "광주광역시 서구 운천로 247 4층";
 const SAME_AS = (f.socials ?? []).map((s) => s.href).filter(Boolean);
 
+export const NAVER_MAP_URL = `https://map.naver.com/p/search/${encodeURIComponent(ADDRESS)}`;
+
 /** Organization identity as a LocalBusiness — the anchor every page references. */
 export const localBusiness = {
   "@context": "https://schema.org",
@@ -54,6 +56,10 @@ export const localBusiness = {
   ],
   knowsLanguage: ["ko"],
   priceRange: "₩₩",
+  // Naver weighs a map/place connection heavily for local queries. This is an
+  // address search link (not a fabricated place id) — swap it for the real
+  // 스마트플레이스 URL once that listing exists.
+  hasMap: NAVER_MAP_URL,
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
