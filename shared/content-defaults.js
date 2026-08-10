@@ -106,7 +106,7 @@ export const defaults = {
     },
     partners: {
       eyebrow: "Our Creators",
-      headline: "18명의 크리에이터가\n더퍼스트제너레이션과 함께합니다",
+      headline: "20명의 크리에이터가\n더퍼스트제너레이션과 함께합니다",
       accent: "더퍼스트제너레이션",
       items: [
         { name: "1분맛집", channel: "유튜브", followers: "9.64만명", desc: "맛집 소개", href: "https://www.youtube.com/@1분광주맛집", image: "/creators/1min-matjib.png" },
@@ -127,6 +127,8 @@ export const defaults = {
         { name: "광주핫걸", channel: "인스타", followers: "4.8천명", desc: "맛집 소개", href: "https://www.instagram.com/gwangju_hotgirl", image: "/creators/gwangju-hotgirl.png" },
         { name: "수드래곤형님", channel: "유튜브", followers: "121명", desc: "수산물/요리", href: "https://www.youtube.com/@sudragonpark", image: "/creators/sudragon.png" },
         { name: "스커드", channel: "유튜브", followers: "2.7만명", desc: "맛집 소개 / 게임", href: "https://www.youtube.com/@스커드", image: "/creators/skud.png" },
+        { name: "남자 정대웅", channel: "유튜브", followers: "154명", desc: "일상/여행/인테리어", href: "https://www.youtube.com/@남자정대웅", image: "/creators/namja-jeongdaeung.png" },
+        { name: "바다다 장주선", channel: "유튜브", followers: "1.88천명", desc: "요리/장사 노하우", href: "https://www.youtube.com/@badada_pocha", image: "/creators/badada-pocha.png" },
       ],
     },
     testimonials: {
@@ -692,7 +694,7 @@ export const defaults = {
               },
               {
                 "t": "크리에이터 매칭",
-                "d": "소속 크리에이터 18명의 시청자층과 과거 협업 반응을 기준으로 후보를 제안드립니다."
+                "d": "소속 크리에이터 20명의 시청자층과 과거 협업 반응을 기준으로 후보를 제안드립니다."
               },
               {
                 "t": "콘텐츠 기획",
@@ -713,7 +715,7 @@ export const defaults = {
             "items": [
               {
                 "q": "어떤 크리에이터가 있는지 미리 볼 수 있나요?",
-                "a": "네. 홈페이지에 소속 크리에이터 18명의 채널과 팔로워 수를 공개하고 있습니다. 상담 시 업종에 맞는 후보를 추려 제안드립니다."
+                "a": "네. 홈페이지에 소속 크리에이터 20명의 채널과 팔로워 수를 공개하고 있습니다. 상담 시 업종에 맞는 후보를 추려 제안드립니다."
               },
               {
                 "q": "섭외 비용은 어떻게 책정되나요?",
