@@ -17,6 +17,7 @@
     "start": "node server/index.js",
     "lint": "eslint .",
     "preview": "vite preview",
+    "deploy:cf": "npm run build && wrangler pages deploy dist --project-name=thefirstgeneration --branch=main --commit-dirty=true",
     "predeploy": "DEPLOY_TARGET=ghpages vite build",
     "deploy": "gh-pages -d dist",
     "rss": "node scripts/generate-rss.mjs",
@@ -58,6 +59,7 @@
     "nodemon": "^3.1.14",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "wrangler": "^4.120.1"
   }
 }

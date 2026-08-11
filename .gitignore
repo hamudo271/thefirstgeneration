@@ -17,6 +17,9 @@ uploads/
 .env
 .env.local
 
+# Wrangler local state (Cloudflare Pages 배포 시 생성)
+.wrangler/
+
 # Raw brand-source assets dropped in the project root (processed copies live in public/)
 /*.png
 /*.jpg

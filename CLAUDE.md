@@ -2,9 +2,9 @@
 
 광주 기반 MCN(크리에이터 매니지먼트) + 영상 제작 에이전시 마케팅 사이트. React SPA(라이트 테마 전용) + Express API + Postgres CMS.
 
-- **Railway**: `main` push → 자동 배포. Express가 API + 정적 파일 서빙 (관리자 CMS `/admin` 포함, DB 필요).
-- **Cloudflare Pages**: `functions/api/*`(Pages Functions) + `public/_redirects`(SPA fallback)로 정적 배포. 문의 폼(Resend)만 동작, `/admin` CMS는 불가(DB 없음) — 콘텐츠는 전부 `content-defaults.js`에서 렌더링.
-- 도메인: thefirstmcn.com
+- **thefirstmcn.com = Cloudflare Pages**(프로젝트 `thefirstgeneration`). ⚠️ **Git 연동 없음(Git Provider: No) — `main`에 push해도 배포되지 않음.** 반드시 아래 `npm run deploy:cf`로 직접 업로드해야 라이브가 바뀜. `functions/api/*`(Pages Functions) + `public/_redirects`(SPA fallback). 문의 폼(Resend)만 동작, `/admin` CMS는 불가(DB 없음) — 콘텐츠는 전부 `content-defaults.js`에서 렌더링.
+- **Railway**: Express가 API + 정적 파일 서빙 (관리자 CMS `/admin` 포함, DB 필요). 현재 공개 도메인은 여기로 붙어있지 않음.
+- 도메인: thefirstmcn.com, www.thefirstmcn.com, thefirstgeneration.pages.dev
 
 ## 실행
 
@@ -15,6 +15,19 @@ npm run build      # sitemap 생성 → vite build (dist/)
 npm start          # 프로덕션: node server/index.js (dist + API 서빙)
 npm run lint       # eslint (아래 "알려진 lint" 참고)
 ```
+
+## 배포 (thefirstmcn.com)
+
+```bash
+npm run deploy:cf  # build → wrangler pages deploy dist (프로덕션 반영)
+```
+
+- `deploy:cf` = `npm run build && wrangler pages deploy dist --project-name=thefirstgeneration --branch=main --commit-dirty=true`
+- **`--branch=main` 필수**: 생략하면 현재 git 브랜치명으로 올라가 프리뷰 배포가 되고 라이브는 그대로임.
+- 인증은 로컬 wrangler OAuth 세션 사용. 만료되면 `npx wrangler login`.
+- **git push는 배포가 아님** — 소스 백업/이력용. 배포는 항상 위 명령.
+- 배포 확인은 자산 해시가 아니라 DOM/문구로. 예: `curl -s "https://thefirstmcn.com/?cb=$$" | grep -o "20명의 크리에이터가"`
+- `npm run deploy`(gh-pages)는 안 쓰는 레거시 스크립트.
 
 ## 구조와 역할
 
