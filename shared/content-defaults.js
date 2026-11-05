@@ -113,6 +113,17 @@ export const defaults = {
       subhead: "카드를 누르면 각 크리에이터의 실제 채널로 이동합니다.",
       moreLabel: "회사 소개 보기",
       morePath: "/company",
+      data: {
+        eyebrow: "Creator Data",
+        title: "{channels}개 채널을\n직접 운영합니다.",
+        channelsLabel: "운영 채널",
+        categoriesLabel: "콘텐츠 분야",
+        platformLabel: "플랫폼 구성",
+        topLabel: "팔로워 TOP 5",
+        youtube: "유튜브",
+        instagram: "인스타그램",
+        note: "소속 크리에이터 명단 기준 · 자동 집계",
+      },
       items: [
         { name: "1분맛집", channel: "유튜브", followers: "9.64만명", desc: "맛집 소개", href: "https://www.youtube.com/@1분광주맛집", image: "/creators/1min-matjib.png" },
         { name: "광주푸드스탑", channel: "인스타", followers: "12.6만명", desc: "맛집 소개", href: "https://www.instagram.com/gwangju_food_stop", image: "/creators/gwangju-foodstop.png" },
@@ -371,6 +382,12 @@ export const defaults = {
 
   // ───────────────────────────────────────────────────────────── Company
   company: {
+    figures: [
+      { label: "누적 조회수", value: "3.1억+", desc: "소속 크리에이터 채널이 만든 누적 조회수" },
+      { label: "제작 영상", value: "1,000+", desc: "직접 기획·촬영·편집한 영상" },
+      { label: "유튜브 운영", value: "7년", desc: "채널을 직접 운영하며 쌓은 노하우" },
+      { label: "소속 크리에이터", value: "20명", desc: "맛집·푸드부터 비즈니스·반려동물까지" },
+    ],
     seo: {
       title: "광주 MCN 회사 소개",
       description:
@@ -490,6 +507,26 @@ export const defaults = {
           title: "알고리즘 (Human Context)",
           desc: "우리는 유튜브의 입장에서 생각해봐야 합니다. '이 영상을 추천했을 때, 사람들이 만족할까?'",
         },
+      ],
+    },
+    scope: {
+      eyebrow: "Scope",
+      headline: "기획부터 업로드까지,\n한 팀에서 끝냅니다.",
+      accent: "한 팀",
+      subhead: "가격 안내의 패키지에 들어가는 작업 범위입니다. 필요한 부분만 골라 맡기실 수 있습니다.",
+      items: [
+        { label: "촬영 전 기획안", icon: "plan" },
+        { label: "미러리스·오즈모 촬영", icon: "camera" },
+        { label: "컷 편집", icon: "cut" },
+        { label: "BGM 삽입", icon: "music" },
+        { label: "기본 자막", icon: "caption" },
+        { label: "포인트 자막", icon: "highlight" },
+        { label: "색보정", icon: "color" },
+        { label: "썸네일 제작", icon: "thumbnail" },
+        { label: "숏폼 제작", icon: "shorts" },
+        { label: "업로드 대행", icon: "upload" },
+        { label: "인플루언서 섭외", icon: "influencer" },
+        { label: "채널 진단·컨설팅", icon: "consulting" },
       ],
     },
     process: {
@@ -1235,6 +1272,13 @@ export const defaults = {
 
   // ───────────────────────────────────────────────────────────── Pricing
   pricing: {
+    compare: {
+      title: "한눈에 비교",
+      featureLabel: "포함 항목",
+      included: "포함",
+      excluded: "미포함",
+      swipeHint: "좌우로 밀어 비교해 보세요",
+    },
     seo: {
       title: "영상 제작 비용·가격 안내",
       description:

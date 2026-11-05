@@ -1,5 +1,6 @@
 import React from 'react';
 import CreatorGrid from '../common/CreatorGrid.jsx';
+import CreatorData from '../common/CreatorData.jsx';
 import { SectionHeader, TextLink } from '../common/ui.jsx';
 import { useContent } from '../../context/ContentContext.jsx';
 
@@ -17,6 +18,7 @@ const Partners = () => {
           subhead={partners.subhead}
           action={partners.morePath && <TextLink to={partners.morePath}>{partners.moreLabel}</TextLink>}
         />
+        <CreatorData items={partners.items} labels={partners.data} />
         <CreatorGrid items={partners.items} />
       </div>
     </section>

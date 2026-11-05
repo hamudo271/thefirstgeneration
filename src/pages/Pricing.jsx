@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Users, CalendarClock } from 'lucide-react';
+import { CheckCircle2, Users, CalendarClock, Check, Minus } from 'lucide-react';
 import SEO from '../components/SEO';
 import { PageHero, CTABand, ButtonLink, fadeInUp, stagger } from '../components/common/ui.jsx';
 import { useContent } from '../context/ContentContext.jsx';
@@ -13,7 +13,78 @@ const scrollToId = (id) => (e) => {
   else el.scrollIntoView({ behavior: 'smooth' });
 };
 
-const PackageGrid = ({ id, index, title, sectionLabels, packages, inquiryLabel }) => (
+// Feature-by-package matrix. Rows = every feature that appears in the section
+// (first-seen order) plus staff/period; cells = included or not.
+const CompareTable = ({ packages, labels, compare }) => {
+  const features = [...new Set(packages.flatMap((p) => p.features.map((f) => f.value)))];
+  const has = (pkg, f) => pkg.features.some((x) => x.value === f);
+  const meta = [
+    [labels.staffLabel.replace(/:\s*$/, ''), (p) => p.staff],
+    [labels.periodLabel.replace(/:\s*$/, ''), (p) => p.period],
+  ].filter(([, get]) => packages.some(get));
+  return (
+    <motion.div
+      initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+      className="mt-6 overflow-hidden rounded-[28px] border border-border-primary bg-bg-elevated"
+    >
+      <p className="flex items-center justify-between gap-4 border-b border-border-primary px-6 py-4 text-sm font-black text-text-primary md:px-8">
+        {compare.title}
+        {compare.swipeHint && <span className="text-xs font-semibold text-text-secondary md:hidden">{compare.swipeHint} →</span>}
+      </p>
+      <div className="relative">
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-10 bg-gradient-to-l from-bg-elevated to-transparent md:hidden" aria-hidden />
+        <div className="no-scrollbar overflow-x-auto">
+          <table className="w-full min-w-[640px] border-collapse text-sm">
+            <thead>
+              <tr className="bg-surface-muted">
+                <th scope="col" className="sticky left-0 z-10 w-[34%] bg-surface-muted px-6 py-4 text-left text-xs font-bold text-text-secondary md:px-8">
+                  {compare.featureLabel}
+                </th>
+                {packages.map((p) => (
+                  <th key={p.title} scope="col" className="px-4 py-4 text-center text-[13px] font-black leading-snug text-text-primary">
+                    {p.title}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {meta.map(([label, get]) => (
+                <tr key={label} className="border-t border-border-primary">
+                  <th scope="row" className="sticky left-0 z-10 bg-bg-elevated px-6 py-3.5 text-left font-semibold text-text-primary md:px-8">{label}</th>
+                  {packages.map((p) => (
+                    <td key={p.title} className="px-4 py-3.5 text-center text-[13px] leading-snug text-text-secondary">{get(p) || '—'}</td>
+                  ))}
+                </tr>
+              ))}
+              {features.map((f) => (
+                <tr key={f} className="border-t border-border-primary transition-colors hover:bg-surface-muted/60">
+                  <th scope="row" className="sticky left-0 z-10 bg-bg-elevated px-6 py-3.5 text-left font-medium text-text-primary md:px-8">{f}</th>
+                  {packages.map((p) => (
+                    <td key={p.title} className="px-4 py-3.5 text-center">
+                      {has(p, f) ? (
+                        <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-accent-primary/15 text-accent-secondary">
+                          <Check size={14} strokeWidth={3} />
+                          <span className="sr-only">{compare.included}</span>
+                        </span>
+                      ) : (
+                        <span className="inline-flex h-6 w-6 items-center justify-center text-text-secondary/35">
+                          <Minus size={14} />
+                          <span className="sr-only">{compare.excluded}</span>
+                        </span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const PackageGrid = ({ id, index, title, sectionLabels, packages, inquiryLabel, compare }) => (
   <div id={id} className="scroll-mt-28">
     <motion.div
       initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
@@ -63,11 +134,14 @@ const PackageGrid = ({ id, index, title, sectionLabels, packages, inquiryLabel }
         </motion.div>
       ))}
     </motion.div>
+    {compare && packages.length > 1 && packages.every((p) => p.staff || p.period) && (
+      <CompareTable packages={packages} labels={sectionLabels} compare={compare} />
+    )}
   </div>
 );
 
 const Pricing = () => {
-  const { seo, hero, videoSection, shortformSection, otherSection } = useContent('pricing');
+  const { seo, hero, videoSection, shortformSection, otherSection, compare } = useContent('pricing');
   const { shared } = useContent('serviceDetail');
   const labels = { staffLabel: videoSection.staffLabel, periodLabel: videoSection.periodLabel };
 
@@ -108,6 +182,7 @@ const Pricing = () => {
               sectionLabels={labels}
               packages={s.packages}
               inquiryLabel={shared?.inquiryButton}
+              compare={compare}
             />
           ))}
         </div>

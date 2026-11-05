@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { X, ArrowUpRight } from 'lucide-react';
+import {
+  X, ArrowUpRight, ClipboardList, Camera, Scissors, Music, Captions, Highlighter, Palette,
+  Image as ImageIcon, Smartphone, Upload, Users, Activity, Circle,
+} from 'lucide-react';
 import SEO from '../components/SEO';
 import { PageHero, SectionHeader, CTABand, Eyebrow, Accented, fadeInUp, stagger } from '../components/common/ui.jsx';
 import { useContent } from '../context/ContentContext.jsx';
@@ -63,10 +66,55 @@ const FailureSection = () => {
   );
 };
 
+// Icon per scope item (content keys → line icons).
+const SCOPE_ICONS = {
+  plan: ClipboardList, camera: Camera, cut: Scissors, music: Music, caption: Captions, highlight: Highlighter,
+  color: Palette, thumbnail: ImageIcon, shorts: Smartphone, upload: Upload, influencer: Users, consulting: Activity,
+};
+
+// What's included, as a numbered icon-tile grid.
+const ScopeSection = () => {
+  const { scope } = useContent('service');
+  if (!scope?.items?.length) return null;
+  return (
+    <section className="bg-bg-primary py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeader split eyebrow={scope.eyebrow} headline={scope.headline} accent={scope.accent} subhead={scope.subhead} />
+        <motion.ul
+          variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-2 gap-x-3 gap-y-3 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-9 md:grid-cols-4 md:gap-x-5 lg:grid-cols-6"
+        >
+          {scope.items.map((item, i) => {
+            const Icon = SCOPE_ICONS[item.icon] || Circle;
+            return (
+              <motion.li
+                key={item.label} variants={fadeInUp}
+                className="group flex flex-row-reverse items-center justify-end gap-3 rounded-2xl border border-border-primary p-2 pr-3 sm:block sm:rounded-none sm:border-0 sm:p-0"
+              >
+                <p className="min-w-0 text-[13px] font-bold leading-snug tracking-tight text-text-primary sm:mb-3 sm:truncate sm:text-[15px]">
+                  <span className="tabular-nums text-accent-secondary">{String(i + 1).padStart(2, '0')}.</span> {item.label}
+                </p>
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface-muted transition-all duration-500 group-hover:bg-accent-primary/[0.12] sm:aspect-[1/0.86] sm:h-auto sm:w-auto sm:rounded-[26px] sm:group-hover:-translate-y-1">
+                  <Icon
+                    size={38}
+                    strokeWidth={1.5}
+                    className="h-6 w-6 text-text-primary transition-all duration-500 group-hover:scale-110 group-hover:text-accent-secondary sm:h-[38px] sm:w-[38px]"
+                    aria-hidden
+                  />
+                </div>
+              </motion.li>
+            );
+          })}
+        </motion.ul>
+      </div>
+    </section>
+  );
+};
+
 const PrinciplesSection = () => {
   const { principles } = useContent('service');
   return (
-    <section className="bg-bg-primary py-24 md:py-32">
+    <section className="bg-surface-muted py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader split eyebrow={principles.eyebrow} headline={principles.headline} accent="중요" subhead={principles.subhead} />
         <motion.div
@@ -96,7 +144,7 @@ const PrinciplesSection = () => {
 const ProcessSection = () => {
   const { process } = useContent('service');
   return (
-    <section className="bg-surface-muted py-24 md:py-32">
+    <section className="bg-bg-primary py-24 md:py-32">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="lg:sticky lg:top-28">
@@ -147,6 +195,7 @@ const Service = () => {
         <ServiceIndex />
       </PageHero>
       <FailureSection />
+      <ScopeSection />
       <PrinciplesSection />
       <ProcessSection />
       <CTABand

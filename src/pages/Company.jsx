@@ -4,15 +4,16 @@ import { Target, Zap, Users, BarChart3, Sparkles, Lightbulb } from 'lucide-react
 import SEO from '../components/SEO';
 import { PageHero, SectionHeader, CTABand, fadeInUp, stagger } from '../components/common/ui.jsx';
 import CreatorGrid from '../components/common/CreatorGrid.jsx';
+import CreatorData from '../components/common/CreatorData.jsx';
 import { useContent } from '../context/ContentContext.jsx';
 
 const teamIcons = [Target, Zap, Users, BarChart3];
 const valueIcons = [Sparkles, Lightbulb];
 
 const Company = () => {
-  const { seo, hero, whyObsessed, teamwork, team, cta } = useContent('company');
+  const { seo, hero, whyObsessed, teamwork, team, cta, figures } = useContent('company');
   // 크리에이터 명단은 home.partners가 단일 소스 (FaqAccordion이 home.faq를 읽는 것과 동일 패턴)
-  const { partners, brandIntro } = useContent('home');
+  const { partners } = useContent('home');
   const { footer } = useContent('global');
 
   const valueCards = [
@@ -25,21 +26,26 @@ const Company = () => {
       <SEO title={seo.title} description={seo.description} path="/company" />
 
       <PageHero eyebrow={hero.eyebrow} title={hero.headline} accent="결과" subhead={hero.subhead}>
-        {/* Key figures strip */}
-        {brandIntro?.stats?.length > 0 && (
+        {/* Key figures — label / oversized number / one-line note, split by hairlines */}
+        {figures?.length > 0 && (
           <motion.dl
             variants={stagger} initial="hidden" animate="visible"
-            className="mt-14 grid grid-cols-2 overflow-hidden rounded-[28px] border border-border-primary bg-bg-elevated md:mt-20 md:grid-cols-4"
+            className="mt-16 grid grid-cols-1 border-t border-text-primary sm:grid-cols-2 md:mt-24 lg:grid-cols-4"
           >
-            {brandIntro.stats.map((s, i) => (
+            {figures.map((f, i) => (
               <motion.div
-                key={s.label} variants={fadeInUp}
-                className={`px-6 py-7 md:px-8 md:py-9 ${i % 2 === 1 ? 'border-l border-border-primary' : ''} ${
-                  i > 1 ? 'border-t border-border-primary md:border-t-0' : ''
-                } ${i === 2 ? 'md:border-l' : ''}`}
+                key={f.label} variants={fadeInUp}
+                className={`border-b border-border-primary py-8 sm:pr-8 lg:border-b-0 lg:py-10 ${
+                  i % 2 === 1 ? 'sm:border-l sm:pl-8' : ''
+                } ${i > 0 ? 'lg:border-l lg:pl-8' : ''}`}
               >
-                <dt className="text-sm font-semibold text-text-secondary">{s.label}</dt>
-                <dd className="text-gradient mt-2 text-4xl font-black tracking-tight md:text-5xl">{s.value}</dd>
+                <dt className="text-sm font-bold text-text-secondary">{f.label}</dt>
+                <dd>
+                  <span className="mt-3 block text-[3.2rem] font-black leading-none tracking-[-0.04em] text-text-primary md:text-[3.8rem]">
+                    {f.value}
+                  </span>
+                  <span className="mt-4 block text-[15px] leading-relaxed text-text-secondary">{f.desc}</span>
+                </dd>
               </motion.div>
             ))}
           </motion.dl>
@@ -94,6 +100,7 @@ const Company = () => {
       <section className="bg-surface-muted py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeader split eyebrow={partners.eyebrow} headline={partners.headline} accent={partners.accent} subhead={partners.subhead} />
+          <CreatorData items={partners.items} labels={partners.data} />
           <CreatorGrid items={partners.items} />
         </div>
       </section>
