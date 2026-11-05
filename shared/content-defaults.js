@@ -108,8 +108,8 @@ export const defaults = {
     },
     partners: {
       eyebrow: "Our Creators",
-      headline: "20명의 크리에이터가\n더퍼스트제너레이션과 함께합니다",
-      accent: "더퍼스트제너레이션",
+      headline: "지금까지 20명이 넘는\n크리에이터가 함께했습니다.",
+      accent: "20명이 넘는",
       subhead: "카드를 누르면 각 크리에이터의 실제 채널로 이동합니다.",
       moreLabel: "회사 소개 보기",
       morePath: "/company",

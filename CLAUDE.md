@@ -26,7 +26,7 @@ npm run deploy:cf  # build → wrangler pages deploy dist (프로덕션 반영)
 - **`--branch=main` 필수**: 생략하면 현재 git 브랜치명으로 올라가 프리뷰 배포가 되고 라이브는 그대로임.
 - 인증은 로컬 wrangler OAuth 세션 사용. 만료되면 `npx wrangler login`.
 - **git push는 배포가 아님** — 소스 백업/이력용. 배포는 항상 위 명령.
-- 배포 확인은 자산 해시가 아니라 DOM/문구로. 예: `curl -s "https://thefirstmcn.com/?cb=$$" | grep -o "20명의 크리에이터가"`
+- 배포 확인은 자산 해시가 아니라 DOM/문구로. 예: `curl -s "https://thefirstmcn.com/?cb=$$" | grep -o "20명이 넘는"`
 - `npm run deploy`(gh-pages)는 안 쓰는 레거시 스크립트.
 
 ## 구조와 역할
