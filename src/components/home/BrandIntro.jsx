@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Play, Users, TrendingUp, Award } from 'lucide-react';
-import { fadeInUp, stagger, Accented, EASE_STANDARD } from '../common/ui.jsx';
+import { fadeInUp, stagger, Accented, EASE_STANDARD, Eyebrow } from '../common/ui.jsx';
 import { useContent } from '../../context/ContentContext.jsx';
 
 // Icons matched to each stat by index.
@@ -190,7 +190,7 @@ const BrandIntro = () => {
   const [views, creators, followers, rank, ...extra] = brandIntro.stats;
 
   return (
-    <section className="relative overflow-hidden border-y border-border-primary bg-bg-primary py-28 md:py-36">
+    <section className="relative overflow-hidden bg-bg-primary py-28 md:py-36">
       <div
         className="bg-grid absolute inset-0 opacity-50"
         style={{ maskImage: 'radial-gradient(ellipse 80% 70% at 30% 20%, #000 30%, transparent 75%)', WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 30% 20%, #000 30%, transparent 75%)' }}
@@ -203,14 +203,13 @@ const BrandIntro = () => {
           <div className="lg:col-span-7">
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="mb-6 flex items-center gap-3"
+              className="mb-6"
             >
-              <span className="h-px w-10 bg-accent-primary" />
-              <span className="text-sm font-bold uppercase tracking-[0.2em] text-accent-primary">{brandIntro.eyebrow}</span>
+              <Eyebrow>{brandIntro.eyebrow}</Eyebrow>
             </motion.div>
             <motion.h2
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="whitespace-pre-line text-4xl font-black leading-[1.08] tracking-tight text-text-primary md:text-6xl lg:text-7xl"
+              className="whitespace-pre-line text-[2.2rem] font-black leading-[1.08] tracking-[-0.035em] text-text-primary md:text-6xl lg:text-7xl"
             >
               <Accented text={brandIntro.headline} accent={brandIntro.accent} />
             </motion.h2>

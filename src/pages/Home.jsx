@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <div className="bg-bg-primary">
       <SEO title={seo.title} description={seo.description} path="/" />
-      <HeroSlider />
+      <HeroSlider onPlay={setVideo} />
       <BrandIntro />
       <Cases onPlay={setVideo} />
       <Partners />
@@ -32,7 +32,7 @@ const Home = () => {
       <Safety />
       <Process />
       <Services />
-      <FaqAccordion className="bg-bg-primary py-28" />
+      <FaqAccordion className="bg-surface-muted py-24 md:py-32" />
       <FinalCta />
       <VideoLightbox videoId={video} onClose={() => setVideo(null)} />
       <ScarcityBar />

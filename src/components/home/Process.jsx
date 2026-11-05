@@ -1,62 +1,71 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-import { fadeInUp, stagger } from '../common/ui.jsx';
+import { MessagesSquare, FileSignature, ClipboardList, Clapperboard, Scissors, RefreshCcw, Rocket, Circle } from 'lucide-react';
+import { fadeInUp, stagger, SectionHeader, ButtonLink } from '../common/ui.jsx';
 import { useContent } from '../../context/ContentContext.jsx';
 
-// Process — horizontal step timeline (DCD-style): connecting line + dots,
-// big faded numbers, title + short description. Single row on desktop,
-// auto-wrapping grid on smaller screens.
+// Icon per step, in order (상담 → 완성). Extra steps fall back to a dot.
+const STEP_ICONS = [MessagesSquare, FileSignature, ClipboardList, Clapperboard, Scissors, RefreshCcw, Rocket];
+// Alternate gold and ink tiles so neighbouring steps stay distinguishable.
+const TILE = [
+  'bg-brand-gradient shadow-[0_12px_24px_-12px_rgba(234,164,0,0.9)]',
+  'bg-text-primary text-white shadow-[0_12px_24px_-12px_rgba(11,16,32,0.7)]',
+];
+
+// Process — step cards on a 4-col grid; the last slot is a CTA card.
 const Process = () => {
   const { process } = useContent('home');
   const steps = process.steps;
 
   return (
-    <section className="bg-bg-primary py-28">
+    <section className="bg-surface-muted py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Header */}
-        <div className="mb-16 max-w-2xl md:mb-20">
-          <span className="mb-4 block text-sm font-bold uppercase tracking-[0.2em] text-accent-primary">
-            {process.eyebrow}
-          </span>
-          <h2 className="text-3xl font-black leading-tight tracking-tight text-text-primary md:text-5xl">
-            고객 만족도를 최우선합니다
-          </h2>
-          <p className="mt-5 text-text-secondary">
-            상담부터 완성까지, 더퍼스트제너레이션의 체계적인 {steps.length}단계 작업 프로세스.
-          </p>
-          <Link
-            to="/contact"
-            className="bg-brand-gradient mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-bold text-white shadow-lg shadow-accent-primary/30 transition-transform hover:scale-105"
-          >
-            상담 신청하기 <ArrowRight size={18} />
-          </Link>
-        </div>
+        <SectionHeader
+          split
+          eyebrow={process.eyebrow}
+          headline={process.title}
+          subhead={process.subhead?.replace('{n}', steps.length)}
+        />
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Connecting line (desktop only, runs through the dots) */}
-          <div className="absolute inset-x-0 top-[6px] hidden h-px bg-border-primary lg:block" />
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7"
+        <motion.ol
+          variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5"
+        >
+          {steps.map((item, i) => {
+            const Icon = STEP_ICONS[i] || Circle;
+            return (
+              <motion.li key={item.step} variants={fadeInUp} className="card-surface relative flex flex-col rounded-[28px] p-7">
+                <div className="flex items-start justify-between">
+                  <span className={`flex h-12 w-12 items-center justify-center rounded-2xl ${TILE[i % 2]}`}>
+                    <Icon size={21} strokeWidth={2.1} />
+                  </span>
+                  <span className="text-[2.6rem] font-black leading-none tracking-tight text-text-primary/[0.07]">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                </div>
+                <h3 className="mt-6 text-lg font-black tracking-tight text-text-primary">{item.title}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-text-secondary">{item.desc}</p>
+              </motion.li>
+            );
+          })}
+
+          {/* CTA slot */}
+          <motion.li
+            variants={fadeInUp}
+            className="relative flex flex-col justify-between overflow-hidden rounded-[28px] bg-ink p-7 text-white"
           >
-            {steps.map((item, i) => (
-              <motion.div key={item.step} variants={fadeInUp} className="relative">
-                <div className="mb-8 hidden h-3 w-3 rounded-full border-2 border-border-primary bg-bg-primary lg:block" />
-                <span className="block text-4xl font-black leading-none text-text-primary/15 md:text-5xl">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 text-base font-bold text-text-primary">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+            <div
+              className="absolute inset-0"
+              style={{ background: 'radial-gradient(320px circle at 100% 0%, rgba(234,164,0,0.35), transparent 65%)' }}
+              aria-hidden
+            />
+            <p className="relative text-lg font-black leading-snug">
+              {process.ctaTitle}
+              <span className="mt-2 block text-[15px] font-medium leading-relaxed text-white/60">{process.ctaBody}</span>
+            </p>
+            <ButtonLink to="/contact" className="relative mt-8 self-start">{process.ctaButton}</ButtonLink>
+          </motion.li>
+        </motion.ol>
       </div>
     </section>
   );

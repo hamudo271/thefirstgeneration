@@ -3,11 +3,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import ColumnCover from '../components/common/ColumnCover.jsx';
 import { PageHero, CTABand, fadeInUp, stagger } from '../components/common/ui.jsx';
 import { useContent } from '../context/ContentContext.jsx';
 
 const Column = () => {
   const { seo, hero, list } = useContent('column');
+  const [featured, ...rest] = list.items;
 
   return (
     <div className="bg-bg-primary">
@@ -15,12 +17,12 @@ const Column = () => {
 
       <PageHero eyebrow={hero.eyebrow} title={hero.headline} accent="인사이트" subhead={hero.subhead} />
 
-      <section className="py-24">
+      <section className="bg-surface-muted py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           {list.intro && (
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="mx-auto mb-16 max-w-3xl space-y-5"
+              className="mb-12 max-w-3xl space-y-5 md:mb-16"
             >
               {list.intro.map((para, i) => (
                 <p key={i} className="text-lg leading-[1.9] text-text-secondary">{para}</p>
@@ -28,39 +30,47 @@ const Column = () => {
             </motion.div>
           )}
 
+          {/* Featured (latest) */}
+          {featured && (
+            <motion.article initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="mb-5">
+              <Link
+                to={`/column/${featured.slug}`}
+                className="card-surface group grid overflow-hidden rounded-[32px] p-3 lg:grid-cols-12"
+              >
+                <ColumnCover badge={featured.badge} title={featured.title} size="lg" className="aspect-[16/10] rounded-[24px] lg:col-span-7 lg:aspect-auto lg:min-h-[380px]" />
+                <div className="flex flex-col px-5 pb-5 pt-7 md:px-8 lg:col-span-5 lg:py-10 lg:pl-10">
+                  <time className="text-sm text-text-secondary" dateTime={featured.date.replace(/\./g, '-')}>{featured.date}</time>
+                  <h2 className="mt-3 text-2xl font-black leading-snug tracking-tight text-text-primary transition-colors group-hover:text-accent-secondary md:text-[1.9rem]">
+                    {featured.title}
+                  </h2>
+                  <p className="mt-4 line-clamp-3 leading-[1.85] text-text-secondary">{featured.desc}</p>
+                  <span className="mt-auto flex items-center gap-2 pt-8 text-sm font-bold text-text-primary">
+                    {list.readMore.replace(/\s*→$/, '')}
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-text-primary text-white transition-transform duration-300 group-hover:translate-x-1">
+                      <ArrowUpRight size={15} />
+                    </span>
+                  </span>
+                </div>
+              </Link>
+            </motion.article>
+          )}
+
           <motion.div
             variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
           >
-            {list.items.map((item, i) => (
-              <motion.article key={i} variants={fadeInUp} whileHover={{ y: -8 }}>
-                <Link
-                  to={`/column/${item.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border-primary bg-bg-secondary transition-colors hover:border-accent-primary"
-                >
-                {/* Gradient banner */}
-                <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden bg-bg-elevated">
-                  <div className="bg-grid absolute inset-0 opacity-40" />
-                  <div
-                    className="absolute inset-0 opacity-60"
-                    style={{ background: 'radial-gradient(420px circle at 30% 20%, rgba(240,185,24,0.22), transparent 60%), radial-gradient(360px circle at 80% 90%, rgba(214,138,0,0.18), transparent 60%)' }}
-                  />
-                  <span className="bg-brand-gradient relative z-10 rounded-full px-4 py-1.5 text-xs font-bold text-white">
-                    {item.badge}
-                  </span>
-                  <ArrowUpRight className="absolute right-5 top-5 z-10 text-text-secondary opacity-0 transition-opacity group-hover:opacity-100" size={22} />
-                </div>
-                {/* Body */}
-                <div className="flex flex-1 flex-col p-7">
-                  <h3 className="mb-3 text-xl font-bold leading-snug text-text-primary transition-colors group-hover:text-accent-primary">
-                    {item.title}
-                  </h3>
-                  <p className="mb-6 line-clamp-2 leading-relaxed text-text-secondary">{item.desc}</p>
-                  <div className="mt-auto flex items-center justify-between border-t border-border-primary pt-4 text-sm text-text-secondary/70">
-                    <span>{item.date}</span>
-                    <span className="font-semibold text-accent-primary">{list.readMore}</span>
+            {rest.map((item) => (
+              <motion.article key={item.slug} variants={fadeInUp}>
+                <Link to={`/column/${item.slug}`} className="card-surface group flex h-full flex-col overflow-hidden rounded-[28px] p-3">
+                  <ColumnCover badge={item.badge} title={item.title} className="aspect-[16/10] rounded-[20px]" />
+                  <div className="flex flex-1 flex-col px-3 pb-3 pt-6">
+                    <time className="text-[13px] text-text-secondary" dateTime={item.date.replace(/\./g, '-')}>{item.date}</time>
+                    <h3 className="mt-2 text-lg font-bold leading-snug tracking-tight text-text-primary transition-colors group-hover:text-accent-secondary">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2.5 line-clamp-2 text-[15px] leading-relaxed text-text-secondary">{item.desc}</p>
+                    <span className="mt-auto pt-6 text-sm font-bold text-accent-secondary">{list.readMore}</span>
                   </div>
-                </div>
                 </Link>
               </motion.article>
             ))}

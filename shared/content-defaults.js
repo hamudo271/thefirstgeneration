@@ -71,6 +71,7 @@ export const defaults = {
       remainingLabel: "이번 달 잔여 제작",
       remainingCount: 2,
       remainingUnit: "건",
+      monthlyTotal: 20,
       note: "매월 20건 한정",
       button: "빠른 문의",
     },
@@ -93,21 +94,25 @@ export const defaults = {
       subhead: "썸네일을 누르면 소속 크리에이터의 실제 콘텐츠를 바로 확인하실 수 있습니다.",
       moreLabel: "제작 사례 더 보기",
       morePath: "/portfolio",
+      playLabel: "영상 보기",
       items: [
-        { videoId: "9mGcuTiI7P8", tag: "푸드" },
-        { videoId: "tPocanxfvyU", tag: "푸드" },
-        { videoId: "6cnDaTTy45s", tag: "푸드" },
-        { videoId: "t3CiTdjY2hE", tag: "푸드 쇼츠" },
-        { videoId: "Ub3Wi5MKbcI", tag: "기업 홍보영상" },
-        { videoId: "6HE9piaR9zU", tag: "기업 홍보영상" },
-        { videoId: "hAYRu6sdANA", tag: "기업 홍보영상" },
-        { videoId: "RYGg_WwEPkc", tag: "기업 홍보영상" },
+        { videoId: "9mGcuTiI7P8", tag: "푸드", creator: "광주일번 인싸영감", title: "살아있는 고등어를 회로 먹으면 맛이 어떨까?" },
+        { videoId: "tPocanxfvyU", tag: "푸드", creator: "제대로농수산", title: "제철 맞은 통영 굴, 이건 꼭 드셔야 합니다" },
+        { videoId: "6cnDaTTy45s", tag: "푸드", creator: "수드래곤형님", title: "마트에서 국산 생참치 해체해봤습니다" },
+        { videoId: "t3CiTdjY2hE", tag: "푸드 쇼츠", creator: "1분 광주맛집", title: "첨단 돌짜장 맛집 소개" },
+        { videoId: "Ub3Wi5MKbcI", tag: "기업 홍보영상", creator: "빛고을스타", title: "프리모모터스 회사 홍보 영상" },
+        { videoId: "6HE9piaR9zU", tag: "기업 홍보영상", creator: "칭찬모아", title: "칭찬모아 서비스 홍보 영상" },
+        { videoId: "hAYRu6sdANA", tag: "기업 홍보영상", creator: "스커드", title: "올댓뷰티아카데미 광고 영상" },
+        { videoId: "RYGg_WwEPkc", tag: "기업 홍보영상", creator: "성공인사이드", title: "32살에 150억 CEO가 된 이유" },
       ],
     },
     partners: {
       eyebrow: "Our Creators",
       headline: "20명의 크리에이터가\n더퍼스트제너레이션과 함께합니다",
       accent: "더퍼스트제너레이션",
+      subhead: "카드를 누르면 각 크리에이터의 실제 채널로 이동합니다.",
+      moreLabel: "회사 소개 보기",
+      morePath: "/company",
       items: [
         { name: "1분맛집", channel: "유튜브", followers: "9.64만명", desc: "맛집 소개", href: "https://www.youtube.com/@1분광주맛집", image: "/creators/1min-matjib.png" },
         { name: "광주푸드스탑", channel: "인스타", followers: "12.6만명", desc: "맛집 소개", href: "https://www.instagram.com/gwangju_food_stop", image: "/creators/gwangju-foodstop.png" },
@@ -278,10 +283,21 @@ export const defaults = {
       card2Title: "납품이 아닌 성장이 목표",
       card2Body:
         "더퍼스트제너레이션은 크리에이터와 함께 성장합니다.\n크리에이터의 성공이 저희 회사의 성공입니다.",
+      metrics: [
+        { value: "99", unit: "%", label: "직접 제작 (외주 없음)", ring: 99 },
+        { value: "0", unit: "건", label: "저작권 문제 발생", ring: 100 },
+        { value: "20", unit: "건", label: "월 한정 제작", ring: 100 },
+        { value: "7", unit: "년", label: "유튜브 운영 노하우", ring: 100 },
+      ],
     },
     process: {
       eyebrow: "Workflow",
       headline: "작업 프로세스",
+      title: "고객 만족도를\n최우선합니다.",
+      subhead: "상담부터 완성까지, 더퍼스트제너레이션의 체계적인 {n}단계 작업 프로세스.",
+      ctaTitle: "첫 단계는 상담입니다.",
+      ctaBody: "채널의 목적부터 함께 정리해 드립니다.",
+      ctaButton: "상담 신청하기",
       steps: [
         { step: "01", title: "상담", desc: "채널의 목적을 명확히 하고 방향을 잡아드립니다." },
         { step: "02", title: "계약", desc: "모든 프로젝트는 선입금 확인 후 진행됩니다." },
@@ -303,9 +319,19 @@ export const defaults = {
       videoPackages,
       shortformPackages,
     },
+    servicesIntro: {
+      eyebrow: "Services",
+      headline: "서비스를\n소개합니다",
+      accent: "소개",
+      subhead: "채널 운영부터 숏폼, 인플루언서, 기업 홍보 영상까지. 필요한 범위만 골라 맡기실 수 있습니다.",
+      moreLabel: "서비스 더 보기",
+      detailLabel: "자세히 보기",
+    },
     faq: {
       eyebrow: "Q&A",
       headline: "자주 묻는 질문",
+      subhead: "더 궁금한 점은 상담에서 바로 답해드립니다.",
+      ctaLabel: "상담 신청하기",
       items: [
         {
           q: "영상이 마음에 들지 않으면 어떡하나요?",
@@ -494,6 +520,8 @@ export const defaults = {
       ctaHeadline: "돈되는 유튜브,\n그 비결을 알고 싶으신가요?",
       ctaSubhead: "더퍼스트제너레이션의 모든 연구 성과, 이제는 당신이 주인공이 될 차례입니다.",
       ctaButton: "전문상담 받기",
+      breadcrumb: "서비스 소개",
+      otherTitle: "다른 서비스도 살펴보세요",
     },
     services: {
       items: [
@@ -882,6 +910,8 @@ export const defaults = {
       backLabel: "칼럼 목록으로",
       readMore: "READ MORE",
       relatedTitle: "함께 읽어보면 좋은 글",
+      tocLabel: "목차",
+      readingUnit: "분 분량",
       notFoundTitle: "글을 찾을 수 없습니다",
       ctaHeadline: "콘텐츠로 성장할 준비가 되셨나요?",
       ctaSubhead: "채널 진단부터 제작까지, 무엇이 필요한지 함께 정리해드립니다.",
@@ -1303,6 +1333,26 @@ export const defaults = {
       ],
       consentLabel: "개인정보 수집 및 이용에 동의합니다.",
       submitButton: "작성 완료",
+      steps: ["기본 정보", "채널 정보", "의뢰 내용"],
+      optionalBadge: "선택",
+      requiredBadge: "필수",
+      submitNote: "문의 및 작업량이 많아 순차적으로 답변드립니다.",
+    },
+    aside: {
+      headline: "콘텐츠 상담,\n지금 시작하세요.",
+      lead: "채널과 목표를 알려주시면",
+      leadStrong: "맞는 방향과 구성",
+      leadTail: "을 제안해 드립니다.",
+      openLabel: "지금 상담 가능해요",
+      closedLabel: "운영 시간 외 · 남겨주시면 순차 회신",
+      hours: { days: [1, 2, 3, 4, 5], open: 10, close: 19 },
+      sentTitle: "문의가 접수되었습니다",
+      sentBody: "소중한 문의 감사합니다. 담당자가 순차적으로 빠르게 답변드리겠습니다.",
+      promises: [
+        "만족하실 때까지 수정 작업",
+        "99% 직접 제작 · 외주 없음",
+        "촬영 전 기획안 먼저 전달",
+      ],
     },
   },
 
@@ -1337,6 +1387,8 @@ export const defaults = {
         { name: "가격 안내", path: "/pricing" },
         { name: "문의하기", path: "/contact" },
       ],
+      cta: { label: "상담 신청", badge: "매월 20건 한정", path: "/contact" },
+      menuLabel: "메뉴",
       themeToggleAria: "Toggle Theme",
     },
     footer: {
@@ -1344,6 +1396,26 @@ export const defaults = {
       tagline:
         "We create impactful media that drives growth.\nYour partner in digital transformation.",
       ctaButton: "Contact Us",
+      ctaSecondary: "제작 사례 보기",
+      ctaSecondaryPath: "/portfolio",
+      servicesLabel: "서비스",
+      menu: [
+        {
+          title: "회사",
+          links: [
+            { name: "회사 소개", path: "/company" },
+            { name: "제작 사례", path: "/portfolio" },
+            { name: "가격 안내", path: "/pricing" },
+          ],
+        },
+        {
+          title: "인사이트",
+          links: [
+            { name: "칼럼", path: "/column" },
+            { name: "문의하기", path: "/contact" },
+          ],
+        },
+      ],
       socials: [
         { type: "instagram", label: "Instagram", href: "https://www.instagram.com/thefirstmcn/" },
         { type: "youtube", label: "YouTube", href: "https://www.youtube.com/@thefirstmcn" },

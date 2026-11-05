@@ -1,21 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SocialLinks from '../common/SocialLinks.jsx';
+import { ButtonLink } from '../common/ui.jsx';
 import { useContent } from '../../context/ContentContext.jsx';
+
+// "Tel: 010-…" / "E-mail: …" → the bare value (labels are rendered separately).
+const bare = (v = '') => v.replace(/^[^:]+:\s*/, '');
 
 const Footer = () => {
   const { footer } = useContent('global');
+  const { services } = useContent('serviceDetail');
   const {
     brand,
     tagline,
     ctaButton,
+    ctaSecondary,
+    ctaSecondaryPath,
+    servicesLabel,
+    menu = [],
     socials = [],
     addressLabel,
     address,
     contactLabel,
     phone,
     email,
-    infoLabel,
     businessName,
     businessNumber,
     copyright,
@@ -25,53 +33,78 @@ const Footer = () => {
     privacyPath,
   } = footer;
 
+  const groups = [
+    servicesLabel && services?.items?.length
+      ? { title: servicesLabel, links: services.items.map((s) => ({ name: s.title, path: `/service/${s.id}` })) }
+      : null,
+    ...menu,
+  ].filter(Boolean);
+
   return (
-    <footer className="bg-bg-secondary text-text-secondary py-20 border-t border-border-primary transition-colors duration-300">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-16">
-          <div>
-            <img
-              src="/brand/logo.png"
-              alt={brand}
-              className="mb-5 h-10 w-auto"
-            />
-            <p className="text-sm max-w-md leading-relaxed whitespace-pre-line">
-              {tagline}
-            </p>
+    <footer className="bg-ink text-white/55">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Top: brand + menus + CTAs */}
+        <div className="grid gap-12 border-b border-white/10 py-16 md:py-20 lg:grid-cols-12">
+          <div className="lg:col-span-3">
+            <img src="/brand/logo.png" alt={brand} className="h-9 w-auto brightness-0 invert" />
+            <p className="mt-5 max-w-xs whitespace-pre-line text-sm leading-relaxed">{tagline}</p>
+            <SocialLinks socials={socials} tone="light" className="mt-7" />
           </div>
-          <div className="flex flex-col items-start md:items-end gap-5">
-            <Link
-              to="/contact"
-              className="bg-brand-gradient px-8 py-3 rounded-full text-white font-bold text-sm tracking-wide hover:scale-105 transition-transform uppercase"
-            >
-              {ctaButton}
-            </Link>
-            <SocialLinks socials={socials} tone="dark" />
+
+          <nav className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-5" aria-label="푸터 메뉴">
+            {groups.map((g) => (
+              <div key={g.title}>
+                <h3 className="mb-4 text-sm font-bold text-white">{g.title}</h3>
+                <ul className="space-y-3">
+                  {g.links.map((l) => (
+                    <li key={l.path}>
+                      <Link to={l.path} className="text-sm transition-colors hover:text-white">
+                        {l.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+
+          <div className="flex flex-wrap items-start gap-3 lg:col-span-4 lg:justify-end">
+            {ctaSecondary && (
+              <ButtonLink to={ctaSecondaryPath} variant="outlineDark" arrow={false}>
+                {ctaSecondary}
+              </ButtonLink>
+            )}
+            <ButtonLink to="/contact">{ctaButton}</ButtonLink>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs border-t border-border-primary pt-8">
-          <div className="space-y-2">
-            <strong className="text-text-primary block uppercase tracking-wider mb-2">{addressLabel}</strong>
-            <p>{address}</p>
-          </div>
-          <div className="space-y-2">
-            <strong className="text-text-primary block uppercase tracking-wider mb-2">{contactLabel}</strong>
-            <p>{phone}</p>
-            <p>{email}</p>
-          </div>
-          <div className="space-y-2">
-            <strong className="text-text-primary block uppercase tracking-wider mb-2">{infoLabel}</strong>
+        {/* Bottom: business info */}
+        <div className="grid gap-8 py-10 text-[13px] leading-relaxed lg:grid-cols-12">
+          <dl className="grid gap-x-10 gap-y-2.5 sm:grid-cols-[auto_1fr] lg:col-span-7">
+            <dt className="font-bold text-white/85">{contactLabel}</dt>
+            <dd className="flex flex-wrap gap-x-5 gap-y-1">
+              {phone && (
+                <a href={`tel:${bare(phone).replace(/[^\d]/g, '')}`} className="hover:text-white">
+                  {bare(phone)}
+                </a>
+              )}
+              {email && (
+                <a href={`mailto:${bare(email)}`} className="hover:text-white">
+                  {bare(email)}
+                </a>
+              )}
+            </dd>
+            <dt className="font-bold text-white/85">{addressLabel}</dt>
+            <dd>{address}</dd>
+          </dl>
+          <div className="space-y-2.5 lg:col-span-5 lg:text-right">
             <p>{businessName}</p>
             <p>{businessNumber}</p>
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-secondary/60">
-          <p>{copyright}</p>
-          <div className="flex gap-6">
-            <Link to={termsPath} className="hover:text-text-primary transition-colors">{termsLink}</Link>
-            <Link to={privacyPath} className="hover:text-text-primary transition-colors">{privacyLink}</Link>
+            <div className="flex gap-5 pt-1 lg:justify-end">
+              <Link to={termsPath} className="transition-colors hover:text-white">{termsLink}</Link>
+              <Link to={privacyPath} className="font-bold text-white/85 transition-colors hover:text-white">{privacyLink}</Link>
+            </div>
+            <p className="text-white/35">{copyright}</p>
           </div>
         </div>
       </div>

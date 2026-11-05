@@ -13,6 +13,9 @@
   --color-accent-primary: var(--accent-primary);
   --color-accent-secondary: var(--accent-secondary);
   --color-accent-soft: var(--accent-soft);
+  --color-surface-muted: var(--surface-muted);
+  --color-ink: var(--ink);
+  --color-ink-elevated: var(--ink-elevated);
 }
 
 :root {
@@ -27,6 +30,11 @@
   --accent-secondary: #b4770a; /* Deep bronze-gold (gradient depth + legible on white) */
   --accent-soft: #f7c948; /* Bright yellow (glows/dots on dark) */
   --accent-ink: #241900; /* Dark ink for text sitting on a gold fill */
+  --surface-muted: #f4f5f8; /* Quiet section background (cards sit on it in white) */
+  --ink: #0f1116; /* Dark panels, footer */
+  --ink-elevated: #1a1d24; /* Raised surfaces on ink */
+  --shadow-card: 0 1px 2px rgba(11, 16, 32, 0.04), 0 24px 48px -32px rgba(11, 16, 32, 0.24);
+  --shadow-lift: 0 2px 4px rgba(11, 16, 32, 0.04), 0 36px 60px -34px rgba(11, 16, 32, 0.34);
 
   font-family: var(--font-sans);
   color-scheme: light;
@@ -113,6 +121,54 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* White card on a muted section — soft two-layer shadow, lifts on hover */
+.card-surface {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
+}
+.card-surface:hover {
+  box-shadow: var(--shadow-lift);
+}
+
+/* Filled form field (no border at rest, gold ring on focus) */
+.input-filled {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: var(--surface-muted);
+  padding: 0.9rem 1.1rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input-filled::placeholder {
+  color: color-mix(in srgb, var(--text-secondary) 60%, transparent);
+}
+.input-filled:hover {
+  background: color-mix(in srgb, var(--surface-muted) 70%, var(--border-primary));
+}
+.input-filled:focus {
+  background: var(--bg-elevated);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-primary) 16%, transparent);
+}
+
+/* Dot field for dark panels */
+.dot-grid {
+  background-image: radial-gradient(color-mix(in srgb, #ffffff 16%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Horizontal scroller without a visible scrollbar */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Glass card */

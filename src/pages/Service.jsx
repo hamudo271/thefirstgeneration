@@ -1,30 +1,60 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { X, ArrowUpRight } from 'lucide-react';
 import SEO from '../components/SEO';
-import { PageHero, SectionHeader, CTABand, fadeInUp, stagger } from '../components/common/ui.jsx';
+import { PageHero, SectionHeader, CTABand, Eyebrow, Accented, fadeInUp, stagger } from '../components/common/ui.jsx';
 import { useContent } from '../context/ContentContext.jsx';
+
+// Quick links to the four service detail pages, right under the hero.
+const ServiceIndex = () => {
+  const { services } = useContent('serviceDetail');
+  return (
+    <motion.div
+      variants={stagger} initial="hidden" animate="visible"
+      className="mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2 md:mt-20 lg:grid-cols-4"
+    >
+      {services.items.map((s, i) => (
+        <motion.div key={s.id} variants={fadeInUp}>
+          <Link
+            to={`/service/${s.id}`}
+            className="card-surface group flex h-full items-center gap-4 rounded-[22px] p-3 pr-5"
+          >
+            <span className="h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-surface-muted">
+              <img src={s.heroImage} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-[11px] font-bold text-accent-secondary">{String(i + 1).padStart(2, '0')}</span>
+              <span className="block truncate text-[15px] font-bold text-text-primary">{s.title}</span>
+            </span>
+            <ArrowUpRight size={18} className="shrink-0 text-text-secondary transition-colors group-hover:text-accent-primary" />
+          </Link>
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+};
 
 const FailureSection = () => {
   const { failure } = useContent('service');
   return (
-    <section className="border-b border-border-primary bg-bg-primary py-28">
+    <section className="bg-surface-muted py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader eyebrow={failure.eyebrow} headline={failure.headline} accent="실패" subhead={failure.subhead} />
+        <SectionHeader split eyebrow={failure.eyebrow} headline={failure.headline} accent="실패" subhead={failure.subhead} />
         <motion.div
           variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="grid grid-cols-1 gap-6 md:grid-cols-2"
+          className="grid grid-cols-1 gap-5 md:grid-cols-2"
         >
           {failure.reasons.map((reason, i) => (
-            <motion.div
-              key={i} variants={fadeInUp} whileHover={{ y: -6 }}
-              className="rounded-3xl border border-border-primary bg-bg-secondary p-10"
-            >
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-red-500/10 text-red-400">
-                <AlertCircle size={24} />
+            <motion.div key={i} variants={fadeInUp} className="card-surface rounded-[28px] p-8 md:p-10">
+              <div className="flex items-center justify-between">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-red-500/10 text-red-500">
+                  <X size={20} strokeWidth={2.6} />
+                </span>
+                <span className="text-sm font-black text-text-primary/20">{String(i + 1).padStart(2, '0')}</span>
               </div>
-              <h3 className="mb-4 text-2xl font-bold text-text-primary">{reason.title}</h3>
-              <p className="leading-relaxed text-text-secondary">{reason.desc}</p>
+              <h3 className="mt-7 text-2xl font-black tracking-tight text-text-primary">{reason.title}</h3>
+              <p className="mt-3 leading-[1.85] text-text-secondary">{reason.desc}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -36,24 +66,28 @@ const FailureSection = () => {
 const PrinciplesSection = () => {
   const { principles } = useContent('service');
   return (
-    <section className="relative overflow-hidden border-b border-border-primary bg-bg-secondary py-28">
-      <div className="bg-grid absolute inset-0 opacity-30" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <SectionHeader eyebrow={principles.eyebrow} headline={principles.headline} accent="중요" subhead={principles.subhead} />
-        <div className="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2">
+    <section className="bg-bg-primary py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeader split eyebrow={principles.eyebrow} headline={principles.headline} accent="중요" subhead={principles.subhead} />
+        <motion.div
+          variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="grid grid-cols-1 border-t border-border-primary md:grid-cols-2"
+        >
           {principles.items.map((item, i) => (
             <motion.div
-              key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="group flex gap-6"
+              key={i} variants={fadeInUp}
+              className={`group flex gap-6 border-b border-border-primary py-9 md:py-11 ${i % 2 === 0 ? 'md:pr-12' : 'md:border-l md:pl-12'}`}
             >
-              <span className="text-gradient text-5xl font-black leading-none md:text-6xl">{item.num}</span>
+              <span className="text-gradient text-5xl font-black leading-none tracking-tight md:text-6xl">{item.num}</span>
               <div>
-                <h3 className="mb-3 text-2xl font-bold text-text-primary group-hover:text-accent-primary">{item.title}</h3>
-                <p className="leading-relaxed text-text-secondary">{item.desc}</p>
+                <h3 className="text-xl font-black tracking-tight text-text-primary transition-colors group-hover:text-accent-secondary md:text-2xl">
+                  {item.title}
+                </h3>
+                <p className="mt-3 leading-[1.85] text-text-secondary">{item.desc}</p>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -62,25 +96,36 @@ const PrinciplesSection = () => {
 const ProcessSection = () => {
   const { process } = useContent('service');
   return (
-    <section className="border-b border-border-primary bg-bg-primary py-28">
-      <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader eyebrow={process.eyebrow} headline={process.headline} accent="프로세스" />
-        <div className="relative ml-3 border-l border-border-primary pl-8 md:ml-5">
+    <section className="bg-surface-muted py-24 md:py-32">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-4">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="lg:sticky lg:top-28">
+            <Eyebrow>{process.eyebrow}</Eyebrow>
+            <h2 className="mt-5 whitespace-pre-line text-[2rem] font-black leading-[1.12] tracking-[-0.03em] text-text-primary md:text-5xl">
+              <Accented text={process.headline} accent="프로세스" />
+            </h2>
+          </motion.div>
+        </div>
+        <motion.ol
+          variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="space-y-3 lg:col-span-8"
+        >
           {process.steps.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.04 }}
-              className="relative pb-10 last:pb-0"
-            >
-              <span className="bg-brand-gradient absolute -left-[2.85rem] flex h-9 w-9 items-center justify-center rounded-full text-sm font-black text-white md:-left-[3.35rem]">
+            <motion.li key={i} variants={fadeInUp} className="card-surface flex gap-5 rounded-[24px] p-6 md:gap-7 md:p-7">
+              <span
+                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-sm font-black ${
+                  i % 2 === 0 ? 'bg-brand-gradient' : 'bg-text-primary text-white'
+                }`}
+              >
                 {item.step}
               </span>
-              <h3 className="text-xl font-bold text-text-primary md:text-2xl">{item.title}</h3>
-              <p className="mt-2 leading-relaxed text-text-secondary">{item.desc}</p>
-            </motion.div>
+              <div>
+                <h3 className="text-lg font-black tracking-tight text-text-primary md:text-xl">{item.title}</h3>
+                <p className="mt-1.5 leading-relaxed text-text-secondary">{item.desc}</p>
+              </div>
+            </motion.li>
           ))}
-        </div>
+        </motion.ol>
       </div>
     </section>
   );
@@ -88,6 +133,8 @@ const ProcessSection = () => {
 
 const Service = () => {
   const { seo, hero } = useContent('service');
+  const { finalCta } = useContent('home');
+  const { footer } = useContent('global');
   return (
     <div className="bg-bg-primary">
       <SEO title={seo.title} description={seo.description} path="/service" />
@@ -96,15 +143,19 @@ const Service = () => {
         title={`${hero.headlineLine1}\n${hero.headlineLine2}`}
         accent={hero.headlineLine2}
         subhead={hero.subhead}
-      />
+      >
+        <ServiceIndex />
+      </PageHero>
       <FailureSection />
       <PrinciplesSection />
       <ProcessSection />
       <CTABand
-        eyebrow={'영상만 필요하다면 다른 회사를 선택하셔도 됩니다.'}
-        headline={'크리에이터가 되고 싶다면\n아래 버튼을 클릭하세요'}
-        subhead="좋은 콘텐츠는 절대 우연히 만들어지지 않습니다. 지금 당신의 이야기를 들려주세요."
-        button="상담 받기"
+        eyebrow={finalCta.eyebrow}
+        headline={finalCta.headline}
+        subhead={finalCta.closing}
+        button={finalCta.button}
+        secondary={footer?.ctaSecondary}
+        secondaryTo={footer?.ctaSecondaryPath}
       />
     </div>
   );
