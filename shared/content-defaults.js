@@ -76,15 +76,37 @@ export const defaults = {
       button: "빠른 문의",
     },
     brandIntro: {
-      eyebrow: "RESEARCH-DRIVEN",
-      headline: "화려한 영상에\n제발 속지마세요",
-      accent: "제발",
-      body: "영상을 단순하게 예쁘게 만드는 것과\n채널을 성장시키는 것은 확연히 다릅니다.",
+      eyebrow: "Growth, Not Just Pretty",
+      headline: "화려한 영상은 많습니다.\n채널을 키우는 영상은 드뭅니다.",
+      accent: "채널을 키우는",
+      body: "보기 좋은 편집만으로는 조회수가 오르지 않습니다.\n더퍼스트제너레이션은 기획 단계부터 성장을 설계하고, 그 결과를 숫자로 증명합니다.",
+      compare: {
+        vs: "VS",
+        before: {
+          label: "화려하기만 한 영상",
+          items: [
+            "편집 효과와 자막에 공을 들입니다",
+            "업로드하면 그걸로 끝입니다",
+            "터지면 운, 안 터지면 알고리즘 탓",
+          ],
+        },
+        after: {
+          label: "더퍼스트제너레이션의 영상",
+          items: [
+            "시청자가 떠나는 첫 3초부터 설계합니다",
+            "조회수·시청 지속률을 보고 다음 영상을 고칩니다",
+            "반응이 온 기획을 반복 가능한 공식으로 만듭니다",
+          ],
+        },
+      },
+      proofTitle: "결과는 숫자로 남습니다.",
+      proofNote: "소속 크리에이터 채널 합산 기준",
+      nowLabel: "지금",
       stats: [
-        { value: "3.1억+", label: "누적 조회수" },
-        { value: "20명", label: "소속 크리에이터" },
-        { value: "72만", label: "총합 팔로워" },
-        { value: "1위", label: "광주 MCN 점유율" },
+        { value: "3.1억+", label: "누적 조회수", desc: "소속 크리에이터 채널이 만든 실제 조회수" },
+        { value: "20명", label: "소속 크리에이터", desc: "맛집·푸드부터 비즈니스·반려동물까지" },
+        { value: "72만", label: "총합 팔로워", desc: "유튜브·인스타그램 합산" },
+        { value: "1위", label: "광주 MCN 점유율", desc: "광주 로컬을 가장 잘 아는 팀" },
       ],
     },
     cases: {
